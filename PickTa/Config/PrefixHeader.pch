@@ -1,0 +1,97 @@
+//
+//  PrefixHeader.pch
+//  PickTa
+//
+//  Created by Stark on 2020/6/16.
+//  Copyright © 2020 laoguo. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import <YYKit/YYKit.h>
+#import <SDWebImage/SDWebImage.h>
+#import <SVProgressHUD/SVProgressHUD.h>
+#import <Masonry/Masonry.h>
+#import <FMDB/FMDB.h>
+#import <ReactiveObjC.h>
+#import <MJExtension.h>
+#import <MJRefresh/MJRefresh.h>
+
+#import "PickHttpManager.h"
+#import "PickTaUserDefaults.h"
+#import "PickTaAPI.h"
+#import "PickTaColor.h"
+#import "WRNavigationBar.h"
+#import <UIView+Toast.h>
+#import "UIView+SDExtension.h"
+
+#import "HXLanguageManager.h"
+
+#import "ZYG_Macro.h"
+#import "ZYG_Enums.h"
+#import "ZYG_Class.h"
+#import "XSWJVAExternConstant.h"
+//#import "XSWJVASPTRouter.h"
+#import "XSWJVASPTHelper.h"
+
+
+
+
+#define LoginSuccess @"LoginSuccess"
+#define ChangedMsg @"ChangedMsg"
+
+#define OutLogin @"OutLogin"
+
+#define RegosterSuccess @"RegosterSuccess"
+
+//当收到websocket数据，请求record_index
+#define ReceiveMessage @"NewMessage"
+
+
+//强引用 弱引用
+#define WeakSelf(type)  __weak typeof(type) weak##type = type;
+#define StrongSelf(type)  __strong typeof(type) strong##type = type;
+
+
+
+//数组是否为空
+#define Array_IsEmpty(array) (array == nil || [array isKindOfClass:[NSNull class]] || array.count == 0)
+
+//字典是否为空
+#define Dict_IsEmpty(dic) (dic == nil || [dic isKindOfClass:[NSNull class]] || dic.allKeys == 0)
+
+//字符串是否为空
+#define String_IsEmpty(str) (str == nil || [str isKindOfClass:[NSNull class]] || str.length == 0 )
+
+/** 是否为生产环境 */
+#ifdef DEBUG
+#define ISProduction NO
+#else
+#define ISProduction YES
+#endif
+
+#define SCREEN_BOUNDS        ([UIScreen mainScreen].bounds)
+
+#define Scale_Width      ([UIScreen mainScreen].bounds.size.width)/375
+#define Scale_Height      ([UIScreen mainScreen].bounds.size.height)/667
+
+#define iphoneX ([[UIApplication sharedApplication] statusBarFrame].size.height>20?YES:NO)
+// 状态栏高度
+#define STATUS_BAR_HEIGHT (iphoneX ? 44.f : 20.f)
+
+// 导航栏高度
+#define NAVIGATION_BAR_HEIGHT (iphoneX ? 88.f : 64.f)
+
+// tabBar高度
+#define TAB_BAR_HEIGHT (iphoneX ? (49.f+34.f) : 49.f)
+
+// home indicator高度
+#define HOME_INDICATOR_HEIGHT (iphoneX ? 34.f : 0.f)
+
+
+#endif /* PrefixHeader_pch */

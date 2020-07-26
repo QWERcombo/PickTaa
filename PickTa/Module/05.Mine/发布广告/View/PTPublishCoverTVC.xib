@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="PTPublishCoverTVC">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="155"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="155"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2TY-6q-WEL">
+                        <rect key="frame" x="15" y="15" width="345" height="120"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common_add" translatesAutoresizingMaskIntoConstraints="NO" id="jhl-Ot-ftS">
+                                <rect key="frame" x="160.5" y="36" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="mwc-aK-VnB"/>
+                                    <constraint firstAttribute="height" constant="24" id="yDq-6r-TL6"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="添加广告封面" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6D-rJ-msL">
+                                <rect key="frame" x="135.5" y="72" width="74" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9K3-RK-Qx2">
+                                <rect key="frame" x="0.0" y="0.0" width="345" height="120"/>
+                                <connections>
+                                    <action selector="addCover:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="dkL-pz-rlr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96862745098039216" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="jhl-Ot-ftS" firstAttribute="top" secondItem="2TY-6q-WEL" secondAttribute="top" constant="36" id="2gF-z5-oQX"/>
+                            <constraint firstItem="9K3-RK-Qx2" firstAttribute="leading" secondItem="2TY-6q-WEL" secondAttribute="leading" id="E5Y-ua-cUJ"/>
+                            <constraint firstItem="R6D-rJ-msL" firstAttribute="top" secondItem="jhl-Ot-ftS" secondAttribute="bottom" constant="12" id="Jao-Xb-IwP"/>
+                            <constraint firstAttribute="trailing" secondItem="9K3-RK-Qx2" secondAttribute="trailing" id="XyM-c9-p3W"/>
+                            <constraint firstItem="jhl-Ot-ftS" firstAttribute="centerX" secondItem="2TY-6q-WEL" secondAttribute="centerX" id="bSl-J4-J22"/>
+                            <constraint firstAttribute="bottom" secondItem="9K3-RK-Qx2" secondAttribute="bottom" id="bys-Oa-ofl"/>
+                            <constraint firstItem="R6D-rJ-msL" firstAttribute="centerX" secondItem="2TY-6q-WEL" secondAttribute="centerX" id="hCT-3q-oXd"/>
+                            <constraint firstItem="9K3-RK-Qx2" firstAttribute="top" secondItem="2TY-6q-WEL" secondAttribute="top" id="vU9-qc-elJ"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="2TY-6q-WEL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="7fu-NE-Rq4"/>
+                    <constraint firstAttribute="trailing" secondItem="2TY-6q-WEL" secondAttribute="trailing" constant="15" id="dPf-Cm-hu1"/>
+                    <constraint firstItem="2TY-6q-WEL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="leD-3J-fGa"/>
+                    <constraint firstAttribute="bottom" secondItem="2TY-6q-WEL" secondAttribute="bottom" constant="20" id="qpF-Jq-VT8"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="addCoverBtn" destination="9K3-RK-Qx2" id="q35-FY-pjG"/>
+                <outlet property="addCoverLbl" destination="R6D-rJ-msL" id="oTO-kl-VWq"/>
+            </connections>
+            <point key="canvasLocation" x="138.40579710144928" y="153.01339285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="common_add" width="24" height="24"/>
+    </resources>
+</document>

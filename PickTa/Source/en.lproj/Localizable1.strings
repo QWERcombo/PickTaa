@@ -1,0 +1,425 @@
+/*
+   Localizable1.strings
+   PickTa
+
+   Created by Sanpintian on 2020/7/7.
+   Copyright © 2020 laoguo. All rights reserved.
+ */
+"upload_qrcode" ="Upload QR Code";
+"take_a_pic" = "Take A Picture";
+"select_from_Album" = "Select From Album";
+
+"footer_loading" = "Loading...";
+"footer_finish" = "Loading complete";
+
+"platform_1" = "Pick Ta";
+"platform_2" = "Wechat";
+"platform_3" = "QQ";
+"platform_4" = "Telegram";
+"platform_5" = "Facebook";
+"platform_6" = "Twitter";
+"platform_7" = "What's app";
+"platform_8" = "Others";
+
+"home" = "Home";
+"talk" = "Chat";
+"my" = "Mine";
+"ta_call" = "Ad area";
+
+"reward_task" = "Reward task";
+"reward_noopen" = "The reward task is not open yet";
+"please_wait" = "Expectancy";
+
+"enter_ad" = "Enter ad";
+
+"maidou" = "PT";
+"contribution" = "Dedicate";
+"active_level" = "Activity";
+
+"task_center" = "Task center";
+"invite_friends" = "Invite";
+"my_ad" = "My ad";
+"publish_ad" = "Publish ad";
+
+"information" = "Information";
+"auth" = "Authentication";
+"problem" = "Problem";
+"about" = "About us";
+"set" = "Settings";
+"logout" = "Sign out";
+
+"set_name" = "Change username";
+"ok" = "OK";
+"set_name_tip" = "Set 2-24 characters, excluding invalid characters such as @*%";
+
+"my_pt" = "Mine PT";
+"today_pt" = "Income";
+"pt_list" = "Details";
+
+"my_con" = "Dedicate";
+"my_con_list" = "Record";
+
+"my_active" = "Activity";
+"total_active" = "Total";
+"base_active" = "Basic";
+"add_active" = "Bonus";
+"max_active" = "Maximum zone";
+"min_active" = "Minimum zone";
+"my_active_list" = "Record";
+
+"yiyuedubingtongyi" = "Read - Agree,";
+"pick_ta_server_protocol" = "<PICK TA Agreement>";
+"yiyouzhanghao" = "  Account，";
+"lijidenglu" = "Login";
+
+"candy_house" = "Candy House";
+"store" = "Store";
+"team" = "Team";
+"ongoing" = "Ongoing";
+"completed" = "Completed";
+"expired" = "Expired";
+
+"received" = "Received";
+"wait_candy" = "Waiting for Receiving ：";
+"receive" = "Receive";
+"exchange" = "Exchange";
+"get_records" = "Records";
+"time" = "Time";
+"get_quantity" = "Quantity";
+"status" = "Status";
+
+"active" = "Activity";
+"redemption_conditions" = "Conditions";
+"task_detail" = "Details";
+"comletion_gain" = "Gain";
+
+"friend_num" = "Number of friends";
+"comm_fans" = "Community fans";
+"real_friend" = "Certified friends";
+"colbal_dividend" = "Global dividend";
+"friend_list" = "Friends List";
+"nick_name" = "Name";
+"people_num" = "Number of people";
+
+"my_invitation_code" = "Invitation code";
+"copy_invitation_dode" = "Copy";
+"invitation_tip" = "screenshots to share invitation code friends download APP";
+
+"my_post" = "My post";
+"get_call_num" = "Get the number of calls: ";
+"get_reward" = "reward: ";
+"ad_list" = "list";
+"under_review" = "Checking";
+"passed" = "Passed";
+"rejected" = "Rejected";
+
+"release" = "Release";
+"title" = "Title";
+"input_title" = "Enter a title";
+"input_title2" = "   Enter a title";
+"publish_content" = "Publish content";
+"ad_cover" = "Add ad cover";
+"input_ad_content" = "Enter content";
+"please_input_mobile" = "Enter TelPhone";
+
+"my_profile" = "Information";
+"resume" = "Resume";
+"input_resume" = "Enter your profile...";
+"submit" = "Submit";
+
+"real_name" = "Authentication";
+"in_truth" = "Please fill in the truth";
+"cer_type" = "Type of certificate";
+"id_card" = "ID card";
+"other_id_card" = "ID card";
+"id_number" = "ID number";
+"input_id_number" = "Enter the ID number";
+"up_id_face" = "Upload the front of passport";
+"up_id_back" = "Upload back of passport";
+"define" = "OK";
+
+"common_problem" = "Problem";
+
+"about_us" = "About us";
+"privacy" = "Privacy Policy";
+"user_terms" = "User Terms";
+"version" = "Version";
+
+"change_pass" = "Change login password";
+"change_pay_pass" = "Modify transaction password";
+
+"old_pass" = "Old password ";
+"in_old_pass" = "Enter the old password";
+"new_pass" = "New password";
+"in_new_pass" = "Set a new password";
+"confirm_new_pass" = "Confirm new password";
+"confrim_in_new_pass" = "Confirm the new password again";
+
+"please_input_code" = "Enter code";
+"captcha" = "Captcha";
+"in_ver_code" = "Enter verification code";
+"get_ver_code" = "Get code";
+"pay_pass" = "Transaction password";
+"new_pay_pass" = "New transaction password";
+"in_new_pay" = "Enter 6 digits new transaction password";
+"confirm_in_new_pay" = "Confirm new transaction password";
+"agegin_new_pay" = "Enter 6 new transaction passwords again";
+"modify" = "Modify";
+
+"mill" = "Communication Directory";
+"new_friend" = "New friend";
+"group_chata" = "Group chat";
+
+"phone_id" = "Phone number/ID";
+"cancel" = "Cancel";
+"invite_code1" = "Invite Code";
+
+"add_friend" = "Add friend";
+"my_id" = "My ID：";
+"new_fd" = "New friend";
+"input_invite_code" = "Enter Invite Code";
+
+"grup_num" = "group chats";
+
+"search" = "Search";
+
+"find" = "Find";
+"no_moment" = "No friends have posted photos yet, you can take one now";
+
+"circle" = "Relationship circle";
+"no_open" = "This feature is not yet open~";
+
+"speed_match" = "Match";
+"precise_search" = "Search";
+
+"login" = "Login";
+
+"chanage_laguage" = "Language ";
+
+"country" = "Country";
+"china" = "China";
+"other_country" = "Overseas";
+
+"label" = "Label";
+"add" = "Add";
+"label_tip" = "Enter a custom label (no more than 10 words)";
+"select_country" = "Select a country";
+
+"ad_detail" = "Ad Details";
+"call" = "called";
+
+"receive_ticket" = "receive ticket";
+"reward" = "Reward";
+"call_receive" = "After calling, you can collect Coupons";
+
+"reward_num" = "Number of rewards";
+"input_num" = "Number of Inputs";
+"confirm_reward" = "Confirm reward";
+"please_reward_num" = "Enter the number of rewards";
+
+"count_down" = "count down";
+
+"tip" = "Tips";
+"confirm_logout" = "Confirm log out";
+"no_expenditure_detail" = "No income and expenditure details~";
+
+"scroll_level" = "Level of a scroll";
+"auth_name" = "Real name";
+"exchange_terms" = "Exchange terms";
+"pt_total" = "Total amount of Pt generated";
+"activity_after_exchange" = "：Activity after exchange";
+"scroll_num" = "Number of times this scroll can be picked up at the same time";
+"day_produce" = "produce daily";
+"validity_time" = "term of validity";
+"i_know" = "I got it";
+"day" = "Day";
+"seed" = "Seed";
+
+"enter_true_old_pass" = "Enter the correct old password";
+"enter_true_new_pass" = "Enter the correct new password";
+"diff_pass" = "Two different new passwords";
+"pass_set_success" = "New password set successfully";
+
+"enter_exchange_code" = "Enter your exchange code";
+"enter_ver_code" = "Enter the verification code";
+
+"enter_new_pass" = "Enter a new password";
+"again_new_pass" = "Enter the new password again";
+"set_success" = "Set success";
+
+"change_batch" = "  Change";//  a batch
+
+"enter_pickta" = "Enter Pick Ta";
+
+"continue_to_exit" = "Click again to exit";
+
+"copy_code_success" = "Copy invitation code succeeded";
+"please_enter_name" = "Enter your name";
+"enter_id_num" = "Enter the ID number";
+
+"select_face_photo" = "Select the front photo of the certificate";
+"select_back_photo" = "Select the reverse photo of the certificate";
+
+"enter_truth_phone" = "Input the normal mobile number";
+"enter_trueh_pass" = "Enter the normal password";
+
+"new_pwd" = "New Password";
+"pass" = "Password";
+"pass1" = "Password";
+"enter_phone" = "Fill in mobile number";
+"enter_pass" = "Fill in the password";
+"confirm_pass" = "Password Again";
+
+"no_account" = "No account，";
+"register_now" = "Register now";
+"forget_pass" = "Forget password？";
+"forget_pass1" = "Forget password";
+"select_gender" = "Please select gender";
+"next" = "Next";
+"input_nickName" = "Please enter nickName";
+"nickName" = "NickName";
+"men" = "men";
+"women" = "women";
+
+"confirm" = "Confirm";
+
+"pay_suceess" = "Payment successful";
+"pay_cancel" = "Cancel payment";
+
+"auth_success" = "Real name authentication succeeded";
+"check_data" = "Audit data";
+
+"call_code" = "This verification code is a voice verification code. Please pay attention to answering the phone!";
+
+"phone_num" = "PhoneNum";
+"Rigster" = "Rigster";
+"level" = "level";
+"my advertisement" = "my advertisement";
+"yinsi" = " Ⅰ. General Terms
+\n\n(1) Special Commitment Terms The company agrees to provide Internet-based related services (hereinafter referred to as \"network services\")
+        in accordance with the provisions of the Pulse Bean Technology (PickTa) service agreement (hereinafter referred to as the agreement) and its operating rules.
+        In order to obtain network services, service users (hereinafter referred to as \"users\") should agree to all the terms of this agreement and follow the prompts on the page to complete all registration procedures.
+        The user selects the \"I have read and agree to the PickTa User Registration Service Agreement\" option during the registration process, which means that the user fully accepts all the terms under this agreement.
+        If you do not accept the service agreement, Stop using it immediately.
+\n\n(2) Service content
+\n\n1. The specific content of the network service is provided by the company according to the actual situation. The company reserves the right to change, interrupt or terminate some or all network services at any time.
+\n\n2. The user understands that the company only provides related network services. In addition, the receiving equipment and related expenses related to the related network services should be borne by the user.
+\n\n(3) Rules of use
+\n\n1. When applying for using the company\'s network services, users must provide the company with true and accurate personal data. If there are any changes in personal data, they must be updated in a timely manner.
+\n\n2. After successful user registration, the company will give each user a user name and corresponding password. The user name and password are kept by the user;
+        your user name and password are the only credentials for logging in and performing activities in the software. The user name of PickTa shall not be transferred to or authorized for use by a third party.
+        If the consequences are caused by the unauthorized use of others, the user will bear the corresponding legal responsibility.
+\n\n3. The user must agree and promise to accept that the company sends service information to the user via email or other means.
+\n\n4. When users use the company\'s network services, they must follow the following principles:
+        \n① When you post information on PickTa or use the company\'s services,
+        you must comply with the relevant laws and regulations in force in China.
+        \n② When posting information on PickTa or using the services of the company,
+        it must also comply with the laws and regulations of other relevant countries and regions and relevant regulations of international law.
+        \n③Do not use the company\'s services to enter the computer information network without authorization, use, modify, delete,
+        and increase computer network information resources; deliberately create and spread computer viruses and other destructive programs and other acts that endanger the safety of the computer information network.
+        \n④Do not interfere with our services in any way.
+        \n⑤Comply with all other regulations and procedures of our company.
+ 
+\n\nⅡ. Special privacy protection
+\n\n(1) Personal data involved PickTa\'s main purpose of collecting personal data is to provide users with a safe, effective and necessary service.
+\n\n(2) Use of your information by PickTa
+\n\n1. You agree that this website can use personal data about you (only limited to information held by PickTa) to resolve disputes, mediate disputes, help ensure safe transactions in PickTa,
+        and enforce PickTa user service agreements .
+\n\n2. You agree that PickTa can use your personal data to improve the promotion and promotion of the platform, so that the platform design and services can better meet user requirements.
+        \n\n3. You agree that this website uses your information to contact you and (in some cases) to pass on information provided to you based on your interests,
+        such as: targeted advertising banners, administrative notices, product offerings And communications about your use of PickTa. By accepting the service agreement and privacy rules,
+        you expressly agree to receive these materials.
+\n\n(3) Disclosure of your data on this website PickTa will use industry standard practices and mutual agreement to protect your personal data,
+        but due to technical limitations, it is not guaranteed that all your private communications and other personal data will not pass this privacy rule It was leaked through unspecified channels.
+\n\n(4) Password security You are responsible for all actions taken with your user name and password. Therefore, it is recommended that you not disclose your PickTa username and password to any third party.
+\n\n(5) Rule modification PickTa may modify this privacy rule from time to time in accordance with your opinions and platform needs to accurately reflect PickTa\'s data collection and disclosure practices.";
+
+"tiaokuan" = "&#160; &#160; &#160;This registration agreement applies to the \"PickTa\" platform (hereinafter collectively referred to as \"PickTa\").
+        PickTa will provide corresponding services to PickTa registered users (hereinafter referred to as you)
+        in accordance with the provisions of this registration agreement, clarifying the rights and
+        obligations between PickTa registered users and PickTa. Before you register as a PickTa user,
+        please read the following terms carefully and understand the terms comprehensively and fully.
+        Especially the clauses that exempt or limit PickTa’s liability, the terms that exclude or
+        limit your rights, etc. Once you register for PickTa, It is deemed that you accept
+        PickTa\'s services and is bound by this registration agreement;
+        if you do not accept this registration agreement, Stop registering PickTa.
+        The contents of this agreement include the following terms and various rules that PickTa has issued or may release in the future.
+        All rules are an integral part of the agreement and have the same legal effect as the body of the agreement.
+        This agreement is signed by you and PickTa and applies to all your activities in PickTa. When you register as a user,
+        you have read, understood and Accept all the terms and various rules of this agreement, and promise to abide by the current laws, regulations,
+        rules and other government regulations of the People\'s Republic of China. If any violations result in any legal consequences, you will independently undertake all corresponding in your own name Legal liability.
+
+        \n\nⅠ.Registration restrictions
+        \n\bPickTa only accepts valid ID documents and is over 18 years of age and has full civil capacity to become a PickTa user.
+        If you are not eligible, please do not register, otherwise PickTa reserves the right to suspend or terminate your user qualification at any time.
+        You hereby guarantee to PickTa that you have met the basic conditions such as age and ability to act.
+        If you provide PickTa with false information or promises and cause PickTa and its affiliated companies to suffer any losses,
+        you will assume full responsibility and compensate for related losses. You are obliged to provide your real information when registering,
+        and to ensure the validity and security of content such as e-mail address, contact phone number,
+        contact address, postal code, and other contacts. If you have a lawsuit with other users due to online transactions,
+        other users have the right to request PickTa to provide relevant information through the judicial department.
+        After your registration is successful, you cannot transfer the PickTa username to a third party.
+        You confirm that after you log in to PickTa with your user name and password,
+        all actions in PickTa represent the actions you made yourself and you will bear the corresponding legal consequences.
+        Any use of your user name and password to log in to PickTa and engage in transactions will be regarded as your behavior.
+        Therefore, you are obliged to keep your user name and password very carefully.
+        PickTa is not responsible for the consequences of the loss or theft of your username and password.
+        After confirming that you have violated the law by an effective national legal document or administrative punishment decision,
+        or that PickTa has sufficient factual basis to determine that you have violated the law or violated this usage agreement,
+        PickTa has the right to announce your violations and breaches on PickTa and the Internet ,
+        And have the right to record the content into any credit information and files related to you.
+\n\nⅡ. involving third parties
+        \n\bThe information collected by PickTa’s about you will only be used for the services provided by PickTa.
+    Under normal circumstances, without your consent, any of your personal information will not be provided to unrelated third parties.
+    In the following cases, we may provide your personal information to relevant third parties:
+            \n(1) Certain services of this website/software require a partner (such as a company that provides technical services, a transportation company, a mailing company, Companies that provide prizes, etc.)
+    or provide them together. In order to provide you with such services, it is necessary for this website/software to share your personal information with this partner.
+            If you do not want your information to be shared, you can refuse to disclose your personal information without using this specific service.
+   \n(2) This website/software may jointly carry out promotional activities with third parties.
+    All or part of the personal information collected during the promotional activities may be shared with the third party.
+    If you do not want your information to be shared, you can pass Reject without participating in the promotion.
+        \n(3)Entering the third-party platform, please confirm that the relevant rights and obligations are determined in accordance with the third-party usage agreement,rather than in accordance with this agreement.
+        The content, products, advertisements and any other information of third parties are at your own discretion and risk and are not related to PickTa.
+        \n\nⅢ. No guarantee
+  \n\bUnless PickTa or its partners expressly assume responsibility in the agreement after the establishment of a specific investment transaction,
+    the services provided by PickTa do not carry any guarantee for any user or any transaction in PickTa,
+    so PickTa and its shareholders, creators , Senior staff, directors, agents, affiliates, parent companies,
+    subsidiaries and employees (hereinafter referred to as \"PickTa Party\") do not guarantee the authenticity, sufficiency, timeliness, reliability,
+    Completeness and validity, and does not assume any legal responsibility arising therefrom.
+        \n\nⅣ. Compensation
+   \n\bWith respect to any third-party claims, claims, lawsuits of any kind and nature arising or arising from your violation of this agreement and the terms and
+    rules incorporated in this agreement or your violation of any laws, regulations or infringement of the rights of third parties ,
+    Loss and damage (actual, special and consequential), whether known or unknown, including reasonable attorney’s fees,
+    you agree to this to PickTa and PickTa’s parent company, subsidiaries, affiliates, senior staff,
+    Directors, agents and employees (if applicable) compensate and protect them from damage.
+    \n\nV. Suspension or termination of services
+    \n\nUnless PickTa terminates this agreement or you apply to terminate this agreement and cancel the corresponding user account with the consent of PickTa,
+    this agreement will remain in effect. If you violate this agreement, related rules, or in accordance with the requirements of relevant laws,
+    regulations, and government departments, PickTa has the right to terminate this agreement, close your account, or restrict your use of PickTa by telephone or email notification.
+    However, the termination of PickTa cannot waive your unfulfilled obligations under this agreement or other agreements generated by PickTa.
+    In one of the following situations, PickTa has the right to suspend or terminate the provision of services to you at any time:
+    \n(1) When performing necessary maintenance and construction on network equipment;
+    \n(2) When there is a sudden network equipment failure;
+    \n(3) When the network communication equipment used by PickTa stops due to unknown reasons and cannot provide services;
+    \n(4) When PickTa cannot provide online services due to force majeure;
+    \n(5) Requirements of relevant government, judicial, and regulatory agencies. If one of the following situations occurs,
+    PickTa has the right to suspend or terminate the provision of services to you at any time without notifying you:
+    \n(1) The personal information you provide is inaccurate, untrue, illegal and effective;
+    \n(2) You use any third-party program to conduct Log in or use the service;
+    \n(3) you abuse the rights you enjoy;
+    \n(4) you have done harm to other users;
+    \n(5) you have violated social customs and social ethics;
+    \n(6) you have violated the relevant provisions of this agreement The prescribed behavior.
+    If the network service needs to be suspended due to the need for system maintenance or upgrade,
+    PickTa will notify you in advance as soon as possible.
+    After terminating your service, your right to use the PickTa service will be terminated immediately.
+    From the moment you terminate the user service, PickTa will no longer Take any responsibility and obligation to you.
+\n\nⅥ. Additional Terms
+\n\bIn some parts or pages of PickTa, or in the process of your use of PickTa related service products,
+    there may be separate additional service terms or agreements other than this agreement,
+    when these service terms or agreements conflict with the terms and rules of this agreement At that time,
+    the service terms or agreements other than the foregoing terms and rules of this agreement will take precedence.
+\n\nⅦ. Independence of Terms
+    \nIf some of the terms of this agreement are deemed invalid or cannot be implemented, the other terms in this agreement are still valid.
+    \n\n\n\n\n\n\nPlease be reminded that before registering as a PickTa user, please read this \"PickTa User Registration Agreement\" (hereinafter referred to as \"agreement\")
+carefully to ensure that you fully understand the terms of this agreement.";

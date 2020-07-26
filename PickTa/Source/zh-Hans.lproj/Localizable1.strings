@@ -1,0 +1,646 @@
+/* 
+  Localizable1.strings
+  PickTa
+
+  Created by Sanpintian on 2020/7/7.
+  Copyright © 2020 laoguo. All rights reserved.
+*/
+
+"upload_qrcode" ="点击上传二维码";
+"take_a_pic" = "拍照";
+"select_from_Album" = "从相册中选择";
+
+
+"yiyuedubingtongyi" ="已阅读并同意";
+"pick_ta_server_protocol" = "《PICK TA及服务协议》";
+"yiyouzhanghao" = "已有账号，";
+"lijidenglu" = "立即登陆";
+
+"platform_1" = "Pick Ta";
+"platform_2" = "微信";
+"platform_3" = "QQ";
+"platform_4" = "Telegram";
+"platform_5" = "Facebook";
+"platform_6" = "Twitter";
+"platform_7" = "What's app";
+"platform_8" = "其他";
+
+
+"http_data_error" = "数据解析异常";
+"http_biz_error" = "业务错误";
+"http_unknown_error" = "未知错误";
+"http_server_error" = "服务器异常";
+
+"http_exception_network" = "网络不可用，请检查网络";
+"http_exception_url" = "Url格式错误啦";
+"http_exception_host" = "没有找到Url指定的服务器";
+"http_exception_connect_timeout" = "连接服务器超时";
+"http_exception_write" = "发送数据失败";
+"http_exception_read_timeout" = "读取数据超时";
+"http_exception_parse_error" = "解析数据异常";
+"http_exception_unknow_error" = "发生未知异常";
+"http_exception_download_error" = "服务器异常";
+
+// 刷新框架
+"footer_pulling" = "上拉加载更多";
+"footer_release" = "释放立即加载";
+"footer_loading" = "正在加载...";
+"footer_refreshing" = "正在刷新...";
+"footer_finish" = "加载完成";
+"footer_failed" = "加载失败";
+"footer_nothing" = "全部加载完成";
+
+"tip_net_error" = "请求失败，请稍后重试";
+
+"url_scheme" = "bfzl";
+"url_host" = "spread";
+"url_port" = "8888";
+"web_ua" = "bfzl_fx_v%s_2";
+
+"tip" = "提示";
+
+// 首页
+"rmb_format" = "¥%s";
+"rmb" = "¥";
+"sms_content" = "你的好友%1$s邀请你加入百分之六一起成本价购物，去回应\n%2$s\n回TD退订";
+"to_sms_tip" = "您没有安装微信，请以发短信的方式邀请好友";
+"home_title" = "精选-不加价";
+"crash_title" = "下单购超值好物 可立返现金";
+"inviation_tv" = "邀请消费会员得红包";
+"inviation_eng" = "您还没有任何邀请记录哦～";
+"inviation_vip" = "邀请新会员得现金";
+"cash_back_title" = "购物返现";
+"gift_month" = "购买礼包开通月消费会员";
+"gift_year" = "购买礼包开通年消费会员";
+"shopping_tv" = "开通消费会员 立享购物返现";
+"search_title" = "搜索";
+"home_hotstyle" = "每日爆款";
+"home_savefree" = "一单省出会员费";
+"home_recommend" = "精选推荐";
+// 我的
+"copy_underline" = "<u";
+"copy" = "复制";
+"all_earnings" = "累计收入";
+"team_all_earnings" = "团队累计收益";
+"can_extract_earnings" = "可提现收益：";
+"now_extract" = "立即提现";
+"my_invite_num" = "我的邀请数量";
+"team_invite_num" = "团队的邀请数量";
+"invite_create_team" = "邀请他人创建团队";
+"invite_vip" = "邀请合伙人";
+"create_team" = "创建创业团队";
+"be_vip" = "成为合伙人";
+"team_creator" = "团队创始人";
+"team_member" = "团队成员";
+"vip_member" = "VIP会员";
+"partner" = "合伙人";
+"team_partner" = "育成合伙人";
+"team_super_partner" = "育成超级合伙人";
+"super_partner" = "超级合伙人";
+"common_member" = "普通会员";
+"member" = "消费会员";
+"share_to_wx_friend" = "分享微信好友";
+"invite_code" = "邀请码：%s";
+"wait_earnings" = "待入账：%s";
+"master_class" = "大咖讲堂";
+"news_info" = "新闻资讯";
+"new_guide" = "新手宝典";
+"tip_invite_not_null" = "邀请码不能为空";
+"tip_already_in_team" = "您已经被邀请加入团队不能再创建团队";
+"tip_already_in_team_not_be_vip" = "您已经是团队成员，不能再购买合伙人";
+"my_teacher" = "我的导师";
+"invite_consume" = "邀请消费会员";
+"my" = "我的";
+// 商品详情
+"now_share" = "立即分享";
+"goods_detail" = "商品详情";
+"share_to_friend" = "分享好友";
+"save_poster" = "保存海报";
+"symbol_separator" = "/";
+"save_success" = "保存成功";
+"save_fail" = "保存失败";
+"share_fail" = "分享失败";
+"long_click_code_to_shop" = "长按扫码去购物";
+"share" = "分享";
+"home" = "首页";
+"cart" = "购物车";
+"add_to_cart" = "加入购物车";
+"buy_now" = "立即购买";
+"no_shop" = "商品已售罄";
+"no_shop_onsale" = "商品已下架";
+"user_center" = "个人中心";
+
+// 提现
+"extract" = "提现";
+"extract_record" = "提现记录";
+"extract_money" = "提现金额";
+"receive_account" = "收款账户：%s";
+"receive_money" = "收款方式：微信";
+"matters_need_attention" = "注意事项";
+"tip_no_balance" = "当前余额不足";
+// 登录
+"wx_login" = "微信登录";
+"login_fail" = "登录失败";
+"again_get_code" = "%d秒后重新获取";
+"please_input_mobile" = "请输入手机号";
+"please_input_code" = "请输入验证码";
+"login_app" = "登录APP";
+// 创建团队
+"save" = "保存";
+"edit" = "<u";
+"invite_team_member" = "邀请团队成员：";
+"now_invite" = "立即邀请";
+"team_create_desc" = "（已邀请%1$d人，还差%2$d人团队组建完成）";
+"team_complete_desc" = "（已邀请%d人，团队创建完成）";
+"team_complete_to_pay" = "团队创建完成去支付";
+"team_name" = "团队名称：";
+"refresh_pay_result" = "刷新支付结果";
+"please_input_team_name" = "请输入团队名称";
+"team_name_max_tip" = "字数不能超过10个";
+"pay_success" = "支付成功";
+// 登录输入邀请码
+"invite_code1" = "邀请码";
+"no_invite_code" = "没有邀请码";
+"input_invite_code" = "请输入邀请码";
+"bind_fail" = "绑定失败";
+"tip_just_have_once_bind_code" = "仅有一次绑定邀请码的机会，是否放弃？";
+"abandon" = "放弃";
+"continue_bind" = "继续绑定";
+// 设置
+"nickname" = "昵称";
+"select_gender" = "请选择您的性别";
+"next" = "下一步";
+"input_nickName" = "请输入您的昵称";
+"men" = "男";
+"women" = "女";
+
+"identity" = "身份";
+"phone_num" = "手机号";
+"register_time" = "注册时间";
+"setting" = "设置";
+"indirect_invite" = "间接邀请";
+"direct_invite" = "直接邀请";
+// 记录列表
+"list" = "明细";
+"earnings_list" = "收益明细";
+"team_earnings_list" = "团队收益明细";
+"extract_success" = "提现成功";
+// 支付结果
+"retry_pay" = "重新支付";
+"pay_fail" = "支付失败";
+// 主页面
+"continue_to_exit" = "再点一次退出";
+"tip_open_notification" = "请去“设置“中打开消息通知的开关，便于您及时接收到各种消息通知";
+"open" = "开启";
+// 更新Dialog
+"tip_install_permission" = "请去“设置”中打开未知来源应用安装开关";
+"to_setting" = "去设置";
+"immediately_update" = "立即更新";
+"immediately_install" = "立即安装";
+"retry_download" = "重新下载";
+// 数据状态
+"state_load_fail" = "加载失败";
+"state_loading" = "加载中…";
+"state_empty" = "您还没有相关数据哦～";
+"state_empty_address" = "您的宝贝找不着家了~";
+"state_empty_assets" = "您的钱袋子空空如也~";
+"state_no_net" = "您的网络飞走了，请重新加载～";
+"state_empty_order" = "您还没有相关订单哦！";
+// 欢迎页
+"welcome_desc" = "—&#12288;精选·不加价&#12288;—";
+// 团队成员管理
+"creator" = "创始人";
+
+"submit_order" = "提交订单";
+"shop_cart" = "购物车";
+"tip_empty_location" = "您的宝贝找不着家了~";
+"add_address" = "添加地址";
+"plus_address" = "+添加地址";
+"default_address" = "默认地址";
+"tip_please_input_receive_people" = "请正确填写收货人";
+"tip_please_input_phone" = "请正确填写联系电话";
+"tip_please_input_address" = "请正确填写所在地区";
+"tip_please_input_detail_address" = "请正确填写详细地址";
+"receier_people" = "收货人";
+"contact_phone" = "联系电话";
+"region" = "所在地区";
+"detail_address" = "详细地址";
+"finish" = "完成";
+"remove_cart_goods_tip" = "确定将该商品从购物车移除？";
+
+
+
+
+"have_many_goods" = "共%s件商品";
+"amount_to_with" = "小计：¥ %s";
+"amount_to" = "小计：";
+"all_amount_to" = "总计：¥";
+"actual_pay_with" = "实际支付：¥%s";
+"logistics_info" = "物流信息";
+"close" = "关闭";
+"order_info" = "订单信息";
+"cancel_order" = "取消订单";
+"delete_order" = "删除订单";
+"check_logistics" = "查看物流";
+"now_pay" = "立即支付";
+"confirm_receive" = "确认收货";
+"again_bug" = "再次购买";
+"delay_receive" = "延长收货";
+"batch_refund" = "批量退款";
+"address_manage" = "地址管理";
+"edit_address" = "编辑地址";
+"order_list" = "订单列表";
+"delete" = "<u";
+"order_detail" = "订单详情";
+"order_number_with" = "订单编号：%s";
+"order_time_with" = "下单时间：";
+"wait_pay" = "待付款";
+"wait_pay_money" = "待支付";
+"wait_receive" = "待收货";
+"wait_deliver" = "待发货";
+"deal_finish" = "交易完成";
+"deal_close" = "交易关闭";
+"order_id_with" = "订单号：%s";
+"create_order_with" = "下单时间：%s";
+"tip_cancel_order" = "您的订单将被取消，是否确认？";
+"continue_pay" = "继续支付";
+"tip_delay_receive" = "确认延长收货时间吗？\n每笔订单只能延迟一次哦";
+"tip_delete_order" = "删除订单后\n您的订单将不在订单列表显示";
+"tip_confirm_receive" = "请确认您已经成功签收货物";
+"affirm" = "确认";
+"no_member_price" = "非会员价：￥ ";
+"my_order" = "我的订单";
+"all_order" = "全部订单";
+"return_money_back" = "退款/售后";
+"business_cooperation" = "商务合作";
+"my_address" = "我的地址";
+"help_center" = "帮助中心";
+"my_setting" = "我的设置";
+"copy_group_id_join_group" = "复制群号加6%好友可加入群";
+"immediately_copy" = "立即复制";
+"user_good_group" = "6%%用户福利群：%s";
+"expires_time_to" = "有效期至：%s";
+"after_auto_close" = "后自动关闭";
+"after_auto_receive" = "后自动收货";
+"please_login" = "请登录";
+"order_number_copy" = "订单编号已复制";
+"today_increase" = "今日新增";
+"month_increase" = "本月新增";
+"total_people" = "累计人数";
+"phone_login" = "手机登录";
+"phone_quick_login" = "手机快速登录";
+"auto_receive_day_format" = "还剩%d天自动收货";
+"auto_receive_hour_format" = "还剩%d小时自动收货";
+"auto_receive_min_format" = "还剩%d分钟自动收货";
+"auto_receive_sec_format" = "还剩%d秒自动收货";
+"can_cash_back_yuan" = "可返现%s元";
+"my_account" = "我的账户";
+"assets_explain" = "资产说明";
+"gold_detail" = "金币明细";
+"wait_gold_detail" = "待返金币明细";
+"wait_goods_detail" = "待返购物价差";
+"my_assets_yuan" = "我的资产(元)";
+"my_foot" = "我的足迹";
+"usable_gold" = "可用金币";
+"wait_return_amount" = "待返金额";
+"wait_return_goods_amount" = "待返购物价差";
+"open_vip" = "开通会员";
+"size_with" = "规格：";
+
+"hello_blank_fragment" = "Hello blank fragment";
+
+"search_content_not_null" = "搜索内容不能为空";
+"please_input_goods_name" = "请输入商品名称";
+"invite_friend" = "邀请好友";
+"get_probation_vip" = "免费获得试用会员";
+"search_history" = "搜索历史";
+"hot_search" = "热门搜索";
+"vip_always_buy" = "会员都在买";
+
+"name_style" = "请设置2-24个字符，不包括@*%等无效字符";
+
+"talk" = "聊天";
+"ta_call" = "为TA打Call";
+"reward_task" = "悬赏任务";
+"reward_noopen" = "悬赏任务暂未开放";
+"please_wait" = "敬请期待";
+"enter_ad" = "进入广告";
+
+"maidou" = "脉豆";
+"contribution" = "贡献值";
+"active_level" = "活跃度";
+
+"task_center" = "任务中心";
+"invite_friends" = "邀请好友";
+"my_ad" = "我的广告";
+"publish_ad" = "发布广告";
+
+"information" = "我的资料";
+"auth" = "实名认证";
+"problem" = "常见问题";
+"about" = "关于我们";
+"set" = "安全设置";
+"logout" = "退出登录";
+
+"set_name" = "修改昵称";
+"ok" = "完成";
+"set_name_tip" = "请设置2-24个字符，但不包括@*%等无效字符";
+
+"my_pt" = "我的脉豆";
+"today_pt" = "今日所得";
+"pt_list" = "收支明细";
+
+
+"my_con" = "我的贡献值";
+"my_con_list" = "我的贡献值记录";
+
+"my_active" = "我的活跃度";
+"total_active" = "总活跃度";
+"base_active" = "基础活跃度";
+"add_active" = "加成活跃度";
+"max_active" = "大区活跃度";
+"min_active" = "小区活跃度";
+"my_active_list" = "我的活跃度记录";
+
+
+"candy_house" = "糖果屋";
+"store" = "卷轴集市";
+"team" = "推广部落";
+"ongoing" = "进行中";
+"completed" = "已完成";
+"expired" = "已过期";
+
+"received" = "已领取";
+"wait_candy" = "待领取糖果: ";
+"receive" = "领取";
+"exchange" = "兑换";
+"get_records" = "获取记录";
+"time" = "时间";
+"get_quantity" = "获取数量";
+"status" = "状态";
+
+"active" = "活跃度";
+"redemption_conditions" = "兑换条件";
+"task_detail" = "卷轴详情";
+"comletion_gain" = "完成收益";
+
+"friend_num" = "好友人数";
+"comm_fans" = "社群粉丝";
+"real_friend" = "实名好友";
+"colbal_dividend" = "全球分红";
+"friend_list" = "好友列表";
+"nick_name" = "昵称";
+"people_num" = "人数";
+
+
+"my_invitation_code" = "我的邀请码";
+"copy_invitation_dode" = "复制邀请码";
+"invitation_tip" = "截屏分享二维码邀请好友下载APP";
+
+
+"my_post" = "我的发布";
+"get_call_num" = "获得打call次数: ";
+"get_reward" = "获得打赏：";
+"ad_list" = "广告列表";
+"under_review" = "审核中";
+"passed" = "已通过";
+"rejected" = "已拒绝";
+
+
+"release" = "发布";
+"title" = "标题";
+"input_title" = "请输入标题";
+"input_title2" = "   请输入标题";
+"publish_content" = "发布内容";
+"ad_cover" = "添加广告封面";
+"input_ad_content" = "请输入发布内容";
+
+
+"my_profile" = "我的资料";
+"resume" = "个人简介";
+"input_resume" = "请输入您的个人简介...";
+"submit" = "提交";
+
+
+"real_name" = "真实姓名";
+"in_truth" = "请如实填写";
+"cer_type" = "证件类型";
+"id_card" = "身份证";
+"other_id_card" = "社会安全号";
+"id_number" = "证件号码";
+"input_id_number" = "请输入证件号码";
+"up_id_face" = "上传护照正面";
+"up_id_back" = "上传护照反面";
+"define" = "确定";
+
+
+"common_problem" = "常见问题";
+
+
+"about_us" = "关于我们";
+"privacy" = "隐私政策";
+"user_terms" = "用户条款";
+"version" = "版本";
+
+"change_pass" = "修改登录密码";
+"change_pay_pass" = "修改交易密码";
+
+
+"old_pass" = "旧登录密码";
+"in_old_pass" = "请输入旧登录密码";
+"new_pass" = "新登录密码";
+"in_new_pass" = "请设置新登录密码";
+"confirm_new_pass" = "确认新登录密码";
+"confrim_in_new_pass" = "请再次确认新登录密码";
+
+
+"captcha" = "验证码";
+"in_ver_code" = "请输入验证码";
+"get_ver_code" = "获取验证码";
+"pay_pass" = "交易密码";
+"new_pay_pass" = "新交易密码";
+"in_new_pay" = "请输入6位新交易密码";
+"confirm_in_new_pay" = "确认新交易密码";
+"agegin_new_pay" = "请再次输入6位新交易密码";
+"modify" = "修改";
+
+
+"mill" = "通讯录";
+"new_friend" = "新的朋友";
+"group_chata" = "群聊";
+
+
+"phone_id" = "手机号/ID号";
+"cancel" = "取消";
+
+"add_friend" = "添加朋友";
+"my_id" = "我的ID：";
+"new_fd" = "新的好友";
+
+"grup_num" = "个群聊";
+
+"search" = "搜索";
+
+"find" = "发现";
+"no_moment" = "还没有朋友发照片，你可以现在就拍一张";
+
+"circle" = "关系圈";
+"no_open" = "该功能暂未开放~";
+
+"chanage_laguage" = "语言切换 ";
+
+
+"speed_match" = "极速匹配";
+"precise_search" = "精准查找";
+
+"login" = "登录";
+
+
+"ad_detail" = "广告详情";
+"call" = "打Call";
+
+"receive_ticket" = "领券";
+"reward" = "打赏";
+"call_receive" = "为TA打call后可以领券";
+
+
+"country" = "国家";
+"china" = "中国";
+"other_country" = "海外";
+
+"label" = "标签";
+"add" = "添加";
+"label_tip" = "请输入自定义标签(不超过10个字)";
+"select_country" = "请选择国家";
+
+
+"reward_num" = "打赏数量";
+"input_num" = "输入数量";
+"confirm_reward" = "确认打赏";
+"please_reward_num" = "请输入打赏数量";
+
+"count_down" = "倒计时";
+"confirm_logout" = "确定退出登录";
+
+"no_expenditure_detail" = "暂无收支明细~";
+
+
+"scroll_level" = "卷轴等级";
+"auth_name" = "实名";
+"exchange_terms" = "兑换条件";
+"pt_total" = "产生脉豆的总量";
+"activity_after_exchange" = "兑换后所得活跃度";
+"scroll_num" = "本卷轴可同时领取次数";
+"day_produce" = "日产";
+"validity_time" = "有效期";
+"i_know" = "我知道了";
+"day" = "天";
+
+"seed" = "颗";
+
+"new_pwd" = "新密码";
+"enter_true_old_pass" = "请输入正确的旧密码";
+"enter_true_new_pass" = "请输入正确的新密码";
+"diff_pass" = "两次新密码不一致";
+"pass_set_success" = "新密码设置成功";
+
+"enter_exchange_code" = "请输入您的兑换码";
+
+"enter_ver_code" = "请输入验证码";
+
+"enter_new_pass" = "请输入新密码";
+"again_new_pass" = "请再次输入新密码";
+"set_success" = "修改成功";
+
+"change_batch" = "  换一批";
+"enter_pickta" = "进入Pick Ta";
+
+"copy_code_success" = "复制邀请码成功";
+
+
+"please_enter_name" = "请输入姓名";
+"enter_id_num" = "请输入证件号码";
+"select_face_photo" = "请选择证件正面照片";
+"select_back_photo" = "请选择证件反面照片";
+
+"enter_truth_phone" = "请输入正常的手机号";
+"enter_trueh_pass" = "请输入正确的密码";
+
+"pass" = "密码";
+"pass1" = "登录密码";
+
+"enter_phone" = "请填写手机号";
+"enter_pass" = "请填写密码";
+"confirm_pass" = "确认密码";
+
+"no_account" = "没有账号，";
+"register_now" = "立即注册";
+"forget_pass" = "忘记密码？";
+"forget_pass1" = "忘记密码";
+"confirm" = "确定";
+
+"pay_suceess" = "支付成功";
+"pay_cancel" = "取消支付";
+
+
+"auth_success" = "实名认证成功";
+"check_data" = "审核资料";
+
+"area" = "地区";
+
+"call_code" = "此验证码为语音验证码，请注意接听电话！";
+"Rigster" = "注册";
+"level" = "等级";
+
+"yinsi" = "一、通用条款\n\n
+         (一)特别承诺条款 本公司同意按照脉豆科技（PickTa）服务协议(以下简称协议)的规定及其操作规则提供基于互联网的相关服务(以下称“网络服务”)。为获得网络服务，服务使用者(以下称“用户”)应当同意本协议的全部条款并按照页面上的提示完成全部的注册程序。用户在进行注册程序过程中选择“我已阅读并且同意PickTa用户注册服务协议”选项，即表示用户完全接受本协议下的全部条款。若不接受该服务协议的请立即停止使用。
+ \n\n(二)服务内容\n\n
+ 1、网络服务的具体內容由本公司根据实际情况提供供需信息。本公司保留随时变更、中断或终止部分或全部网络服务的权利。\n
+ \n2、用户理解，本公司仅提供相关的网络服务，除此之外与相关网络服务有关的接受设备及所需的费用均应由用户自行负担。
+ \n\n（三）使用规则
+ \n1、用户在申请使用本公司网络服务时，必须向本公司提供真实、准确的个人资料，如个人资料有任何变动，必须及时更新。
+ \n2、用户注册成功后，本公司将给予每个用户一个用户名及相应的密码，该用户名和密码由用户负责保管;您的用户名和密码是登录本软件和在本软件进行活动的唯一凭证，不得将PickTa的用户名转让给第三方或者授权给第三方使用。若因私自授权他人使用造成的后果，将由用户承担相应的法律责任。
+ \n3、用户必须同意并承诺接受本公司通过电子邮件或其他方式向用户发送服务信息。
+ \n4、用户在使用本公司网络服务过程中，必须遵循以下原则:①你在PickTa上发布信息或者利用本公司的服务时必须符合中国现行的有关法律法规。②在PickTa上发布信息或者利用本公司的服务时还必须符合其他有关国家和地区的法律规定以及国际法的有关规定。③不得利用本公司的服务擅自进入计算机信息网络，使用、修改、删除、增加计算机网络信息资源;故意制作、传播计算机病毒等破坏性程序的及其他危害计算机信息网络安全的行为。④不以任何方式干扰本公司的服务。⑤遵守本公司的所有其他规定和程序。
+
+ \n\n二、特别的隐私保护
+
+ \n(一)涉及的个人资料  PickTa收集个人资料的主要目的在于向用户提供一个安全、有效和必须的服务。
+ \n(二)PickTa对您资料的使用
+ \n1、您同意本网站可使用关于您的个人资料(仅限于PickTa持有有关您的资料)以解决争议、对纠纷进行调停、有助于确保在PickTa进行安全交易，并执行PickTa的用户服务协议。
+ \n2、您同意PickTa可以使用您的个人资料以改进平台的推广和促销工作，使平台设计和服务更能符合用户要求。3、您同意本网站使用您的资料与您联络并(在某些情况下)向您传递针对您的兴趣而提供的信息，例如:有针对性的广告条、行政管理方面的通知、产品提供以及有关您使用PickTa的通讯。您接受服务协议和隐私规则即为明示同意收取这些资料。
+ \n(三)本网站对您的资料的披露  PickTa将釆用行业标准惯例和双方约定予以保护您的个人资料，但鉴于技术限制，不确保您的全部私人通讯及其他个人资料不会通过本隐私规则中未列明的途径泄露出去。
+ \n(四)密码的安全性  您须对使用您的用户名和密码所采取的一切行为负责。因此，建议您不要向任何第三方披露您在PickTa的用户名和密码。
+ \n(五)规则修改  PickTa可能不时按照您的意见和平台需要修改本隐私规则，以准确反映PickTa的资料收集及披露惯例。";
+
+"tiaokuan" = "&#160; &#160; &#160; &#160; 本注册协议适用于“PickTa”平台 (以下统称“PickTa”)，PickTa将依据本注册协议的规定为PickTa注册用户(以下称您”)提供相应服务，明确PickTa注册用户与PickTa的权利义务关系。您注册成为PickTa用户前请仔细阅读以下条款，并对条款内容全面而充分的理解。特别是其中所涉及的免除或限制PickTa责任的条款，排除或限制您权利的条款等。您一旦注册PickTa，则视为您接受PickTa的服务并受本注册协议的约束;若您不接受本注册协议，请您停止注册PickTa。本协议内容包括以下条款及PickTa已经发布的或将来可能发布的各类规则。所有规则为协议不可分割的一部分，与协议正文具有同等法律效力。本协议是由您与PickTa共同签订的，适用于您在PickTa的全部活动。在您注册成为用户时，您已经阅读、理解并接受本协议的全部条款及各类规则，并承诺遵守中华人民共和国现行的法律、法规、规章及其他政府规定，如有违反而导致任何法律后果的发生，您将以自己的名义独立承担所有相应的法律责任。
+\n\n一、注册使用限制
+\n     &#160; &#160; &#160; &#160;PickTa只接受有效身份证件且18周岁以上、具有完全民事行为能力人成为PickTa用户。如您不符合资格，请勿注册，否则PickTa保留随时中止或终止您用户资格的权利。您在此向PickTa保证，您已符合年龄、行为能力等基本条件，如因您向PickTa提供虚假信息或承诺而导致PickTa以及所属公司蒙受任何损失，您将承担全部责任并赔偿相关损失。您有义务在注册时提供自己的真实资料，并保证诸如电子邮件地址、联系电话、联系地址、邮政编码、其他联系人等内容的有效性及安全性。如您因网上交易与其他用户产生诉讼的，其他用户有权通过司法部门要求PickTa提供相关资料。您注册成功后，不得将PickTa的用户名转让给第三方使用。您确认，您用您的用户名和密码登录PickTa后在PickTa的一切行为均代表您本身作出的行为并由您承担相应的法律后果。任何利用您的用户名以及密码登录PickTa并从事交易等行为均将被视为您的行为。因此，您有义务非常谨慎的保管自己的用户名以及密码。PickTa对您的用户名和密码的遗失或被盗取所产生的后果不承担任何责任。经国家生效法律文书或行政处罚决定确认您存在违法行为，或者PickTa有足够事实依据可以认定您存在违法或违反本使用协议的行为，PickTa有权在PickTa及互联网络上公布您的违法、违约行为，并有权将该内容记入任何与您相关的信用资料和档案。
+
+\n\n二、涉及第三方
+ \n &#160; &#160; &#160; &#160;PickTas所收集的关于您的信息，将仅用于PickTa为您提供的服务。一般情况下，在未得到您的同意之前，您的任何个人信息将不会被提供给无关的第三方。在下列情况下，我们可能会将您的个人信息提供给有关的第三方：
+    \n（1）本网站软件的某些服务需由一个合作伙伴（如提供技术服务的公司、运输公司、邮寄公司、提供奖品的公司等）提供或共同提供。为了向您提供此类服务，本网站软件有必要与该合作伙伴分享您的个人信息。如果您不希望您的信息被分享，您可以不使用该具体服务从而拒绝您的个人信息被披露。
+    \n（2）本网站软件可能会与第三方共同进行推广活动，在推广活动中所收集的全部或部分个人信息可能会与该第三方分享，如果您不想让您的信息被分享，您可以通过不参加该推广活动而拒绝。
+\n（3） 进入第三方平台，请您确认按照第三方的使用协议确定相关权利义务，而不是按照本协议。第三方的内容、产品、广告和其他任何信息均由您自行判断并承担风险，而与PickTa无关。
+
+\n\n三、不保证
+\n &#160; &#160; &#160; &#160;除非PikcTa或其合作方在特定投资交易成立后的协议书中明示承担责任外，PickTa提供的服务中不带有对PickTa中的任何用户、任何交易的任何保证，因此PickTa及其股东、创建人、高级职员、董事、代理人、关联公司、母公司、子公司和雇员(以下称“PickTa方”)不保证由其他用户或机构提供的内容的真实性、充分性、及时性、可靠性、完整性和有效性，并且不承担任何由此引起的法律责任。
+
+\n\n四、补偿
+\n &#160; &#160; &#160; &#160;就任何第三方提出的，由于您违反本协议及纳入本协议的条款和规则或您违反任何法律、法规或侵害第三方的权利而产生或引起的每一种类和性质的任何索赔、要求、诉讼、损失和损害(实际的、特别的及有后果的)，无论是已知或未知的，包括合理的律师费，您同意就此对PickTa和PickTa的母公司、子公司、关联公司、高级职员、董事、代理人和雇员(如适用)进行补偿并使其免受损害。
+
+\n\n五、服务的中止或终止
+\n &#160; &#160; &#160; &#160;除非PickTa终止本协议或者您申请终止本协议及注销相应用户账户且经PickTa同意，否则本协议始终有效。在您违反了本协议、相关规则，或在相关法律法规、政府部门的要求下，PickTa有权通过联系电话及电子邮件告知方式终止本协议、关闭您的账户或者限制您使用PickTa。但PickTa的终止行为不能免除您根据本协议或在PickTa生成的其他协议项下的还未履行完毕的义务。发生下列情形之一的，PickTa有权随时中止或终止向您提供服务：
+\n(1)对于网络设备进行必要的保养及施工时;
+\n(2)出现突发性的网络设备故障时;
+\n(3)PickTa所使用的网络通信设备由于不明原因停止，无法提供服务时;
+\n(4)由于不可抗力因素致使PickTa无法提供线上服务时;
+\n(5)相关政府、司法、监管机构的要求。发生下列情形之一的，PickTa有权随时中止或终止向您提供服务而无需通知您:(1您提供的个人资料不准确，不真实，不合法有效;(2)您使用任何第三方程序进行登录或使用服务;(3)您滥用所享受的权利;(4)您有损害其他用户的行为;(5)您有违背社会风俗和社会道德的行为;(6)您有违反本协议中相关规定的行为。如因系统维护或升级的需要而需暂停网络服务，PickTa将尽可能事先进行通告。终止您服务后，您使用PickTa服务的权利立即终止。从终止用户服务即刻起，PickTa不再对您承担任何责任和义务。
+
+\n\n六、附加条款
+\n &#160; &#160; &#160; &#160;在PickTa的某些部分或页面中、或者您使用PickTa相关服务产品的过程中，可能存在除本协议以外的单独的附加服务条款或协议，当这些服务条款或协议与本协议条款及规则存在冲突时，则前述本协议条款和规则以外的服务条款或协议将优先适用。
+
+\n\n七、条款的独立性
+ \n &#160; &#160; &#160; &#160;若本协议的部分条款被认定为无效或者无法实施时，本协议中的其他条款仍然有效。
+
+\n\n\n\n\n\n  &#160; &#160; &#160; &#160;在此特别提醒您在注册成为PickTa用户之前，请认真阅读本《PickTa用户注册协议》（以下简称“协议”），确保您充分理解本协议中各条款。\";";

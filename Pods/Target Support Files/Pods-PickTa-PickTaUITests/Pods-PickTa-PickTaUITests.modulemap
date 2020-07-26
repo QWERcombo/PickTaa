@@ -1,0 +1,6 @@
+framework module Pods_PickTa_PickTaUITests {
+  umbrella header "Pods-PickTa-PickTaUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
