@@ -78,12 +78,14 @@
                 self.listModel = model;
                 [self.list removeAllObjects];
                 [self.list addObjectsFromArray:model.data];
-                
-                self.headView.valueLbl22.text = [NSString stringWithFormat:@"%.5f", self.listModel.expe_num.floatValue];
+                self.headView.valueLbl22.text = [NSString stringWithFormat:@"%.0f", self.listModel.expe_num.floatValue];
             } else {
                 [self.list addObjectsFromArray:model.data];
             }
             
+            [self.list sortUsingComparator:^NSComparisonResult(PTMyGXZItemModel  *_Nonnull obj1, PTMyGXZItemModel  *_Nonnull obj2) {
+                return [obj2.created_time compare:obj1.created_time];
+            }];
             self.currentPage++;
             [self.contentTableView reloadData];
         }
@@ -249,6 +251,7 @@
         self.headView.valueLbl22.text = @"0.00";
         self.headView.titleLbl22.text = kLocalizedString(@"my_con", @"我的贡献值");
         self.headView.headBgImgView.image = [UIImage imageNamed:@"mine_gongxiandu_head_bg"];
+        self.headView.value22TopContast.constant = -15;
     }
 
     return _headView;

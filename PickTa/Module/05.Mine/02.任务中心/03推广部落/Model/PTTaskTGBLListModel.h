@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *real_num;// 实名好友
 @property (nonatomic, strong) NSString *union_num;// 联盟人数
 @property (nonatomic, strong) NSString *union_dou;// 部落分红
-
+@property (nonatomic, strong) NSString *level_name;
 @end
 
 NS_ASSUME_NONNULL_END

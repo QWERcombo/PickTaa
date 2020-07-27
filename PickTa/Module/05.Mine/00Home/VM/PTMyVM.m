@@ -27,9 +27,9 @@
         return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
             [[PickHttpManager shared] requestPOST:API_UserInfo withParam:@{} withSuccess:^(id  _Nonnull obj) {
                 PTMyModel *myModel = [PTMyModel modelWithJSON:obj[@"user"]];
+                [PickTaUserDefaults g_setValue:[myModel modelToJSONString]forKey:@"user_info"];
                 [subscriber sendNext:myModel];
                 [subscriber sendCompleted];
-                [PickTaUserDefaults g_setValue:[myModel modelToJSONString]forKey:@"user_info"];
             } withFailure:^(NSError * _Nonnull err) {
                 [subscriber sendError:err];
                 [subscriber sendCompleted];

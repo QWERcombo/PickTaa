@@ -33,7 +33,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeLoginSuccess) name:LoginSuccess object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeMSg) name:ChangedMsg object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeNeedLogin) name:OutLogin object:nil];
-    [SVProgressHUD setMinimumDismissTimeInterval:2];
+    
     // 设置主窗口,并设置根控制器
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
@@ -44,16 +44,20 @@
     }
     [self.window makeKeyAndVisible];
     
+    [SVProgressHUD setMinimumDismissTimeInterval:2];
+    [SVProgressHUD setContainerView:self.window];
+    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
     return YES;
 }
 
--(void)changeLoginSuccess{
+- (void)changeLoginSuccess{
     NSString *string = [PickTaUserDefaults g_getValueForKey:@"user_info"];
-    
+
     if (string.length) {
         PTMyModel *myModel = [PTMyModel modelWithJSON:string];
-        
-        if (myModel.sex == 1) {
+
+        if (myModel.sex == 0) {
             PTRegister2VC *vc = [[PTRegister2VC alloc] initWithNibName:@"PTRegister2VC" bundle:nil];
             [[XSWJVASPTHelper getCurrentVC].navigationController pushViewController:vc animated:YES];
         } else {

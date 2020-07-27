@@ -98,7 +98,8 @@
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:kLocalizedString(@"tip", @"提示") message:@"\n中国大陆地区的会员，需通过支付宝收取1.5元进行实名认证。\n" preferredStyle:UIAlertControllerStyleAlert];
             [alert addAction:[UIAlertAction actionWithTitle:kLocalizedString(@"cancel", @"取消") style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {}]];
             [alert addAction:[UIAlertAction actionWithTitle:kLocalizedString(@"define", @"确定") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-                // [self submitAuthHelper];
+                 [self submitAuthHelper];
+                
             }]];
             [[XSWJVASPTHelper getCurrentVC] presentViewController:alert animated:YES completion:nil];
         } else {
@@ -111,73 +112,79 @@
 
 - (void)submitAuthHelper {
     
-}
-
-#pragma mark - Table view data source
-
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//#warning Incomplete implementation, return the number of sections
-//    return 0;
-//}
-//
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//#warning Incomplete implementation, return the number of rows
-//    return 0;
-//}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-
-    // Configure the cell...
-
-    return cell;
-}
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    UIImage *faceImg = nil;
+    UIImage *backImg = nil;
+    if (!self.nameTfl.text.length) {
+        [SVProgressHUD showErrorWithStatus:@"请输入真实姓名"];
+        return;
     }
+    if (!self.idNumTfl.text.length) {
+        [SVProgressHUD showErrorWithStatus:@"请输入证件号码"];
+        return;
+    }
+    if (!self.upIdFaceBtn.currentBackgroundImage) {
+        [SVProgressHUD showErrorWithStatus:@"请上传证件照正面"];
+        return;
+    } else {
+        faceImg = self.upIdFaceBtn.currentBackgroundImage;
+    }
+    if (!self.upIdBackBtn.currentBackgroundImage) {
+        [SVProgressHUD showErrorWithStatus:@"请上传证件照反面"];
+        return;
+    } else {
+        backImg = self.upIdBackBtn.currentBackgroundImage;
+    }
+    
+    dispatch_queue_t globalQuene = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_group_t group = dispatch_group_create();
+    
+    __block NSString *identity = @"";
+    __block NSString *hand = @"";
+    [SVProgressHUD showWithStatus:@"load..."];
+    dispatch_group_enter(group);
+    dispatch_async(globalQuene, ^{
+        [PickHttpManager.shared uploadPhone:API_Upload withParam:@[faceImg] withPregress:^(id  _Nonnull obj) {
+        } withSuccess:^(id  _Nonnull obj) {
+            dispatch_group_leave(group);
+            identity = obj;
+        } withFailure:^(NSError * _Nonnull err) {
+            dispatch_group_leave(group);
+            [SVProgressHUD dismiss];
+            [SVProgressHUD showErrorWithStatus:err.domain];
+        }];
+    });
+    
+    dispatch_group_enter(group);
+    dispatch_async(globalQuene, ^{
+        [PickHttpManager.shared uploadPhone:API_Upload withParam:@[backImg] withPregress:^(id  _Nonnull obj) {
+        } withSuccess:^(id  _Nonnull obj) {
+            dispatch_group_leave(group);
+            hand = obj;
+        } withFailure:^(NSError * _Nonnull err) {
+            dispatch_group_leave(group);
+            [SVProgressHUD dismiss];
+            [SVProgressHUD showErrorWithStatus:err.domain];
+        }];
+    });
+    
+    
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        [PickHttpManager.shared requestPOST:API_UserRealName withParam:@{
+            @"identity":identity,
+            @"hand":hand,
+            @"real_name":self.nameTfl.text,
+            @"card_id":self.idNumTfl.text,
+            @"country":self.isChina?@"1":@"2"
+        } withSuccess:^(id  _Nonnull obj) {
+            [SVProgressHUD dismiss];
+            [self.navigationController popViewControllerAnimated:YES];
+        } withFailure:^(NSError * _Nonnull err) {
+            [SVProgressHUD dismiss];
+            [SVProgressHUD showErrorWithStatus:err.domain];
+        }];
+    });
+    
 }
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark - UIImagePickerControllerDelegate
 

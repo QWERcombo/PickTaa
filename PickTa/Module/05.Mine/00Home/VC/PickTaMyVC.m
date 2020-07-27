@@ -30,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIView *myAVD;
 @property (weak, nonatomic) IBOutlet UIView *publishAVD;
 @property (weak, nonatomic) IBOutlet UIButton *myAVDBtn;
+@property (weak, nonatomic) IBOutlet UIView *levelView;
 
 @property (weak, nonatomic) IBOutlet UIButton *btn1;// 我的脉豆
 @property (weak, nonatomic) IBOutlet UILabel *titleBeen; // 脉豆标题
@@ -119,6 +120,9 @@
     [self wr_setNavBarTitleColor:[UIColor whiteColor]];
     [self wr_setNavBarShadowImageHidden:YES];
     
+    self.levelView.layer.cornerRadius = 14;
+    self.levelView.layer.borderWidth = 1;
+    self.levelView.layer.borderColor = COLOR_HEX_RGB(0xFFCB6E).CGColor;
     _rightNavBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [_rightNavBarButton setImage:[UIImage imageNamed:@"language_swicth"] forState:UIControlStateNormal];
     [_rightNavBarButton setTitle:kLocalizedString(@"chanage_laguage", @"语言切换 ") forState:UIControlStateNormal];

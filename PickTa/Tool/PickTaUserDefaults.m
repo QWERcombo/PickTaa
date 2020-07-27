@@ -26,7 +26,7 @@
 //    return @"3O7K8uPvtWUo0yNAUQgsnyM62DBlMPki";
 }
 + (void)g_cleanToken{
-    [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"g_token"];
+    [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"g_token"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 

@@ -43,9 +43,8 @@
 {
     __weak typeof(self) weakSelf = self;
     //    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-    
     tags = [NSMutableArray arrayWithArray:array];
-    coordinate = [[NSMutableArray alloc] initWithCapacity:0];
+    coordinate = [[NSMutableArray alloc] initWithCapacity:array.count];
     
     for (NSInteger i = 0; i < tags.count; i ++) {
         UIView *view = [tags objectAtIndex:i];
@@ -84,11 +83,6 @@
     
     
     [weakSelf timerStart];
-    
-
-    
-    
-    
     
 }
 

@@ -173,7 +173,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-     PTHYDItemModel *model = self.list[indexPath.row];
+    PTHYDItemModel *model = self.list[indexPath.row];
     PTMyMHGRowTVC *cell = [tableView dequeueReusableCellWithIdentifier:@"PTMyMHGRowTVC"];
     cell.mhgIcon.image = [UIImage imageNamed:@"myfabu_huoyuedu_icon2"];
     cell.titleLbl.text =  model.info;
@@ -242,15 +242,15 @@
         self.headView.titleLbl21.textColor = COLOR_HEX_RGB(0xFFFFFF);
         self.headView.titleLbl22.textColor = COLOR_HEX_RGB(0xFFFFFF);
         self.headView.titleLbl31.textColor = COLOR_HEX_RGB(0xFFFFFF);
-        self.headView.titleLbl11.text = kLocalizedString(@"my_active", @"我的活跃度");
+        self.headView.titleLbl11.text = kLocalizedString(@"total_active", @"总活跃度");
         self.headView.valueLbl11.text = @"2";
         self.headView.titleLbl12.text = kLocalizedString(@"add_active", @"加成活跃度");
         self.headView.valueLbl12.text = @"2";
         self.headView.titleLbl21.text = kLocalizedString(@"base_active", @"基础活跃度");
         self.headView.valueLbl21.text = @"2";
-        self.headView.titleLbl22.text = kLocalizedString(@"max_active", @"大区活跃度");
+        self.headView.titleLbl22.text = kLocalizedString(@"max_active", @"大社区活跃度");
         self.headView.valueLbl22.text = @"2";
-        self.headView.titleLbl31.text = kLocalizedString(@"min_active", @"小区活跃度");
+        self.headView.titleLbl31.text = kLocalizedString(@"min_active", @"小社区活跃度");
         self.headView.valueLbl31.text = @"2";
         self.headView.headBgImgView.image = [UIImage imageNamed:@"mine_huoyuedu_head_bg"];
         

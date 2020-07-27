@@ -38,6 +38,7 @@
             [self.view makeToast:error.domain duration:1.f position:[NSValue valueWithCGPoint:self.view.toastPoint]];
         } else {
             [self.view makeToast:(NSString *)x duration:1.f position:[NSValue valueWithCGPoint:self.view.toastPoint]];
+            [SVProgressHUD showSuccessWithStatus:@"修改成功"];
             [self.navigationController popViewControllerAnimated:YES];
         }
     }];

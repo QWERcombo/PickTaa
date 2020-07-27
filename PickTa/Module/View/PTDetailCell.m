@@ -24,25 +24,13 @@
     self.icon.layer.cornerRadius = 4;
     self.icon.layer.masksToBounds = YES;
     
-    self.quanBtn.layer.cornerRadius = 6;
-    self.quanBtn.layer.masksToBounds = YES;
-    self.shangBtn.layer.cornerRadius = 6;
-    self.shangBtn.layer.masksToBounds = YES;
-    self.shangBtn.backgroundColor = COLOR_HEX_RGB(0xE8E8E8);
-    self.shangBtn.enabled = NO;
-    [self.shangBtn setTitleColor:COLOR_HEX_RGB(0x999999) forState:UIControlStateNormal];
     self.timerDown = 10;
-    
     @weakify(self);
     [self.photo addGestureRecognizer:({
         UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] init];
         [tapGes.rac_gestureSignal subscribeNext:^(__kindof UIGestureRecognizer * _Nullable x) {
             @strongify(self);
-            NSString *images = self.model.images;
-            images = [images stringByReplacingOccurrencesOfString:@"[" withString:@""];
-            images = [images stringByReplacingOccurrencesOfString:@"]" withString:@""];
-            images = [images stringByReplacingOccurrencesOfString:@"\\" withString:@""];
-            NSArray *imagesArr = [images componentsSeparatedByString:@","];
+            NSArray *imagesArr = [NSJSONSerialization JSONObjectWithData:[self.model.images dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
             SDPhotoBrowser *browser = [[SDPhotoBrowser alloc] init];
             browser.currentImageIndex = 0;
             browser.sourceImagesContainerView = nil;
@@ -67,38 +55,23 @@
     self.name.text = model.user.nickname;
     self.desc.text = model.content;
     [self.icon sd_setImageWithURL:[NSURL URLWithString:model.user.avatar]];
-    [self.photo sd_setImageWithURL:[NSURL URLWithString:model.img]];
+    NSArray *imagesArr = [NSJSONSerialization JSONObjectWithData:[self.model.images dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+    if (imagesArr.count) {
+        [self.photo sd_setImageWithURL:[NSURL URLWithString:imagesArr.firstObject]];
+    }
     
     [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 }
-
-
-- (IBAction)lingQuanClick:(UIButton *)sender {
-    
-    [[PickHttpManager shared]requestPOST:API_AdvertCollectCouponsNew withParam:@{@"id":@(self.model.id)} withSuccess:^(id  _Nonnull obj) {
-        [SVProgressHUD showSuccessWithStatus:@"领取成功"];
-    } withFailure:^(NSError * _Nonnull err) {
-        [SVProgressHUD showErrorWithStatus:err.domain];
-    }];
-}
-- (IBAction)daShangClick:(UIButton *)sender {
-    [SVProgressHUD showInfoWithStatus:@"打赏"];
-}
-
 - (IBAction)timerClick:(UIButton *)sender {
 }
 
 
 #pragma mark - SDPhotoBrowserDelegate
 - (UIImage *)photoBrowser:(SDPhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index {
-    return self.photo.image;
+    return nil;
 }
 - (NSURL *)photoBrowser:(SDPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index {
-    NSString *images = self.model.images;
-    images = [images stringByReplacingOccurrencesOfString:@"[" withString:@""];
-    images = [images stringByReplacingOccurrencesOfString:@"]" withString:@""];
-    images = [images stringByReplacingOccurrencesOfString:@"\\" withString:@""];
-    NSArray *imagesArr = [images componentsSeparatedByString:@","];
+    NSArray *imagesArr = [NSJSONSerialization JSONObjectWithData:[self.model.images dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
     return [NSURL URLWithString:[imagesArr objectAtIndex:index]];
 }
 
@@ -116,9 +89,9 @@
     
     if (self.timerDown == 0) {
         self.countDown.text = @"可领取";
-        self.shangBtn.backgroundColor = COLOR_HEX_RGB(0xFF4747);
-        self.shangBtn.enabled = YES;
-        [self.shangBtn setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(avaliableToClickQuan)]) {
+            [self.delegate avaliableToClickQuan];
+        }
         [self.timer invalidate];
     }
 }

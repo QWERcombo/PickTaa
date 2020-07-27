@@ -10,6 +10,7 @@
 #import "PTPublishHeadTVC.h"
 #import "PTPublishContentTVC.h"
 #import "PTPublishCoverTVC.h"
+#import "PickTaPsdView.h"
 
 @interface PCMinePublishAdVC () <UITableViewDelegate, UITableViewDataSource, RootCellDelegate>
 @property (nonatomic, strong) NSMutableArray *dataList;
@@ -146,7 +147,7 @@
 - (void)configSubmit {
     [self.publishBtn setTitle:kLocalizedString(@"release", @"发布") forState:UIControlStateNormal];
     [[self.publishBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-        if (!self.cell1.titleLbl.text.length) {
+        if (!self.cell1.inputTfl.text.length) {
             [SVProgressHUD showErrorWithStatus:@"请输入标题"];
             return;
         }
@@ -154,7 +155,7 @@
             [SVProgressHUD showErrorWithStatus:@"请输入发布内容"];
             return;
         }
-        if (!self.cell2.dataList.count) {
+        if (!(self.cell2.dataList.count-1)) {
             [SVProgressHUD showErrorWithStatus:@"请选择图片"];
             return;
         }
@@ -162,51 +163,46 @@
             [SVProgressHUD showErrorWithStatus:@"请选择封面图片"];
             return;
         }
-        
-         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"请输入支付密码" preferredStyle:UIAlertControllerStyleAlert];
-         //增加确定按钮；
-         [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-           //获取第1个输入框；
-           UITextField *payTextField = alertController.textFields.firstObject;
-           
-           __block NSString *images = @"";
-           __block NSString *image = @"";
-           [SVProgressHUD showWithStatus:@"loading..."];
-           [[PickHttpManager shared] uploadPhone:API_Upload withParam:self.cell2.dataList withPregress:^(id  _Nonnull obj) {
-           } withSuccess:^(id  _Nonnull obj) {
-               images = obj;
-               [[PickHttpManager shared] uploadPhone:API_Upload withParam:@[self.cell3.coverImg] withPregress:^(id  _Nonnull obj) {
-               } withSuccess:^(id  _Nonnull obj) {
-                   image = obj;
-                   [[PickHttpManager shared] requestPOST:API_AdvertPublish withParam:@{@"title":self.cell1.titleLbl.text,@"content":self.cell2.inputTxt.text,@"image":image,@"images":images,@"pay_password":payTextField.text} withSuccess:^(id  _Nonnull obj) {
-                       [SVProgressHUD dismiss];
-                       [SVProgressHUD showSuccessWithStatus:@"发布成功"];
-                       [self.navigationController popViewControllerAnimated:YES];
-                   } withFailure:^(NSError * _Nonnull err) {
-                       [SVProgressHUD dismiss];
-                       [SVProgressHUD showErrorWithStatus:err.domain];
-                   }];
-               } withFailure:^(NSError * _Nonnull err) {
-                   [SVProgressHUD dismiss];
-                   [SVProgressHUD showErrorWithStatus:err.domain];
-               }];
-           } withFailure:^(NSError * _Nonnull err) {
-               [SVProgressHUD dismiss];
-               [SVProgressHUD showErrorWithStatus:err.domain];
-           }];
-           
-         }]];
+
+        PickTaPsdView *psdView = [[PickTaPsdView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        @weakify(self);
+        [psdView setFinishedBlock:^(NSString * _Nonnull paypsd) {
+            @strongify(self);
+            __block NSString *images = @"";
+            __block NSString *image = @"";
+            [SVProgressHUD showWithStatus:@"loading..."];
+            [[PickHttpManager shared] uploadPhone:API_Upload withParam:self.cell2.dataList withPregress:^(id  _Nonnull obj) {
+            } withSuccess:^(id  _Nonnull obj) {
+                images = obj;
+                [[PickHttpManager shared] uploadPhone:API_Upload withParam:@[self.cell3.coverImg] withPregress:^(id  _Nonnull obj) {
+                } withSuccess:^(id  _Nonnull obj) {
+                    image = obj;
+                    [[PickHttpManager shared] requestPOST:API_AdvertPublish withParam:@{
+                        @"title":self.cell1.inputTfl.text,
+                        @"content":self.cell2.inputTxt.text,
+                        @"image":image,
+                        @"images":images,
+                        @"pay_password":paypsd} withSuccess:^(id  _Nonnull obj) {
+                        [SVProgressHUD dismiss];
+                        [SVProgressHUD showSuccessWithStatus:@"发布成功"];
+                        [self.navigationController popViewControllerAnimated:YES];
+                    } withFailure:^(NSError * _Nonnull err) {
+                        [SVProgressHUD dismiss];
+                        [SVProgressHUD showErrorWithStatus:err.domain];
+                    }];
+                } withFailure:^(NSError * _Nonnull err) {
+                    [SVProgressHUD dismiss];
+                    [SVProgressHUD showErrorWithStatus:err.domain];
+                }];
+            } withFailure:^(NSError * _Nonnull err) {
+                [SVProgressHUD dismiss];
+                [SVProgressHUD showErrorWithStatus:err.domain];
+            }];
+        }];
+        [UIApplication.sharedApplication.keyWindow addSubview:psdView];
          
-         //增加取消按钮；
-         [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil]];
-         
-         //定义第一个输入框；
-         [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-           textField.placeholder = @"请输入支付密码";
-         }];
-         [self presentViewController:alertController animated:true completion:nil];
     }];
-    
+
 }
 
 #pragma mark - Notification

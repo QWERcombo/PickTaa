@@ -28,7 +28,8 @@
 }
 
 - (void)setupUI {
-    self.navigationItem.title = kLocalizedString(@"Home", @"Home");
+//    self.navigationItem.title = kLocalizedString(@"home", @"首页");
+    self.navigationItem.title = @"HOME";
     [self wr_setNavBarBarTintColor:[UIColor clearColor]];
     [self wr_setNavBarTitleColor:[UIColor whiteColor]];
     [self wr_setNavBarShadowImageHidden:YES];
@@ -117,11 +118,8 @@
 //    button3.frame = CGRectMake((SCREEN_WIDTH - 60.f) / 2.f, platformView.top - 15 - 20, 60, 15);
     [button3 addTarget:self action:@selector(onButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button3];
-
-//    self.sphereView = [[DSphereView alloc] initWithFrame:CGRectMake(50, button1.bottom + 10, kScreenWidth-100, kScreenWidth-30)];
-//    [self.view addSubview:self.sphereView];
     
-    NSArray *arr = @[@"换一批",@"急速匹配",@"精准查找",@"群聊派对"];
+    NSArray *arr = @[kLocalizedString(@"change_batch", @"换一批"),kLocalizedString(@"speed_match", @"极速匹配"),kLocalizedString(@"precise_search", @"精准查找"),kLocalizedString(@"interest_tribe", @"兴趣部落")];
     UIView *subView = nil;
     for (int i=0; i<arr.count; i++) {
         
@@ -217,6 +215,8 @@
     //命令结束
     [self.homeVM.userHomeCommand.executionSignals.switchToLatest subscribeNext:^(id _Nullable x) {
         @strongify(self);
+        [self.homeViewArray removeAllObjects];
+        [self.sphereView removeAllSubviews];
         self.listArray = x;
         if (!Array_IsEmpty(self.listArray)) {
             for (NSInteger i = 0; i < self.listArray.count; i++) {

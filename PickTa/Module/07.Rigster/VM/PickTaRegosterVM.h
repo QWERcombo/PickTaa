@@ -25,8 +25,11 @@ NS_ASSUME_NONNULL_BEGIN
 // 标签列表
 @property (nonatomic, strong) RACCommand *tagCommand;
 // 获取注册参数
-@property (nonatomic,strong) NSDictionary * _Nullable tagParam;
+@property (nonatomic, strong) NSDictionary * _Nullable tagParam;
 
+// 设置昵称、性别，标签
+@property (nonatomic, strong) RACCommand *usernameSetCommand;
+@property (nonatomic, strong) NSDictionary * _Nullable usernameSetParam;
 @end
 
 NS_ASSUME_NONNULL_END

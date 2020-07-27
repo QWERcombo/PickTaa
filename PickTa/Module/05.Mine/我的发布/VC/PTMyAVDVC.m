@@ -39,10 +39,12 @@
 - (void)refreshData {
     
     [[PickHttpManager shared] requestPOST:API_AdvertMyPublish withParam:@{} withSuccess:^(id  _Nonnull obj) {
+        [self.contentTableView.mj_header endRefreshing];
         [self.dataArray removeAllObjects];
         [self.dataArray addObjectsFromArray:[NSArray modelArrayWithClass:[PickTaMyAdModel class] json:obj[@"data"]]];
         [self.contentTableView reloadData];
     } withFailure:^(NSError * _Nonnull err) {
+        [self.contentTableView.mj_header endRefreshing];
         [SVProgressHUD showWithStatus:err.domain];
     }];
 }
@@ -118,7 +120,7 @@
             cell.titleRightLbl.hidden = NO;
             cell.valueRightLbl.hidden = NO;
             cell.titleRightLbl.text = @"获得打赏：";
-            cell.valueRightLbl.text = [NSString stringWithFormat:@"%@脉豆", @"10"];
+            cell.valueRightLbl.text = [NSString stringWithFormat:@"%@脉豆", @"0"];
 
             return cell;
         }

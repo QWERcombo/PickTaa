@@ -87,6 +87,11 @@
         cell = [[NSBundle mainBundle]loadNibNamed:@"PTCallViews" owner:nil options:nil].firstObject;
     }
     cell.model = self.listData[indexPath.row];
+    @weakify(self);
+    [[[cell.inAvdBtn rac_signalForControlEvents:UIControlEventTouchUpInside] takeUntil:cell.rac_prepareForReuseSignal] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        @strongify(self);
+        [self tableView:tableView didSelectRowAtIndexPath:indexPath];
+    }];
     return cell;
 }
 

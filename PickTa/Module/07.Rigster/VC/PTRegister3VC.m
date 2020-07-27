@@ -10,12 +10,14 @@
 #import "GBTagListView.h"
 #import "PickTaRootViewController.h"
 #import "PickTaRegosterVM.h"
+#import "PTTagModel.h"
 
 @interface PTRegister3VC () {
     NSMutableArray *strArray;   //保存标签数据的数组
     GBTagListView *_tempTag;
     GBTagListView *tagList;
     UIButton *btn;
+    NSMutableArray *selectTagArray;
 }
 @property (nonatomic, strong) PickTaRegosterVM *loginVM;
 @end
@@ -32,36 +34,38 @@
     [self wr_setNavBarShadowImageHidden:YES];
     self.view.backgroundColor = UIColor.whiteColor;
     @weakify(self)
-//    WS(weakSelf)
+    //    WS(weakSelf)
     strArray = NSMutableArray.new;
-//    [strArray addObjectsFromArray:@[@"大好人", @"自定义流式标签", @"github", @"code4app", @"已婚", @"阳光开朗", @"慷慨大方帅气身材好", @"仗义", @"值得一交的朋友", @"值得一交的朋友", @"值得的交", @"值得一交的朋友", @"值得一交的朋友", @"大好人", @"自定义流式标签", @"github", @"code4app", @"已婚"]];
-
-       tagList = [[GBTagListView alloc]initWithFrame:CGRectMake(0, NAV_HEIGHT+10, SCREEN_WIDTH, 0)];
-       tagList.canTouch = YES;
-       /**可以控制允许点击的标签数 */
-       tagList.canTouchNum = 5;
-       /**控制是否是单选模式 */
-       tagList.isSingleSelect = NO;
-       tagList.signalTagColor = [UIColor whiteColor];
-       [tagList setTagWithTagArray:strArray];
-       [tagList setDidselectItemBlock:^(NSArray *arr) {
-//           NSLog(@"选中的标签%@", arr);
-//           [self->_tempTag removeFromSuperview];
-//           GBTagListView *selectItems = [[GBTagListView alloc]initWithFrame:CGRectMake(0, tagList.frame.origin.y + tagList.frame.size.height + 40, SCREEN_WIDTH, 0)];
-//           selectItems.signalTagColor = [UIColor whiteColor];
-//           selectItems.canTouch = NO;
-//           [selectItems setMarginBetweenTagLabel:20 AndBottomMargin:20];
-//           [selectItems setTagWithTagArray:arr];
-//           [weakSelf.view addSubview:selectItems];
-//           self->_tempTag = selectItems;
-       }];
-
-       [self.view addSubview:tagList];
-//       UILabel *tip = [[UILabel alloc]initWithFrame:CGRectMake(0, tagList.frame.origin.y + tagList.frame.size.height + 10, SCREEN_WIDTH, 20)];
-//       tip.text = @"选中的标签是：";
-//       tip.textAlignment = NSTextAlignmentCenter;
-//       tip.font = [UIFont boldSystemFontOfSize:18];
-//       [self.view addSubview:tip];
+    selectTagArray = [NSMutableArray array];
+    //    [strArray addObjectsFromArray:@[@"大好人", @"自定义流式标签", @"github", @"code4app", @"已婚", @"阳光开朗", @"慷慨大方帅气身材好", @"仗义", @"值得一交的朋友", @"值得一交的朋友", @"值得的交", @"值得一交的朋友", @"值得一交的朋友", @"大好人", @"自定义流式标签", @"github", @"code4app", @"已婚"]];
+    
+    tagList = [[GBTagListView alloc]initWithFrame:CGRectMake(0, NAV_HEIGHT+10, SCREEN_WIDTH, 0)];
+    tagList.canTouch = YES;
+    /**可以控制允许点击的标签数 */
+    tagList.canTouchNum = 5;
+    /**控制是否是单选模式 */
+    tagList.isSingleSelect = NO;
+    tagList.signalTagColor = [UIColor whiteColor];
+    [tagList setTagWithTagArray:strArray];
+    [tagList setDidselectItemBlock:^(NSArray *arr) {
+        NSLog(@"选中的标签%@", arr);
+        [self->selectTagArray removeAllObjects];
+        [self->selectTagArray addObjectsFromArray:arr];
+        //           GBTagListView *selectItems = [[GBTagListView alloc]initWithFrame:CGRectMake(0, tagList.frame.origin.y + tagList.frame.size.height + 40, SCREEN_WIDTH, 0)];
+        //           selectItems.signalTagColor = [UIColor whiteColor];
+        //           selectItems.canTouch = NO;
+        //           [selectItems setMarginBetweenTagLabel:20 AndBottomMargin:20];
+        //           [selectItems setTagWithTagArray:arr];
+        //           [weakSelf.view addSubview:selectItems];
+        //           self->_tempTag = selectItems;
+    }];
+    
+    [self.view addSubview:tagList];
+    //       UILabel *tip = [[UILabel alloc]initWithFrame:CGRectMake(0, tagList.frame.origin.y + tagList.frame.size.height + 10, SCREEN_WIDTH, 20)];
+    //       tip.text = @"选中的标签是：";
+    //       tip.textAlignment = NSTextAlignmentCenter;
+    //       tip.font = [UIFont boldSystemFontOfSize:18];
+    //       [self.view addSubview:tip];
     
     btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake((SCREEN_WIDTH-80)/2.f, tagList.frame.origin.y + tagList.frame.size.height + 20, 80, 20);
@@ -84,18 +88,18 @@
     [self.view addSubview:btn1];
     
     //提示框，可有可无
-       [[self.loginVM.tagCommand.executing skip:1] subscribeNext:^(NSNumber * _Nullable x) {
-           if([x isEqualToNumber:@(YES)])
-               [SVProgressHUD showWithStatus:@""];
-           else
-               [SVProgressHUD dismiss];
-       }];
+    [[self.loginVM.tagCommand.executing skip:1] subscribeNext:^(NSNumber * _Nullable x) {
+        if([x isEqualToNumber:@(YES)])
+            [SVProgressHUD showWithStatus:@""];
+        else
+            [SVProgressHUD dismiss];
+    }];
     [self.loginVM.tagCommand.executionSignals.switchToLatest subscribeNext:^(id  _Nullable x) {
         if ([x isKindOfClass:[NSArray class]]) {
             @strongify(self);
-                 [self->strArray removeAllObjects];
-                 [self->strArray addObjectsFromArray:x];
-                 [self->tagList setTagWithTagArray:self->strArray];
+            [self->strArray removeAllObjects];
+            [self->strArray addObjectsFromArray:x];
+            [self->tagList setTagWithTagArray:self->strArray];
             self->btn.y = self->tagList.frame.origin.y + self->tagList.frame.size.height + 20;
         }
     }];
@@ -108,18 +112,39 @@
 
 // 进入
 - (void)onChangeTagBtnAction1 {
-//    [self.loginVM.tagCommand execute:nil];
-    [UIApplication.sharedApplication.keyWindow setRootViewController:PickTaRootViewController.new];
+    NSMutableString *tagStr = [NSMutableString string];
+    if (!selectTagArray.count) {
+        [SVProgressHUD showErrorWithStatus:@"请选择标签"];
+        return;
+    } else {
+        for (PTTagModel *tagModel in selectTagArray) {
+            [tagStr appendString:tagModel.name];
+            [tagStr appendString:@","];
+        }
+    }
+    
+    [self.loginVM.usernameSetCommand.executionSignals.switchToLatest subscribeNext:^(id  _Nullable x) {
+        if ([x isKindOfClass:[NSError class]]) {
+            [SVProgressHUD dismiss];
+            [SVProgressHUD showErrorWithStatus:((NSError *)x).domain];
+        } else if ([x intValue] == -1) {
+            [SVProgressHUD showWithStatus:@"load..."];
+        } else {
+            [UIApplication.sharedApplication.keyWindow setRootViewController:PickTaRootViewController.new];
+        }
+    }];
+    self.loginVM.usernameSetParam = @{@"nickname":self.nickname,@"sex":self.sex,@"tag":[tagStr substringToIndex:tagStr.length-1]};
+    [self.loginVM.usernameSetCommand execute:nil];
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

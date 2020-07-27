@@ -104,12 +104,12 @@
 
 
 - (UIButton *)set_leftButton {
-    UIButton *left_button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    UIButton *left_button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 40)];
     NSString *backImageName = self.navigationController.viewControllers.count > 1 ? @"common_back" : @"";
     [left_button setImage:[UIImage imageNamed:backImageName] forState:UIControlStateNormal];
     left_button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    left_button.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
-    left_button.hitTestEdgeInsets = UIEdgeInsetsMake(-15, -15, -15, -10);
+//    left_button.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
+//    left_button.hitTestEdgeInsets = UIEdgeInsetsMake(-15, -15, -15, -10);
 
     return left_button;
 }

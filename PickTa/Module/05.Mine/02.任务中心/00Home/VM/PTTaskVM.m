@@ -26,7 +26,8 @@
                 [subscriber sendNext:array];
                 [subscriber sendCompleted];
             } withFailure:^(NSError * _Nonnull err) {
-                
+                [subscriber sendNext:err];
+                [subscriber sendCompleted];
             }];
             
             return nil;

@@ -358,8 +358,8 @@
 "total_active" = "总活跃度";
 "base_active" = "基础活跃度";
 "add_active" = "加成活跃度";
-"max_active" = "大区活跃度";
-"min_active" = "小区活跃度";
+"max_active" = "大社区活跃度";
+"min_active" = "小社区活跃度";
 "my_active_list" = "我的活跃度记录";
 
 
@@ -385,7 +385,7 @@
 "comletion_gain" = "完成收益";
 
 "friend_num" = "好友人数";
-"comm_fans" = "社群粉丝";
+"comm_fans" = "社区粉丝";
 "real_friend" = "实名好友";
 "colbal_dividend" = "全球分红";
 "friend_list" = "好友列表";
@@ -492,6 +492,7 @@
 
 "speed_match" = "极速匹配";
 "precise_search" = "精准查找";
+"interest_tribe" = "兴趣部落";
 
 "login" = "登录";
 

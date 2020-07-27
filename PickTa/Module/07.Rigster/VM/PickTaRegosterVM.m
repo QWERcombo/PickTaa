@@ -68,6 +68,20 @@
             return nil;
         }];
     }];
+    self.usernameSetCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+        return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+            [[PickHttpManager shared]requestPOST:API_UserNameSet withParam:self.usernameSetParam withPregress:^(id  _Nonnull obj) {
+                [subscriber sendNext:@"-1"];
+            } withSuccess:^(id  _Nonnull obj) {
+                [subscriber sendNext:obj];
+                [subscriber sendCompleted];
+            } withFailure:^(NSError * _Nonnull err) {
+                [subscriber sendNext:err];
+                [subscriber sendCompleted];
+            }];
+            return nil;
+        }];
+    }];
 }
 
 @end

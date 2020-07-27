@@ -56,7 +56,32 @@
                 self.myTGBLHeadTVC.titleLbl12.text = model.real_num;
                 self.myTGBLHeadTVC.titleLbl22.text = model.union_num;
                 self.myTGBLHeadTVC.titleLbl32.text = model.union_dou;
+                self.myTGBLHeadTVC.levelLLbl.text = model.level_name;
                 [self.myTGBLHeadTVC.profileImgView sd_setImageWithURL:[NSURL URLWithString:[NSUserDefaults.standardUserDefaults valueForKey:@"p_avatar"]]];
+                NSString *chartS = [model.level_name substringFromIndex:model.level_name.length-1];
+                if (chartS.intValue == 1) {
+                    self.myTGBLHeadTVC.wjxImgView2.hidden = YES;
+                    self.myTGBLHeadTVC.wjxImgView3.hidden = YES;
+                    self.myTGBLHeadTVC.wjxImgView4.hidden = YES;
+                    self.myTGBLHeadTVC.wjxImgView5.hidden = YES;
+                } else if (chartS.intValue == 2) {
+                    self.myTGBLHeadTVC.wjxImgView3.hidden = YES;
+                    self.myTGBLHeadTVC.wjxImgView4.hidden = YES;
+                    self.myTGBLHeadTVC.wjxImgView5.hidden = YES;
+                } else if (chartS.intValue == 3) {
+                    self.myTGBLHeadTVC.wjxImgView4.hidden = YES;
+                    self.myTGBLHeadTVC.wjxImgView5.hidden = YES;
+                } else if (chartS.intValue == 4) {
+                    self.myTGBLHeadTVC.wjxImgView5.hidden = YES;
+                } else if (chartS.intValue == 5) {
+                    
+                } else {
+                    self.myTGBLHeadTVC.wjxImgView1.hidden = YES;
+                    self.myTGBLHeadTVC.wjxImgView2.hidden = YES;
+                    self.myTGBLHeadTVC.wjxImgView3.hidden = YES;
+                    self.myTGBLHeadTVC.wjxImgView4.hidden = YES;
+                    self.myTGBLHeadTVC.wjxImgView5.hidden = YES;
+                }
                 [self.list removeAllObjects];
                 [self.list addObjectsFromArray:model.data];
             } else {
@@ -98,7 +123,7 @@
 - (void)requestData {
     self.vm.param1 = @{
         @"limit": @(kPageDefaultSizeValue),
-        @"order": @"asc", // asc desc
+        @"order": @"desc", // asc desc
         kPageIndexKey: @(_currentPage)
     };
     [self.tableView.mj_header endRefreshing];

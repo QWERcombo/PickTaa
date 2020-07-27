@@ -33,7 +33,7 @@
                 [PickTaUserDefaults g_setPSW:self.loginParam[@"password"]];
                 [[PickHttpManager shared]setHttpHeaderValue:[PickTaUserDefaults g_getToken] forHTTPHeaderField:@"Authorization"];
                 [self requestProfile];
-//                [[NSNotificationCenter defaultCenter] postNotificationName:LoginSuccess object:nil];
+
                 [subscriber sendNext:obj];
                 [subscriber sendCompleted];
             } withFailure:^(NSError * _Nonnull err) {

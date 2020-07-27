@@ -23,7 +23,7 @@
 - (void)initCommand {
     self.command1 = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
         return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-            [[PickHttpManager shared] requestPOST:API_FindPw withParam:self.param1 withSuccess:^(id  _Nonnull obj) {
+            [[PickHttpManager shared] requestPOST:API_UserEditPw withParam:self.param1 withSuccess:^(id  _Nonnull obj) {
                 [subscriber sendNext:obj];
                 [subscriber sendCompleted];
             } withFailure:^(NSError * _Nonnull err) {

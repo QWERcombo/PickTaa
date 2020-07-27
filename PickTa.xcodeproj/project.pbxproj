@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04858AC124CEB98C00B68A93 /* PickTaCallRewardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04858ABF24CEB98C00B68A93 /* PickTaCallRewardVC.m */; };
+		04858AC224CEB98C00B68A93 /* PickTaCallRewardVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04858AC024CEB98C00B68A93 /* PickTaCallRewardVC.xib */; };
+		04858AC524CEC21400B68A93 /* PickTaPsdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04858AC424CEC21400B68A93 /* PickTaPsdView.m */; };
+		04858AC724CEC23A00B68A93 /* PickTaPsdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04858AC624CEC23A00B68A93 /* PickTaPsdView.xib */; };
+		04858ACD24CEC45300B68A93 /* UIImage+SLAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 04858AC924CEC45300B68A93 /* UIImage+SLAdd.m */; };
+		04858ACE24CEC45300B68A93 /* SLPasswordInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04858ACC24CEC45300B68A93 /* SLPasswordInputView.m */; };
 		1E09398A24B7FB6000AFBE5A /* PTTgwAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E09398924B7FB6000AFBE5A /* PTTgwAlertView.m */; };
 		1E09398C24B7FB6F00AFBE5A /* PTTgwAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E09398B24B7FB6F00AFBE5A /* PTTgwAlertView.xib */; };
 		1E09399324B8142F00AFBE5A /* PTMyMaidouVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E09399124B8142F00AFBE5A /* PTMyMaidouVC.m */; };
@@ -335,6 +341,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04858ABE24CEB98C00B68A93 /* PickTaCallRewardVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PickTaCallRewardVC.h; sourceTree = "<group>"; };
+		04858ABF24CEB98C00B68A93 /* PickTaCallRewardVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PickTaCallRewardVC.m; sourceTree = "<group>"; };
+		04858AC024CEB98C00B68A93 /* PickTaCallRewardVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickTaCallRewardVC.xib; sourceTree = "<group>"; };
+		04858AC324CEC21400B68A93 /* PickTaPsdView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PickTaPsdView.h; sourceTree = "<group>"; };
+		04858AC424CEC21400B68A93 /* PickTaPsdView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PickTaPsdView.m; sourceTree = "<group>"; };
+		04858AC624CEC23A00B68A93 /* PickTaPsdView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickTaPsdView.xib; sourceTree = "<group>"; };
+		04858AC924CEC45300B68A93 /* UIImage+SLAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SLAdd.m"; sourceTree = "<group>"; };
+		04858ACA24CEC45300B68A93 /* SLPasswordInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLPasswordInputView.h; sourceTree = "<group>"; };
+		04858ACB24CEC45300B68A93 /* UIImage+SLAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SLAdd.h"; sourceTree = "<group>"; };
+		04858ACC24CEC45300B68A93 /* SLPasswordInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLPasswordInputView.m; sourceTree = "<group>"; };
 		1E09398824B7FB6000AFBE5A /* PTTgwAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTTgwAlertView.h; sourceTree = "<group>"; };
 		1E09398924B7FB6000AFBE5A /* PTTgwAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTTgwAlertView.m; sourceTree = "<group>"; };
 		1E09398B24B7FB6F00AFBE5A /* PTTgwAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PTTgwAlertView.xib; sourceTree = "<group>"; };
@@ -941,6 +957,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04858AC824CEC45300B68A93 /* SLPasswordInputView */ = {
+			isa = PBXGroup;
+			children = (
+				04858ACA24CEC45300B68A93 /* SLPasswordInputView.h */,
+				04858ACC24CEC45300B68A93 /* SLPasswordInputView.m */,
+				04858ACB24CEC45300B68A93 /* UIImage+SLAdd.h */,
+				04858AC924CEC45300B68A93 /* UIImage+SLAdd.m */,
+			);
+			path = SLPasswordInputView;
+			sourceTree = "<group>";
+		};
 		1E04EBFD24C158A800341104 /* Header */ = {
 			isa = PBXGroup;
 			children = (
@@ -2056,6 +2083,9 @@
 				FBA9075F249BB826008CCBF9 /* PickTaCallVC.m */,
 				FB8BEF32249CEEFB00B7F5F2 /* PickTaCallDetailVC.h */,
 				FB8BEF33249CEEFB00B7F5F2 /* PickTaCallDetailVC.m */,
+				04858ABE24CEB98C00B68A93 /* PickTaCallRewardVC.h */,
+				04858ABF24CEB98C00B68A93 /* PickTaCallRewardVC.m */,
+				04858AC024CEB98C00B68A93 /* PickTaCallRewardVC.xib */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -2243,6 +2273,7 @@
 		1ED7587324BD8FF600F22816 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04858AC824CEC45300B68A93 /* SLPasswordInputView */,
 				1ED7587424BD91C200F22816 /* PTPublishHeadTVC.h */,
 				1ED7587524BD91C200F22816 /* PTPublishHeadTVC.m */,
 				1ED7587624BD91C200F22816 /* PTPublishHeadTVC.xib */,
@@ -2255,6 +2286,9 @@
 				1ED7588324BDC17A00F22816 /* PTPublishImgAddCVC.h */,
 				1ED7588424BDC17A00F22816 /* PTPublishImgAddCVC.m */,
 				1ED7588524BDC17A00F22816 /* PTPublishImgAddCVC.xib */,
+				04858AC324CEC21400B68A93 /* PickTaPsdView.h */,
+				04858AC424CEC21400B68A93 /* PickTaPsdView.m */,
+				04858AC624CEC23A00B68A93 /* PickTaPsdView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3222,6 +3256,7 @@
 				FB95B78E24A63730000EA367 /* README.md in Resources */,
 				1ED1B5DF24B8808900647949 /* PTMyTGBLHeadTVC.xib in Resources */,
 				1E4266D824B7316B008A31B1 /* PTTgwNumInfoTVC.xib in Resources */,
+				04858AC724CEC23A00B68A93 /* PickTaPsdView.xib in Resources */,
 				FB0BAA272497CF420042DE07 /* img_tab_message_1.png in Resources */,
 				FB95B78024A6372F000EA367 /* MLEmoji_ExpressionImage.plist in Resources */,
 				FB0BAA1F2497CF420042DE07 /* green_lottie_tab_news.json in Resources */,
@@ -3234,6 +3269,7 @@
 				FBE467862497A29E00C9FE94 /* Main.storyboard in Resources */,
 				1ED7588724BDC17A00F22816 /* PTPublishImgAddCVC.xib in Resources */,
 				FB0BAA232497CF420042DE07 /* img_tab_home_0.png in Resources */,
+				04858AC224CEB98C00B68A93 /* PickTaCallRewardVC.xib in Resources */,
 				FBE09A19249CC52F006AE61F /* PTCallViews.xib in Resources */,
 				1EB4BC8624B739FF0075268A /* PTTgwHqjlHeadTVC.xib in Resources */,
 			);
@@ -3397,6 +3433,7 @@
 				FB9D474124A260B500D2FB19 /* PTContractsCell.m in Sources */,
 				FB0306E624986E51003B6C61 /* PickTaUserDefaults.m in Sources */,
 				1E4266D724B7316B008A31B1 /* PTTgwNumInfoTVC.m in Sources */,
+				04858ACD24CEC45300B68A93 /* UIImage+SLAdd.m in Sources */,
 				1E42661024B457AF008A31B1 /* XSWJVANSData+SPTMd5.m in Sources */,
 				FB9F95C024AF13A70033C9EA /* GKCover.m in Sources */,
 				1ED7584424BBFCF900F22816 /* PTMyPlatformQrcodeVC.m in Sources */,
@@ -3448,6 +3485,7 @@
 				56C4ED8224CDA23500A26A6A /* PickTaMyAdModel.m in Sources */,
 				FB0BAA332497D0040042DE07 /* PickTaRootViewController.m in Sources */,
 				FB0306E22497F728003B6C61 /* DHomeModel.m in Sources */,
+				04858AC124CEB98C00B68A93 /* PickTaCallRewardVC.m in Sources */,
 				FB95B79A24A63E9E000EA367 /* PTChatRecordContentVM.m in Sources */,
 				FB182A5A2498760C005B0F2D /* PickTaLoginVC.m in Sources */,
 				FB0BAA982497E8320042DE07 /* DHomeView.m in Sources */,
@@ -3468,6 +3506,7 @@
 				FB0CC20124B08EF400C483DB /* SDRefreshHeaderView.m in Sources */,
 				1ED7586024BD30FE00F22816 /* PEResizeControl.m in Sources */,
 				1E22537524CA79D0001444E8 /* PTHYDListModel.m in Sources */,
+				04858ACE24CEC45300B68A93 /* SLPasswordInputView.m in Sources */,
 				1E42662624B457AF008A31B1 /* XSWJVAULBCollectionViewFlowLayout.m in Sources */,
 				FB95B74824A636E3000EA367 /* UIView+SDAutoLayout.m in Sources */,
 				56C4ED7B24CD622300A26A6A /* RegisterDealVC.m in Sources */,
@@ -3558,6 +3597,7 @@
 				1EF4B6B724CBCD5900C87355 /* PTModifyLoginPwVM.m in Sources */,
 				FB023ED02499200800F1FD4F /* PickTaLoginVM.m in Sources */,
 				1E42661C24B457AF008A31B1 /* XSWJVANSString+BH.m in Sources */,
+				04858AC524CEC21400B68A93 /* PickTaPsdView.m in Sources */,
 				FB10EF3B249D007300CE402B /* PickTaNavigationController.m in Sources */,
 				1E9B3E7624CBBAF7000F9AD2 /* PTHelpCenterListModel.m in Sources */,
 				1E42660C24B457AF008A31B1 /* XSWJVAUIView+Visuals.m in Sources */,
