@@ -241,13 +241,6 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ykc-Os-6t2">
-                        <rect key="frame" x="18" y="108" width="348" height="348"/>
-                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="Ykc-Os-6t2" secondAttribute="height" multiplier="1:1" id="wo9-IA-xWQ"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4m-oh-Mrl">
                         <rect key="frame" x="18" y="78" width="348" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -280,41 +273,60 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="BIX-19-9FR">
+                        <rect key="frame" x="15" y="109" width="354" height="354"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="354" id="RB6-8g-KUe"/>
+                        </constraints>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="h6m-Ml-Swa">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <connections>
+                            <outlet property="dataSource" destination="SHZ-nA-dsM" id="QlL-Yg-OVe"/>
+                            <outlet property="delegate" destination="SHZ-nA-dsM" id="qcW-4u-rvi"/>
+                        </connections>
+                    </collectionView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="jt5-bC-ove" firstAttribute="centerX" secondItem="pdU-72-xgt" secondAttribute="centerX" id="1sV-eS-BHY"/>
-                    <constraint firstItem="Ykc-Os-6t2" firstAttribute="trailing" secondItem="J4m-oh-Mrl" secondAttribute="trailing" id="65K-u9-9x6"/>
+                    <constraint firstItem="BIX-19-9FR" firstAttribute="leading" secondItem="d8P-9X-cR5" secondAttribute="leading" constant="15" id="4NH-4c-Dit"/>
                     <constraint firstItem="J4m-oh-Mrl" firstAttribute="top" secondItem="jYV-eT-Y7S" secondAttribute="bottom" constant="18" id="7og-rG-x1a"/>
                     <constraint firstItem="SRn-Uu-0Ql" firstAttribute="bottom" secondItem="jYV-eT-Y7S" secondAttribute="bottom" constant="-3.5" id="Chk-qF-K7l"/>
+                    <constraint firstAttribute="bottom" secondItem="BIX-19-9FR" secondAttribute="bottom" constant="27" id="E1i-rq-KKx"/>
                     <constraint firstAttribute="trailing" secondItem="J4m-oh-Mrl" secondAttribute="trailing" constant="18" id="GBm-Fy-rEm"/>
                     <constraint firstItem="pdU-72-xgt" firstAttribute="top" secondItem="d8P-9X-cR5" secondAttribute="top" constant="7.5" id="JEd-c3-JNX"/>
                     <constraint firstItem="tzW-3a-RFr" firstAttribute="top" secondItem="jYV-eT-Y7S" secondAttribute="top" constant="4.5" id="JF5-sg-H86"/>
                     <constraint firstItem="jYV-eT-Y7S" firstAttribute="leading" secondItem="d8P-9X-cR5" secondAttribute="leading" constant="18" id="KxQ-gE-F2k"/>
                     <constraint firstItem="jt5-bC-ove" firstAttribute="bottom" secondItem="pdU-72-xgt" secondAttribute="centerY" constant="-3" id="L39-wn-RHT"/>
+                    <constraint firstAttribute="trailing" secondItem="BIX-19-9FR" secondAttribute="trailing" constant="15" id="Ll3-Wz-scl"/>
                     <constraint firstAttribute="trailing" secondItem="aat-fF-6NT" secondAttribute="trailing" constant="18" id="QOp-z6-ujT"/>
+                    <constraint firstItem="BIX-19-9FR" firstAttribute="top" secondItem="J4m-oh-Mrl" secondAttribute="bottom" constant="15" id="Qc8-XO-cjg"/>
                     <constraint firstItem="J4m-oh-Mrl" firstAttribute="leading" secondItem="d8P-9X-cR5" secondAttribute="leading" constant="18" id="QiJ-3u-9zE"/>
-                    <constraint firstItem="Ykc-Os-6t2" firstAttribute="top" secondItem="J4m-oh-Mrl" secondAttribute="bottom" constant="14" id="V6O-dy-6SO"/>
                     <constraint firstItem="HHd-QU-N4E" firstAttribute="top" secondItem="jt5-bC-ove" secondAttribute="bottom" id="XTf-7h-4vm"/>
                     <constraint firstItem="SRn-Uu-0Ql" firstAttribute="leading" secondItem="tzW-3a-RFr" secondAttribute="leading" id="YEf-oY-9Pu"/>
                     <constraint firstAttribute="trailing" secondItem="pdU-72-xgt" secondAttribute="trailing" id="cmA-br-rvy"/>
-                    <constraint firstItem="Ykc-Os-6t2" firstAttribute="leading" secondItem="J4m-oh-Mrl" secondAttribute="leading" id="d23-Wd-W0O"/>
                     <constraint firstItem="jYV-eT-Y7S" firstAttribute="top" secondItem="d8P-9X-cR5" secondAttribute="top" constant="18" id="iYa-Zf-g4S"/>
                     <constraint firstAttribute="bottom" secondItem="aat-fF-6NT" secondAttribute="bottom" constant="4" id="rEn-nP-mke"/>
                     <constraint firstItem="HHd-QU-N4E" firstAttribute="centerX" secondItem="jt5-bC-ove" secondAttribute="centerX" id="ryd-Pl-lRQ"/>
                     <constraint firstItem="tzW-3a-RFr" firstAttribute="leading" secondItem="jYV-eT-Y7S" secondAttribute="trailing" constant="6.5" id="x0n-CI-qSc"/>
-                    <constraint firstItem="aat-fF-6NT" firstAttribute="top" secondItem="Ykc-Os-6t2" secondAttribute="bottom" constant="10" id="xfG-mc-qSU"/>
                 </constraints>
             </tableViewCellContentView>
             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="callAction" destination="cy7-Ip-b0v" id="ssw-20-pZN"/>
+                <outlet property="collectionHeight" destination="RB6-8g-KUe" id="AZ4-JL-HIP"/>
+                <outlet property="collectionView" destination="BIX-19-9FR" id="aRW-D1-AQf"/>
                 <outlet property="countDown" destination="jt5-bC-ove" id="HlN-XL-IUE"/>
                 <outlet property="countDownBtn" destination="pdU-72-xgt" id="ijI-26-8IW"/>
                 <outlet property="date" destination="SRn-Uu-0Ql" id="kyK-58-Au6"/>
                 <outlet property="desc" destination="J4m-oh-Mrl" id="hVE-Wc-6jR"/>
+                <outlet property="flowLayout" destination="h6m-Ml-Swa" id="D2p-tN-Kwf"/>
                 <outlet property="icon" destination="jYV-eT-Y7S" id="gfQ-C0-6J1"/>
                 <outlet property="name" destination="tzW-3a-RFr" id="pmZ-m4-vqd"/>
-                <outlet property="photo" destination="Ykc-Os-6t2" id="dFv-pi-2ff"/>
                 <outlet property="quanAction" destination="q1t-4K-FPl" id="K7v-Ae-tN6"/>
                 <outlet property="shangAction" destination="Iza-KT-8gh" id="yfM-e5-3sH"/>
             </connections>

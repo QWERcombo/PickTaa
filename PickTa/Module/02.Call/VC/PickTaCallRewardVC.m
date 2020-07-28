@@ -7,7 +7,7 @@
 //
 
 #import "PickTaCallRewardVC.h"
-
+#import "PickTaPsdView.h"
 @interface PickTaCallRewardVC ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *showImg;
@@ -36,15 +36,21 @@
         [SVProgressHUD showErrorWithStatus:@"请输入打赏数量"];
         return;
     }
-    [PickHttpManager.shared requestPOST:API_AdvertRewardAvaert withParam:@{
-        @"id":@(self.model.id),
-        @"money":self.inputTF.text
-    } withSuccess:^(id  _Nonnull obj) {
-        [SVProgressHUD showSuccessWithStatus:@"打赏成功"];
-        [self.navigationController popViewControllerAnimated:YES];
-    } withFailure:^(NSError * _Nonnull err) {
-        [SVProgressHUD showErrorWithStatus:err.domain];
+    
+    PickTaPsdView *psdView = [[PickTaPsdView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    psdView.countLab.text = self.inputTF.text;
+    [psdView setFinishedBlock:^(NSString * _Nonnull paypsd) {
+        [PickHttpManager.shared requestPOST:API_AdvertRewardAvaert withParam:@{
+            @"id":@(self.model.id),
+            @"money":self.inputTF.text
+        } withSuccess:^(id  _Nonnull obj) {
+            [SVProgressHUD showSuccessWithStatus:@"打赏成功"];
+            [self.navigationController popViewControllerAnimated:YES];
+        } withFailure:^(NSError * _Nonnull err) {
+            [SVProgressHUD showErrorWithStatus:err.domain];
+        }];
     }];
+    [UIApplication.sharedApplication.keyWindow addSubview:psdView];
 }
 
 

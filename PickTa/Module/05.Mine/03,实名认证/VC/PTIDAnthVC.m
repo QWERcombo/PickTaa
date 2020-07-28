@@ -10,8 +10,10 @@
 #import "PECropViewController.h"
 #import <AVFoundation/AVFoundation.h>
 
-@interface PTIDAnthVC () <PECropViewControllerDelegate, UIImagePickerControllerDelegate>
+@interface PTIDAnthVC () <PECropViewControllerDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *contentTableView;
+@property (weak, nonatomic) IBOutlet UIView *imageView1;
+@property (weak, nonatomic) IBOutlet UIView *imageView2;
 
 @property (nonatomic, strong) UIImagePickerController *imagePickController;//拍照
 @property (nonatomic, strong) UIImage *headIconImg;// 临时保存
@@ -30,6 +32,8 @@
      "other_country" = "海外";
      */
     self.isChina = YES;
+    self.imageView1.hidden = YES;
+    self.imageView2.hidden = YES;
     self.title = kLocalizedString(@"auth", @"实名认证");
     self.countryTitleLbl.text = kLocalizedString(@"country", @"国家");
     self.countryLbl.text = kLocalizedString(@"china", @"中国");
@@ -54,11 +58,15 @@
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
         [alert addAction:[UIAlertAction actionWithTitle:kLocalizedString(@"china", @"中国") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             self.isChina = YES;
+            self.imageView1.hidden = YES;
+            self.imageView2.hidden = YES;
             self.countryLbl.text = kLocalizedString(@"china", @"中国");
             self.idTypeValueLbl.text = kLocalizedString(@"id_card", @"身份证");
         }]];
         [alert addAction:[UIAlertAction actionWithTitle:kLocalizedString(@"other_country", @"海外") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             self.isChina = false;
+            self.imageView1.hidden = NO;
+            self.imageView2.hidden = NO;
             self.countryLbl.text = kLocalizedString(@"other_country", @"海外");
             self.idTypeValueLbl.text = kLocalizedString(@"other_id_card", @"社会安全号");
         }]];
@@ -122,67 +130,86 @@
         [SVProgressHUD showErrorWithStatus:@"请输入证件号码"];
         return;
     }
-    if (!self.upIdFaceBtn.currentBackgroundImage) {
-        [SVProgressHUD showErrorWithStatus:@"请上传证件照正面"];
-        return;
+    if (!self.isChina) {
+        /** 海外 */
+        if (!self.upIdFaceBtn.currentBackgroundImage) {
+            [SVProgressHUD showErrorWithStatus:@"请上传证件照正面"];
+            return;
+        } else {
+            faceImg = self.upIdFaceBtn.currentBackgroundImage;
+        }
+        if (!self.upIdBackBtn.currentBackgroundImage) {
+            [SVProgressHUD showErrorWithStatus:@"请上传证件照反面"];
+            return;
+        } else {
+            backImg = self.upIdBackBtn.currentBackgroundImage;
+        }
+        
+        dispatch_queue_t globalQuene = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_group_t group = dispatch_group_create();
+        
+        __block NSString *identity = @"";
+        __block NSString *hand = @"";
+        [SVProgressHUD showWithStatus:@"load..."];
+        dispatch_group_enter(group);
+        dispatch_async(globalQuene, ^{
+            [PickHttpManager.shared uploadPhone:API_Upload withParam:@[faceImg] withPregress:^(id  _Nonnull obj) {
+            } withSuccess:^(id  _Nonnull obj) {
+                dispatch_group_leave(group);
+                identity = obj;
+            } withFailure:^(NSError * _Nonnull err) {
+                dispatch_group_leave(group);
+                [SVProgressHUD dismiss];
+                [SVProgressHUD showErrorWithStatus:err.domain];
+            }];
+        });
+        
+        dispatch_group_enter(group);
+        dispatch_async(globalQuene, ^{
+            [PickHttpManager.shared uploadPhone:API_Upload withParam:@[backImg] withPregress:^(id  _Nonnull obj) {
+            } withSuccess:^(id  _Nonnull obj) {
+                dispatch_group_leave(group);
+                hand = obj;
+            } withFailure:^(NSError * _Nonnull err) {
+                dispatch_group_leave(group);
+                [SVProgressHUD dismiss];
+                [SVProgressHUD showErrorWithStatus:err.domain];
+            }];
+        });
+        
+        dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+            [PickHttpManager.shared requestPOST:API_UserRealName withParam:@{
+                @"identity":identity,
+                @"hand":hand,
+                @"real_name":self.nameTfl.text,
+                @"card_id":self.idNumTfl.text,
+                @"country":@"2"
+            } withSuccess:^(id  _Nonnull obj) {
+                [SVProgressHUD dismiss];
+                [SVProgressHUD showSuccessWithStatus:@"提交成功"];
+                [self.navigationController popViewControllerAnimated:YES];
+            } withFailure:^(NSError * _Nonnull err) {
+                [SVProgressHUD dismiss];
+                [SVProgressHUD showErrorWithStatus:err.domain];
+            }];
+        });
     } else {
-        faceImg = self.upIdFaceBtn.currentBackgroundImage;
-    }
-    if (!self.upIdBackBtn.currentBackgroundImage) {
-        [SVProgressHUD showErrorWithStatus:@"请上传证件照反面"];
-        return;
-    } else {
-        backImg = self.upIdBackBtn.currentBackgroundImage;
-    }
-    
-    dispatch_queue_t globalQuene = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_group_t group = dispatch_group_create();
-    
-    __block NSString *identity = @"";
-    __block NSString *hand = @"";
-    [SVProgressHUD showWithStatus:@"load..."];
-    dispatch_group_enter(group);
-    dispatch_async(globalQuene, ^{
-        [PickHttpManager.shared uploadPhone:API_Upload withParam:@[faceImg] withPregress:^(id  _Nonnull obj) {
-        } withSuccess:^(id  _Nonnull obj) {
-            dispatch_group_leave(group);
-            identity = obj;
-        } withFailure:^(NSError * _Nonnull err) {
-            dispatch_group_leave(group);
-            [SVProgressHUD dismiss];
-            [SVProgressHUD showErrorWithStatus:err.domain];
-        }];
-    });
-    
-    dispatch_group_enter(group);
-    dispatch_async(globalQuene, ^{
-        [PickHttpManager.shared uploadPhone:API_Upload withParam:@[backImg] withPregress:^(id  _Nonnull obj) {
-        } withSuccess:^(id  _Nonnull obj) {
-            dispatch_group_leave(group);
-            hand = obj;
-        } withFailure:^(NSError * _Nonnull err) {
-            dispatch_group_leave(group);
-            [SVProgressHUD dismiss];
-            [SVProgressHUD showErrorWithStatus:err.domain];
-        }];
-    });
-    
-    
-    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        /** 中国 */
         [PickHttpManager.shared requestPOST:API_UserRealName withParam:@{
-            @"identity":identity,
-            @"hand":hand,
+//            @"identity":identity,
+//            @"hand":hand,
             @"real_name":self.nameTfl.text,
             @"card_id":self.idNumTfl.text,
-            @"country":self.isChina?@"1":@"2"
+            @"country":@"1"
         } withSuccess:^(id  _Nonnull obj) {
             [SVProgressHUD dismiss];
+            [SVProgressHUD showSuccessWithStatus:@"提交成功"];
             [self.navigationController popViewControllerAnimated:YES];
         } withFailure:^(NSError * _Nonnull err) {
             [SVProgressHUD dismiss];
             [SVProgressHUD showErrorWithStatus:err.domain];
         }];
-    });
+    }
     
 }
 
@@ -201,7 +228,6 @@
 }
 
 #pragma mark - PECropViewControllerDelegate methods
-
 - (void)cropViewController:(PECropViewController *)controller didFinishCroppingImage:(UIImage *)croppedImage transform:(CGAffineTransform)transform cropRect:(CGRect)cropRect {
     NSData *headImgData;//头像
     CGFloat ImageSize = 0.8; // 0.1 0.5
@@ -306,5 +332,4 @@
 
     return _imagePickController;
 }
-
 @end

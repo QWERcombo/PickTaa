@@ -34,7 +34,7 @@
     self.taskProduct.text = [NSString stringWithFormat:@"已产出%.f%%",taskModel.daily*100];
     NSMutableAttributedString *attr = [[NSMutableAttributedString alloc]initWithString:self.taskProduct.text];
     [attr setAttributes:@{NSForegroundColorAttributeName:MainBlueColor} range:NSMakeRange(3, self.taskProduct.text.length-3)];
-    [self.iconIMGV sd_setImageWithURL:[NSURL URLWithString:taskModel.img] placeholderImage:[UIImage imageNamed:PlaceHolder_Logo]];
+    [self.iconIMGV sd_setImageWithURL:[NSURL URLWithString:[taskModel.img stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]] placeholderImage:[UIImage imageNamed:PlaceHolder_Logo]];
 }
 
 @end

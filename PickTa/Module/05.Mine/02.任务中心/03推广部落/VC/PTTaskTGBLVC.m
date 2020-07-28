@@ -21,7 +21,8 @@
 
 @property (nonatomic, strong) PTTaskTGBLListModel *listModel;
 @property (nonatomic, strong) PTTaskTGBLVM *vm;
-@property (nonatomic, assign) BOOL isSort;
+@property (nonatomic, assign) BOOL isAuth;
+@property (nonatomic, assign) BOOL isLevel;
 @end
 
 @implementation PTTaskTGBLVC
@@ -85,11 +86,14 @@
                 [self.list removeAllObjects];
                 [self.list addObjectsFromArray:model.data];
             } else {
+                if (!model.data.count) {
+                    [self.tableView.mj_footer endRefreshingWithNoMoreData];
+                }
                 [self.list addObjectsFromArray:model.data];
             }
 
             self.currentPage++;
-            [self sortListArray];
+            [self.tableView reloadData];
         }
     }];
 }
@@ -206,11 +210,15 @@
         _myTGBLHeadTVC.titleLLbl1.text = kLocalizedString(@"nick_name", @"昵称");
         _myTGBLHeadTVC.titleLLbl2.text = kLocalizedString(@"people_num", @"人数");
         [_myTGBLHeadTVC.statusBtn setTitle:kLocalizedString(@"status", @"状态") forState:UIControlStateNormal];
-        _myTGBLHeadTVC.titleLLbl4.text = kLocalizedString(@"level", @"星级");
+        [_myTGBLHeadTVC.levelBtn setTitle:kLocalizedString(@"level", @"星级") forState:UIControlStateNormal];
         MJWeakSelf
         [_myTGBLHeadTVC setChangeStatusBlock:^(BOOL isSortStatus) {
-            weakSelf.isSort = isSortStatus;
-            [weakSelf sortListArray];
+            weakSelf.isAuth = isSortStatus;
+            [weakSelf sortAuthListArray];
+        }];
+        [_myTGBLHeadTVC setChangeLevelBlock:^(BOOL isSortLevel) {
+            weakSelf.isLevel = isSortLevel;
+            [weakSelf sortLevelListArray];
         }];
 //        _myTGBLHeadTVC. = [UIImage imageNamed:@"tgbl_bg"];
 //        _myTGBLHeadTVC.contentMode = UIViewContentModeScaleAspectFill;
@@ -219,8 +227,8 @@
 
     return _myTGBLHeadTVC;
 }
-- (void)sortListArray {
-    if (self.isSort) {
+- (void)sortAuthListArray {
+    if (self.isAuth) {
         [self.list sortUsingComparator:^NSComparisonResult(PTTaskTGBLItemModel*  _Nonnull obj1, PTTaskTGBLItemModel*  _Nonnull obj2) {
             return [@(obj1.is_auth) compare:@(obj2.is_auth)];
         }];
@@ -231,5 +239,16 @@
     }
     [self.tableView reloadData];
 }
-
+- (void)sortLevelListArray {
+    if (self.isLevel) {
+        [self.list sortUsingComparator:^NSComparisonResult(PTTaskTGBLItemModel*  _Nonnull obj1, PTTaskTGBLItemModel*  _Nonnull obj2) {
+            return [obj1.user_level compare:obj2.user_level];
+        }];
+    } else {
+        [self.list sortUsingComparator:^NSComparisonResult(PTTaskTGBLItemModel*  _Nonnull obj1, PTTaskTGBLItemModel*  _Nonnull obj2) {
+            return [obj2.user_level compare:obj1.user_level];
+        }];
+    }
+    [self.tableView reloadData];
+}
 @end

@@ -321,39 +321,43 @@
                                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RMT-Nl-sGH" userLabel="Label2">
-                                                <rect key="frame" x="145" y="9.5" width="72.5" height="15"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oxi-79-Fty">
                                                 <rect key="frame" x="217.5" y="9.5" width="72.5" height="15"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <inset key="imageEdgeInsets" minX="45" minY="0.0" maxX="-45" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="40" minY="0.0" maxX="-40" maxY="0.0"/>
                                                 <state key="normal" title="状态" image="common_select_down">
                                                     <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <state key="selected" title="状态" image="icon_s"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6u3-eZ-wtY">
+                                                <rect key="frame" x="145" y="9.5" width="72.5" height="15"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <inset key="imageEdgeInsets" minX="40" minY="0.0" maxX="-40" maxY="0.0"/>
+                                                <state key="normal" title="星级" image="common_select_down">
+                                                    <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <state key="selected" title="星级" image="icon_s"/>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.96862745100000003" green="0.97254901959999995" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstItem="Oxi-79-Fty" firstAttribute="centerY" secondItem="sXW-9v-aG2" secondAttribute="centerY" id="2jt-dJ-sd1"/>
-                                            <constraint firstItem="RMT-Nl-sGH" firstAttribute="width" secondItem="mMC-70-a3P" secondAttribute="width" id="Dye-Ie-NKK"/>
-                                            <constraint firstItem="u5B-HN-0Dm" firstAttribute="height" secondItem="mMC-70-a3P" secondAttribute="height" id="Fk6-Fv-y4H"/>
-                                            <constraint firstItem="Oxi-79-Fty" firstAttribute="height" secondItem="mMC-70-a3P" secondAttribute="height" id="Ie8-f0-kij"/>
-                                            <constraint firstItem="RMT-Nl-sGH" firstAttribute="centerY" secondItem="sXW-9v-aG2" secondAttribute="centerY" id="KcR-rk-l30"/>
-                                            <constraint firstItem="mMC-70-a3P" firstAttribute="leading" secondItem="sXW-9v-aG2" secondAttribute="leading" id="Lde-mp-JD9"/>
-                                            <constraint firstItem="RMT-Nl-sGH" firstAttribute="leading" secondItem="u5B-HN-0Dm" secondAttribute="trailing" id="THS-zA-Pl1"/>
-                                            <constraint firstItem="RMT-Nl-sGH" firstAttribute="height" secondItem="mMC-70-a3P" secondAttribute="height" id="USi-ZT-lGI"/>
-                                            <constraint firstItem="mMC-70-a3P" firstAttribute="centerY" secondItem="sXW-9v-aG2" secondAttribute="centerY" id="cKf-s6-oyZ"/>
+                                            <constraint firstItem="Oxi-79-Fty" firstAttribute="centerY" secondItem="sXW-9v-aG2" secondAttribute="centerY" id="5Ev-gs-CvF"/>
+                                            <constraint firstItem="6u3-eZ-wtY" firstAttribute="height" secondItem="mMC-70-a3P" secondAttribute="height" id="9Jf-5X-EbD"/>
+                                            <constraint firstItem="mMC-70-a3P" firstAttribute="leading" secondItem="sXW-9v-aG2" secondAttribute="leading" id="GU7-8Y-3TQ"/>
+                                            <constraint firstItem="u5B-HN-0Dm" firstAttribute="leading" secondItem="mMC-70-a3P" secondAttribute="trailing" id="Gj2-53-LYH"/>
+                                            <constraint firstItem="6u3-eZ-wtY" firstAttribute="leading" secondItem="u5B-HN-0Dm" secondAttribute="trailing" id="Jgd-bW-5aW"/>
+                                            <constraint firstItem="Oxi-79-Fty" firstAttribute="width" secondItem="mMC-70-a3P" secondAttribute="width" id="Lwb-lg-FrJ"/>
+                                            <constraint firstItem="6u3-eZ-wtY" firstAttribute="width" secondItem="mMC-70-a3P" secondAttribute="width" id="OdV-bo-0yL"/>
+                                            <constraint firstItem="u5B-HN-0Dm" firstAttribute="width" secondItem="mMC-70-a3P" secondAttribute="width" id="PbF-Kb-74G"/>
+                                            <constraint firstAttribute="trailing" secondItem="Oxi-79-Fty" secondAttribute="trailing" id="TnW-xR-Lb7"/>
+                                            <constraint firstItem="Oxi-79-Fty" firstAttribute="height" secondItem="mMC-70-a3P" secondAttribute="height" id="Vuv-IJ-H5E"/>
+                                            <constraint firstItem="6u3-eZ-wtY" firstAttribute="centerY" secondItem="sXW-9v-aG2" secondAttribute="centerY" id="cw7-oK-3TU"/>
+                                            <constraint firstItem="u5B-HN-0Dm" firstAttribute="height" secondItem="mMC-70-a3P" secondAttribute="height" id="dEC-ro-VVz"/>
                                             <constraint firstAttribute="height" constant="34" id="f61-l0-1MG"/>
-                                            <constraint firstItem="Oxi-79-Fty" firstAttribute="leading" secondItem="RMT-Nl-sGH" secondAttribute="trailing" id="f6w-yC-8gc"/>
-                                            <constraint firstItem="u5B-HN-0Dm" firstAttribute="centerY" secondItem="sXW-9v-aG2" secondAttribute="centerY" id="i64-Ot-TTW"/>
-                                            <constraint firstItem="u5B-HN-0Dm" firstAttribute="width" secondItem="mMC-70-a3P" secondAttribute="width" id="lvh-4t-H2i"/>
-                                            <constraint firstAttribute="trailing" secondItem="Oxi-79-Fty" secondAttribute="trailing" id="m5h-ud-HDO"/>
-                                            <constraint firstItem="Oxi-79-Fty" firstAttribute="width" secondItem="mMC-70-a3P" secondAttribute="width" id="oDu-yt-kvj"/>
-                                            <constraint firstItem="u5B-HN-0Dm" firstAttribute="leading" secondItem="mMC-70-a3P" secondAttribute="trailing" id="sZ7-rQ-3Vq"/>
+                                            <constraint firstItem="u5B-HN-0Dm" firstAttribute="centerY" secondItem="sXW-9v-aG2" secondAttribute="centerY" id="jmU-8d-AJi"/>
+                                            <constraint firstItem="Oxi-79-Fty" firstAttribute="leading" secondItem="6u3-eZ-wtY" secondAttribute="trailing" id="lpn-WZ-Zg6"/>
+                                            <constraint firstItem="mMC-70-a3P" firstAttribute="centerY" secondItem="sXW-9v-aG2" secondAttribute="centerY" id="qcs-QW-1wL"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -495,13 +499,13 @@
             <connections>
                 <outlet property="headBgImgView" destination="qcl-sS-ovm" id="6Ib-Cr-0Hj"/>
                 <outlet property="headBgView" destination="GXo-Vs-SDv" id="dyl-GG-wdx"/>
+                <outlet property="levelBtn" destination="6u3-eZ-wtY" id="Lk7-68-3mr"/>
                 <outlet property="levelLLbl" destination="IEn-xD-s4d" id="lll-lu-MUz"/>
                 <outlet property="profileBgView" destination="Zk5-4H-zaN" id="pia-hu-p1h"/>
                 <outlet property="profileImgView" destination="lQj-w5-l2h" id="p7D-fc-l1r"/>
                 <outlet property="statusBtn" destination="Oxi-79-Fty" id="ips-pn-APy"/>
                 <outlet property="titleLLbl1" destination="mMC-70-a3P" id="BtE-7o-HAo"/>
                 <outlet property="titleLLbl2" destination="u5B-HN-0Dm" id="G8i-za-y9d"/>
-                <outlet property="titleLLbl4" destination="RMT-Nl-sGH" id="x2t-5b-DMx"/>
                 <outlet property="titleLbl" destination="sln-MV-quz" id="UXz-rU-X5D"/>
                 <outlet property="titleLbl11" destination="u5l-bm-5Wl" id="lu0-pH-QxH"/>
                 <outlet property="titleLbl12" destination="Mzm-ts-3Df" id="3mj-WL-e2u"/>
@@ -527,6 +531,7 @@
     </objects>
     <resources>
         <image name="common_select_down" width="12" height="6"/>
+        <image name="icon_s" width="12" height="12"/>
         <image name="tgbl_wujiaoxing" width="18.5" height="17"/>
     </resources>
 </document>

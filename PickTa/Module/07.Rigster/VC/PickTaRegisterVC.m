@@ -11,7 +11,7 @@
 #import "PTRegister2VC.h"
 #import "RegisterDealVC.h"
 
-@interface PickTaRegisterVC ()<UIScrollViewDelegate>
+@interface PickTaRegisterVC ()<UIScrollViewDelegate,UITextFieldDelegate>
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) PickTaRegosterVM *RegosterVM;
 @property (nonatomic, strong) NSString *is_ch;
@@ -32,6 +32,7 @@
     self.passAgainTxt.placeholder = kLocalizedString(@"enter_pass", @"请再次填写登陆密码");
     self.transacLab.text = kLocalizedString(@"pay_pass", @"交易密码");
     self.transacTxt.placeholder = kLocalizedString(@"in_new_pay", @"请输入6位新交易密码");
+    self.transacTxt.delegate = self;
     self.transacAgainLab.text = kLocalizedString(@"confirm_in_new_pay", @"确认交易密码");
     self.transacAgainTxt.placeholder = kLocalizedString(@"agegin_new_pay", @"请再次填写交易密码");
     self.invitationLab.text = kLocalizedString(@"invite_code1", @"邀请码");
@@ -149,7 +150,7 @@
     self.transacLab.text = @"交易密码";
     self.transacLab.font = [UIFont systemFontOfSize:16];
     self.transacLab.textColor = CompleteLAB;
-    self.transacTxt = [[UITextField alloc]initWithFrame:CGRectMake(150, 484 + 12 - 11.5 + 60, w - 270, 40)];
+    self.transacTxt = [[UITextField alloc]initWithFrame:CGRectMake(150, 484 + 12 - 11.5 + 60, w - 190, 40)];
     self.transacTxt.placeholder = @"请填写交易密码";
     self.transacTxt.font = [UIFont systemFontOfSize:14];
     UIView *ransacView = [UIView new];
@@ -424,6 +425,7 @@
     [[self.RegosterVM.completeCommand.executionSignals.switchToLatest take:1] subscribeNext:^(id  _Nullable x) {
         @strongify(self);
         if (![x isKindOfClass:[NSError class]]) {
+            [SVProgressHUD showSuccessWithStatus:@"注册成功"];
             PTRegister2VC *vc = [[PTRegister2VC alloc] initWithNibName:@"PTRegister2VC" bundle:nil];
             [self.navigationController pushViewController:vc animated:YES];
         }
@@ -431,7 +433,15 @@
     
 }
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField {
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    NSString *toString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    
+    if (toString.length > 6) {
+        textField.text = [toString substringToIndex:6];
+        return NO;
+    }
+    
+    return YES;
 }
-
 @end

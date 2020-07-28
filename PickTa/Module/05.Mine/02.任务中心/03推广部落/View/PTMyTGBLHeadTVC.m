@@ -30,6 +30,13 @@
             self.changeStatusBlock(x.isSelected);
         }
     }];
+    [[self.levelBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
+        @strongify(self);
+        x.selected = !x.selected;
+        if (self.changeLevelBlock) {
+            self.changeLevelBlock(x.isSelected);
+        }
+    }];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

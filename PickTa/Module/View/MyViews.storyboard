@@ -839,6 +839,8 @@
                         <outlet property="idNumTfl" destination="evF-aL-upZ" id="Uio-t1-XFA"/>
                         <outlet property="idTypeLbl" destination="7kz-wp-Luc" id="sSK-o9-DZV"/>
                         <outlet property="idTypeValueLbl" destination="JNS-m6-jxB" id="OQw-Fg-WOp"/>
+                        <outlet property="imageView1" destination="TjH-td-JZE" id="1fk-H7-FhD"/>
+                        <outlet property="imageView2" destination="1vn-hp-lSX" id="ieR-bv-maW"/>
                         <outlet property="nameLbl" destination="I8B-9m-Cep" id="pVz-4z-R8K"/>
                         <outlet property="nameTfl" destination="sVt-dg-cxe" id="yp1-ex-Kdm"/>
                         <outlet property="upIdBackBtn" destination="emQ-UI-gfj" id="s2g-0j-CCI"/>

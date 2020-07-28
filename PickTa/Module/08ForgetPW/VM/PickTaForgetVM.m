@@ -42,6 +42,7 @@
                    [subscriber sendNext:@""];
                } withSuccess:^(id  _Nonnull obj) {
                [[NSNotificationCenter defaultCenter]postNotificationName:RegosterSuccess object:nil];
+                   [SVProgressHUD showSuccessWithStatus:@"修改成功"];
                    [subscriber sendNext:obj];
                    [subscriber sendCompleted];
                } withFailure:^(NSError * _Nonnull err) {
