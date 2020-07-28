@@ -421,6 +421,10 @@
     }
     self.RegosterVM.completeParam = @{@"phone": self.phoneTxt.text, @"code": self.codeTxt.text, @"password": self.passTxt.text, @"pay_password": self.transacTxt.text, @"invitation_code": self.invitationTxt.text};
     [self.RegosterVM.completeCommand execute:nil];
+    [[self.RegosterVM.completeCommand.executing skip:1] subscribeNext:^(NSNumber *_Nullable x) {
+        if ([x isEqualToNumber:@(YES)]) [SVProgressHUD showWithStatus:@"Loading"];
+        else [SVProgressHUD dismiss];
+    }];
     @weakify(self);
     [[self.RegosterVM.completeCommand.executionSignals.switchToLatest take:1] subscribeNext:^(id  _Nullable x) {
         @strongify(self);
@@ -428,6 +432,8 @@
             [SVProgressHUD showSuccessWithStatus:@"注册成功"];
             PTRegister2VC *vc = [[PTRegister2VC alloc] initWithNibName:@"PTRegister2VC" bundle:nil];
             [self.navigationController pushViewController:vc animated:YES];
+        } else {
+            [SVProgressHUD showErrorWithStatus:((NSError *)x).domain];
         }
     }];
     

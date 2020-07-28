@@ -74,7 +74,7 @@
 
 - (void)changeMSg{
 //    [self.window setRootViewController:PickTaMSGTabBarController.new];
-    [SVProgressHUD showInfoWithStatus:@"正在开发中..."];
+    [SVProgressHUD showInfoWithStatus:@"暂未开放"];
 }
 
 -(void)changeNeedLogin {

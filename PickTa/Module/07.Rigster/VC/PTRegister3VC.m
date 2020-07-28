@@ -90,7 +90,7 @@
     //提示框，可有可无
     [[self.loginVM.tagCommand.executing skip:1] subscribeNext:^(NSNumber * _Nullable x) {
         if([x isEqualToNumber:@(YES)])
-            [SVProgressHUD showWithStatus:@""];
+            [SVProgressHUD showWithStatus:@"Loading"];
         else
             [SVProgressHUD dismiss];
     }];
