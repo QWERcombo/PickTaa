@@ -45,11 +45,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLLbl1;
 @property (weak, nonatomic) IBOutlet UILabel *titleLLbl2;
-@property (weak, nonatomic) IBOutlet UILabel *titleLLbl3;
 @property (weak, nonatomic) IBOutlet UILabel *titleLLbl4;
 @property (weak, nonatomic) IBOutlet UILabel *levelLLbl;
+@property (weak, nonatomic) IBOutlet UIButton *statusBtn;
 
-
+@property (nonatomic, copy) void(^changeStatusBlock)(BOOL isSortStatus);
 @end
 
 NS_ASSUME_NONNULL_END

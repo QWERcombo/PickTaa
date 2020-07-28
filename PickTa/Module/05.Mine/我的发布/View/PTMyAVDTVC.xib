@@ -67,7 +67,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1i-Ac-2o2">
-                                        <rect key="frame" x="201.5" y="52.5" width="103.5" height="15"/>
+                                        <rect key="frame" x="283.5" y="52.5" width="21.5" height="15"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -79,7 +79,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBf-de-ufD">
-                                        <rect key="frame" x="200" y="78.5" width="105" height="15"/>
+                                        <rect key="frame" x="283.5" y="78.5" width="21.5" height="15"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -88,7 +88,6 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="efS-SP-JHZ" secondAttribute="trailing" constant="15" id="6Ts-Cu-f0V"/>
-                                    <constraint firstItem="e1i-Ac-2o2" firstAttribute="leading" secondItem="QH9-en-c82" secondAttribute="trailing" constant="10" id="6qb-p3-3xn"/>
                                     <constraint firstItem="QH9-en-c82" firstAttribute="centerY" secondItem="F3k-BN-ReT" secondAttribute="centerY" id="AwW-2n-jNI"/>
                                     <constraint firstAttribute="height" constant="108" id="DPd-pS-C02"/>
                                     <constraint firstItem="F3k-BN-ReT" firstAttribute="top" secondItem="efS-SP-JHZ" secondAttribute="bottom" constant="10" id="Ial-eg-SFD"/>
@@ -105,7 +104,6 @@
                                     <constraint firstItem="Vef-BX-EVS" firstAttribute="top" secondItem="F3k-BN-ReT" secondAttribute="bottom" constant="12" id="bGI-tu-eDD"/>
                                     <constraint firstItem="QH9-en-c82" firstAttribute="leading" secondItem="ulK-9K-mdU" secondAttribute="leading" constant="15" id="cC3-Ei-DqK"/>
                                     <constraint firstItem="e1i-Ac-2o2" firstAttribute="centerY" secondItem="F3k-BN-ReT" secondAttribute="centerY" id="gal-76-Yhx"/>
-                                    <constraint firstItem="dBf-de-ufD" firstAttribute="leading" secondItem="ZNh-bS-YW6" secondAttribute="trailing" constant="10" id="hfz-R9-LJp"/>
                                     <constraint firstItem="efS-SP-JHZ" firstAttribute="top" secondItem="ulK-9K-mdU" secondAttribute="top" constant="15" id="khr-er-kgv"/>
                                 </constraints>
                             </view>

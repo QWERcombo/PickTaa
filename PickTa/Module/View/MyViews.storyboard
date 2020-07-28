@@ -421,9 +421,6 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <connections>
-                                            <segue destination="g2M-5Q-1Av" kind="show" identifier="authVCIdentifier" id="4ZU-pV-1vh"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="6Zc-oQ-4TC" imageView="3Rv-3R-dQd" rowHeight="54" style="IBUITableViewCellStyleDefault" id="1ZM-79-yZs">
                                         <rect key="frame" x="0.0" y="417" width="414" height="54"/>
@@ -563,7 +560,7 @@
         <!--实名认证-->
         <scene sceneID="rdd-GD-W8C">
             <objects>
-                <tableViewController id="g2M-5Q-1Av" customClass="PTIDAnthVC" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PTIDAnthVC" id="g2M-5Q-1Av" customClass="PTIDAnthVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" id="iQO-gS-xm2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

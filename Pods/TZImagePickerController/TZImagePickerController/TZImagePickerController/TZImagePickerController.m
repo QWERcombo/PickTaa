@@ -53,7 +53,7 @@
     self.needShowStatusBar = ![UIApplication sharedApplication].statusBarHidden;
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationBar.barStyle = UIBarStyleBlack;
-    self.navigationBar.translucent = YES;
+//    self.navigationBar.translucent = YES;
     [TZImageManager manager].shouldFixOrientation = NO;
 
     // Default appearance, you can reset these after this method

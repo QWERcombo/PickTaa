@@ -79,11 +79,11 @@
                 [self.list removeAllObjects];
                 [self.list addObjectsFromArray:model.data];
                 
-                self.headView.valueLbl11.text = [NSString stringWithFormat:@"%.1f", self.listModel.active_balance.floatValue];
-                self.headView.valueLbl12.text = [NSString stringWithFormat:@"%.1f", self.listModel.weight_active.floatValue];
-                self.headView.valueLbl21.text = [NSString stringWithFormat:@"%.1f", self.listModel.base_active.floatValue];
-                self.headView.valueLbl22.text = [NSString stringWithFormat:@"%.1f", self.listModel.large_active.floatValue];
-                self.headView.valueLbl31.text = [NSString stringWithFormat:@"%.1f", self.listModel.small_active.floatValue];
+                self.headView.valueLbl11.text = [NSString stringWithFormat:@"%.2f", self.listModel.active_balance.floatValue];
+                self.headView.valueLbl12.text = [NSString stringWithFormat:@"%.2f", self.listModel.weight_active.floatValue];
+                self.headView.valueLbl21.text = [NSString stringWithFormat:@"%.2f", self.listModel.base_active.floatValue];
+                self.headView.valueLbl22.text = [NSString stringWithFormat:@"%.2f", self.listModel.large_active.floatValue];
+                self.headView.valueLbl31.text = [NSString stringWithFormat:@"%.2f", self.listModel.small_active.floatValue];
             } else {
                 [self.list addObjectsFromArray:model.data];
             }

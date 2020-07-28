@@ -88,17 +88,18 @@
     if ((_dataList.count - 1) == indexPath.row) {
         WS(weakSelf)
         TZImagePickerController *picker = [[TZImagePickerController alloc] initWithMaxImagesCount:1 columnNumber:4 delegate:nil pushPhotoPickerVc:YES];
-        picker.naviBgColor = COLOR_HEX_RGB(0x000000);
-        picker.navigationBar.translucent = NO;
         picker.maxImagesCount = 9; // 10 - _dataList.count;
         picker.allowPickingVideo = NO;
         picker.showSelectBtn = NO;
         picker.minImagesCount = 0;             /// 最小照片必选张数,默认是0
         picker.alwaysEnableDoneBtn = YES;             /// 让完成按钮一直可以点击，无须最少选择一张图片
-        picker.sortAscendingByModificationDate = YES;             /// 对照片排序，按修改时间升序，默认是YES。如果设置为NO,最新的照片会显示在最前面，内部的拍照按钮会排在第一个
+        picker.sortAscendingByModificationDate = YES;
+        /// 对照片排序，按修改时间升序，默认是YES。如果设置为NO,最新的照片会显示在最前面，内部的拍照按钮会排在第一个
         picker.allowPickingVideo = NO;
         picker.allowTakePicture = NO;
-        picker.modalPresentationStyle = UIModalPresentationOverFullScreen;      // UIModalPresentationFullScreen;
+        picker.modalPresentationStyle = UIModalPresentationOverFullScreen;
+        picker.barItemTextColor = UIColor.blackColor;
+        picker.naviBgColor = UIColor.whiteColor;
         [self.suVC presentViewController:picker animated:YES completion:nil];
         __block int i = 0;
         

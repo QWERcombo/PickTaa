@@ -168,12 +168,12 @@
         @weakify(self);
         [psdView setFinishedBlock:^(NSString * _Nonnull paypsd) {
             @strongify(self);
-            __block NSString *images = @"";
+            __block NSMutableArray *images = @[].mutableCopy;
             __block NSString *image = @"";
             [SVProgressHUD showWithStatus:@"loading..."];
             [[PickHttpManager shared] uploadPhone:API_Upload withParam:self.cell2.dataList withPregress:^(id  _Nonnull obj) {
             } withSuccess:^(id  _Nonnull obj) {
-                images = obj;
+                [images addObject:obj];
                 [[PickHttpManager shared] uploadPhone:API_Upload withParam:@[self.cell3.coverImg] withPregress:^(id  _Nonnull obj) {
                 } withSuccess:^(id  _Nonnull obj) {
                     image = obj;
@@ -181,7 +181,7 @@
                         @"title":self.cell1.inputTfl.text,
                         @"content":self.cell2.inputTxt.text,
                         @"image":image,
-                        @"images":images,
+                        @"images":[images modelToJSONString],
                         @"pay_password":paypsd} withSuccess:^(id  _Nonnull obj) {
                         [SVProgressHUD dismiss];
                         [SVProgressHUD showSuccessWithStatus:@"发布成功"];

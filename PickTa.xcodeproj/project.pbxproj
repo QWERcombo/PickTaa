@@ -2817,10 +2817,10 @@
 		FB8BEF3C249CF8F300B7F5F2 /* WRNavigationBar */ = {
 			isa = PBXGroup;
 			children = (
-				FB8BEF3D249CF8F300B7F5F2 /* WRNavigationBar.m */,
 				FB8BEF3E249CF8F300B7F5F2 /* WRCustomNavigationBar.h */,
-				FB8BEF3F249CF8F300B7F5F2 /* WRNavigationBar.h */,
 				FB8BEF40249CF8F300B7F5F2 /* WRCustomNavigationBar.m */,
+				FB8BEF3F249CF8F300B7F5F2 /* WRNavigationBar.h */,
+				FB8BEF3D249CF8F300B7F5F2 /* WRNavigationBar.m */,
 			);
 			path = WRNavigationBar;
 			sourceTree = "<group>";

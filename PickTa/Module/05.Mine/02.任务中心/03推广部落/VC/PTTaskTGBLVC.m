@@ -21,6 +21,7 @@
 
 @property (nonatomic, strong) PTTaskTGBLListModel *listModel;
 @property (nonatomic, strong) PTTaskTGBLVM *vm;
+@property (nonatomic, assign) BOOL isSort;
 @end
 
 @implementation PTTaskTGBLVC
@@ -56,25 +57,24 @@
                 self.myTGBLHeadTVC.titleLbl12.text = model.real_num;
                 self.myTGBLHeadTVC.titleLbl22.text = model.union_num;
                 self.myTGBLHeadTVC.titleLbl32.text = model.union_dou;
-                self.myTGBLHeadTVC.levelLLbl.text = model.level_name;
+                self.myTGBLHeadTVC.levelLLbl.text = [model.level_name isEqualToString:@"普通"]?@"普通用户":[NSString stringWithFormat:@"%@达人",model.level_name];
                 [self.myTGBLHeadTVC.profileImgView sd_setImageWithURL:[NSURL URLWithString:[NSUserDefaults.standardUserDefaults valueForKey:@"p_avatar"]]];
-                NSString *chartS = [model.level_name substringFromIndex:model.level_name.length-1];
-                if (chartS.intValue == 1) {
+                NSString *chartS = [model.level_name substringToIndex:1];
+                if ([chartS isEqualToString:@"一"]) {
                     self.myTGBLHeadTVC.wjxImgView2.hidden = YES;
                     self.myTGBLHeadTVC.wjxImgView3.hidden = YES;
                     self.myTGBLHeadTVC.wjxImgView4.hidden = YES;
                     self.myTGBLHeadTVC.wjxImgView5.hidden = YES;
-                } else if (chartS.intValue == 2) {
+                } else if ([chartS isEqualToString:@"二"]) {
                     self.myTGBLHeadTVC.wjxImgView3.hidden = YES;
                     self.myTGBLHeadTVC.wjxImgView4.hidden = YES;
                     self.myTGBLHeadTVC.wjxImgView5.hidden = YES;
-                } else if (chartS.intValue == 3) {
+                } else if ([chartS isEqualToString:@"三"]) {
                     self.myTGBLHeadTVC.wjxImgView4.hidden = YES;
                     self.myTGBLHeadTVC.wjxImgView5.hidden = YES;
-                } else if (chartS.intValue == 4) {
+                } else if ([chartS isEqualToString:@"四"]) {
                     self.myTGBLHeadTVC.wjxImgView5.hidden = YES;
-                } else if (chartS.intValue == 5) {
-                    
+                } else if ([chartS isEqualToString:@"五"]) {
                 } else {
                     self.myTGBLHeadTVC.wjxImgView1.hidden = YES;
                     self.myTGBLHeadTVC.wjxImgView2.hidden = YES;
@@ -89,7 +89,7 @@
             }
 
             self.currentPage++;
-            [self.tableView reloadData];
+            [self sortListArray];
         }
     }];
 }
@@ -205,15 +205,31 @@
         _myTGBLHeadTVC.titleLbl.text = kLocalizedString(@"friend_list", @"好友列表");
         _myTGBLHeadTVC.titleLLbl1.text = kLocalizedString(@"nick_name", @"昵称");
         _myTGBLHeadTVC.titleLLbl2.text = kLocalizedString(@"people_num", @"人数");
-        _myTGBLHeadTVC.titleLLbl3.text = kLocalizedString(@"status", @"状态");
-        _myTGBLHeadTVC.titleLLbl4.text = kLocalizedString(@"level", @"等级");
-
+        [_myTGBLHeadTVC.statusBtn setTitle:kLocalizedString(@"status", @"状态") forState:UIControlStateNormal];
+        _myTGBLHeadTVC.titleLLbl4.text = kLocalizedString(@"level", @"星级");
+        MJWeakSelf
+        [_myTGBLHeadTVC setChangeStatusBlock:^(BOOL isSortStatus) {
+            weakSelf.isSort = isSortStatus;
+            [weakSelf sortListArray];
+        }];
 //        _myTGBLHeadTVC. = [UIImage imageNamed:@"tgbl_bg"];
 //        _myTGBLHeadTVC.contentMode = UIViewContentModeScaleAspectFill;
 //        _myTGBLHeadTVC.clipsToBounds = YES;
     }
 
     return _myTGBLHeadTVC;
+}
+- (void)sortListArray {
+    if (self.isSort) {
+        [self.list sortUsingComparator:^NSComparisonResult(PTTaskTGBLItemModel*  _Nonnull obj1, PTTaskTGBLItemModel*  _Nonnull obj2) {
+            return [@(obj1.is_auth) compare:@(obj2.is_auth)];
+        }];
+    } else {
+        [self.list sortUsingComparator:^NSComparisonResult(PTTaskTGBLItemModel*  _Nonnull obj1, PTTaskTGBLItemModel*  _Nonnull obj2) {
+            return [@(obj2.is_auth) compare:@(obj1.is_auth)];
+        }];
+    }
+    [self.tableView reloadData];
 }
 
 @end

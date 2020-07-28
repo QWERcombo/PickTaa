@@ -13,6 +13,7 @@
 #import "PTMyGongXianZhiVC.h"
 #import "PTMyHuoYueDuVC.h"
 #import "PCMinePublishAdVC.h"
+#import "PTMineAuthInfoVC.h"
 
 @interface PickTaMyVC ()
 @property (nonatomic, strong) UIButton *rightNavBarButton;
@@ -234,10 +235,24 @@
             
         }];
     }
-    
+    if (indexPath.row == 1) {
+        // 1认证 2提交 3拒绝
+        if (self.myModel.is_auth == 0) {
+            PTIDAnthVC *secondVC = (PTIDAnthVC *)[[UIStoryboard storyboardWithName:@"MyViews" bundle:nil] instantiateViewControllerWithIdentifier:@"PTIDAnthVC"];
+            [self.navigationController pushViewController:secondVC animated:YES];
+        }
+        else if (self.myModel.is_auth == 1 || self.myModel.is_auth == 2) {
+            PTMineAuthInfoVC *authVC = [[PTMineAuthInfoVC alloc] initWithNibName:@"PTMineAuthInfoVC" bundle:nil];
+            authVC.myModel = self.myModel;
+            [self.navigationController pushViewController:authVC animated:YES];
+        } else {
+            PTIDAnthVC *secondVC = (PTIDAnthVC *)[[UIStoryboard storyboardWithName:@"MyViews" bundle:nil] instantiateViewControllerWithIdentifier:@"PTIDAnthVC"];
+            [self.navigationController pushViewController:secondVC animated:YES];
+        }
+    }
 }
 
--(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     CGFloat offsetY = scrollView.contentOffset.y;
 //    NSLog(@"scrollView: %.2f",offsetY);
     if(-offsetY >= NAVIGATION_BAR_HEIGHT){
@@ -248,20 +263,4 @@
         [self wr_setNavBarTitleColor:[UIColor blackColor]];
     }
 }
-
-//- (IBSegueAction PTIDAnthVC *)authSegue:(NSCoder *)coder {
-//    return <#[[PTIDAnthVC alloc] initWithCoder:coder];#>
-//}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"authVCIdentifier"]) {
-        if (self.myModel.is_auth == 1) {
-            PTIDAnthVC *secondVC = (PTIDAnthVC *)segue.destinationViewController;
-            
-        } else {
-            // 1认证 2提交 3拒绝
-        }
-    }
-}
-
 @end

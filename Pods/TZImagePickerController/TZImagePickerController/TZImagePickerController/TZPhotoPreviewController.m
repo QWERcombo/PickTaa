@@ -59,7 +59,7 @@
         _assetsTemp = [NSMutableArray arrayWithArray:_tzImagePickerVc.selectedAssets];
     }
     [self configCollectionView];
-    [self configCustomNaviBar];
+//    [self configCustomNaviBar];
     [self configBottomToolBar];
     self.view.clipsToBounds = YES;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangeStatusBarOrientationNotification:) name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];

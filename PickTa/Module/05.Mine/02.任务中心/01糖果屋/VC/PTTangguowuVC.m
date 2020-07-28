@@ -83,7 +83,7 @@
             NSError *error = (NSError *)x;
             [self.view makeToast:error.domain duration:1.f position:[NSValue valueWithCGPoint:self.view.toastPoint]];
         } else {
-            [self.view makeToast:(NSString *)x duration:1.f position:[NSValue valueWithCGPoint:self.view.toastPoint]];
+            [self.view makeToast:@"你已成功领取脉豆" duration:1.f position:[NSValue valueWithCGPoint:self.view.toastPoint]];
             [self refreshData];
         }
     }];

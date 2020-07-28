@@ -22,6 +22,14 @@
     self.headBgView.layer.shadowOpacity = 1;
     self.headBgView.layer.shadowRadius = 12;
     self.headBgView.layer.cornerRadius = 6;
+    @weakify(self);
+    [[self.statusBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
+        @strongify(self);
+        x.selected = !x.selected;
+        if (self.changeStatusBlock) {
+            self.changeStatusBlock(x.isSelected);
+        }
+    }];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

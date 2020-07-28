@@ -133,35 +133,34 @@
 //        cell.heartNumLbl.text = @"";
 //        cell.beanNumLbl.text = @"";
         
-        if (indexPath.row == 0) { //
-            [cell.btn1 setTitle:@"待审核" forState:UIControlStateNormal];
-            cell.btn1.titleLabel.textColor = COLOR_HEX_RGB(0xffffff);
-            cell.btn1.backgroundColor = COLOR_HEX_RGB(0xFF4747);
-            cell.heartNumLbl.hidden = YES;
-            cell.beanNumLbl.hidden = YES;
-            cell.heartIcon.hidden = YES;
-            cell.beanIcon.hidden = YES;
-        } else if (indexPath.row == 1) {
-            [cell.btn1 setTitle:@"显示中" forState:UIControlStateNormal];
-            cell.btn1.titleLabel.textColor = COLOR_HEX_RGB(0xffffff);
-            cell.btn1.backgroundColor = COLOR_HEX_RGB(0x42B3B1);
-            cell.heartNumLbl.hidden = NO;
-            cell.beanNumLbl.hidden = NO;
-            cell.heartIcon.hidden = NO;
-            cell.beanIcon.hidden = NO;
-        } else if (indexPath.row == 2) {
-            [cell.btn1 setTitle:@"已结束" forState:UIControlStateNormal];
-            cell.btn1.titleLabel.textColor = COLOR_HEX_RGB(0x999999);
-            cell.btn1.backgroundColor = COLOR_HEX_RGB(0xF7F7F7);
-            cell.heartNumLbl.hidden = NO;
-            cell.beanNumLbl.hidden = NO;
-            cell.heartIcon.hidden = NO;
-            cell.beanIcon.hidden = NO;
-        }
-        
+//        if (indexPath.row == 0) { //
+//            [cell.btn1 setTitle:@"待审核" forState:UIControlStateNormal];
+//            cell.btn1.titleLabel.textColor = COLOR_HEX_RGB(0xffffff);
+//            cell.btn1.backgroundColor = COLOR_HEX_RGB(0xFF4747);
+//            cell.heartNumLbl.hidden = YES;
+//            cell.beanNumLbl.hidden = YES;
+//            cell.heartIcon.hidden = YES;
+//            cell.beanIcon.hidden = YES;
+//        } else if (indexPath.row == 1) {
+//            [cell.btn1 setTitle:@"显示中" forState:UIControlStateNormal];
+//            cell.btn1.titleLabel.textColor = COLOR_HEX_RGB(0xffffff);
+//            cell.btn1.backgroundColor = COLOR_HEX_RGB(0x42B3B1);
+//            cell.heartNumLbl.hidden = NO;
+//            cell.beanNumLbl.hidden = NO;
+//            cell.heartIcon.hidden = NO;
+//            cell.beanIcon.hidden = NO;
+//        } else if (indexPath.row == 2) {
+//            [cell.btn1 setTitle:@"已结束" forState:UIControlStateNormal];
+//            cell.btn1.titleLabel.textColor = COLOR_HEX_RGB(0x999999);
+//            cell.btn1.backgroundColor = COLOR_HEX_RGB(0xF7F7F7);
+//            cell.heartNumLbl.hidden = NO;
+//            cell.beanNumLbl.hidden = NO;
+//            cell.heartIcon.hidden = NO;
+//            cell.beanIcon.hidden = NO;
+//        }
         @weakify(self)
         [[cell.btn1 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-            // @strongify(self)
+             @strongify(self)
            
             
         }];

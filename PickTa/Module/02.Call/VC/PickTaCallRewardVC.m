@@ -36,7 +36,7 @@
         [SVProgressHUD showErrorWithStatus:@"请输入打赏数量"];
         return;
     }
-    [PickHttpManager.shared requestPOST:API_FriendUserReward withParam:@{
+    [PickHttpManager.shared requestPOST:API_AdvertRewardAvaert withParam:@{
         @"id":@(self.model.id),
         @"money":self.inputTF.text
     } withSuccess:^(id  _Nonnull obj) {

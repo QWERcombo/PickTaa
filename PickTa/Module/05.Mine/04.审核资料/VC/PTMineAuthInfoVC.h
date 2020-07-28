@@ -7,16 +7,17 @@
 //
 
 #import "PickTaBaseViewController.h"
-
+#import "PTMyModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PTMineAuthInfoVC : PickTaBaseViewController
 
 @property (weak, nonatomic) IBOutlet UIImageView *statusImgView;
-
+@property (nonatomic,strong) PTMyModel *myModel;
 // 国家
 @property (weak, nonatomic) IBOutlet UILabel *countryTitleLbl;
 @property (weak, nonatomic) IBOutlet UILabel *countryLbl;
+@property (weak, nonatomic) IBOutlet UILabel *showText;
 
 // 地区
 @property (weak, nonatomic) IBOutlet UILabel *areaLbl;

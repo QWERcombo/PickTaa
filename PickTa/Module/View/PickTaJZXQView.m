@@ -31,7 +31,7 @@
     self.activityCount.text = model.activation;
     self.lingquCount.text = [NSString stringWithFormat:@"%@",model.times_receive];
     self.dayCount.text = [NSString stringWithFormat:@"%@脉豆",model.daily];
-    self.expDay.text = [NSString stringWithFormat:@"%ld天",(long)model.date_term];
+    self.expDay.text = [NSString stringWithFormat:@"%@天",model.date_term];
 }
 
 @end
