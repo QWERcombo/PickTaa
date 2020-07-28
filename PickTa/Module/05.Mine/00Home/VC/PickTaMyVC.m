@@ -71,6 +71,12 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeLanguage) name:ChangeLanguageNotificationName object:nil];
      [self changeLanguage];
+    
+    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"kAliPayResponseNoti" object:nil] subscribeNext:^(NSNotification * _Nullable x) {
+        if ([x.object integerValue] == 9000) {
+            [self requestData];
+        }
+    }];
 }
 
 - (void)changeLanguage {

@@ -156,7 +156,7 @@
 //        HDLLogDebug("🔴类名与方法名：%@（在第%@行），描述：%@", @(__PRETTY_FUNCTION__), @(__LINE__), @"PlusButton is not selected");
     }
     [[NSNotificationCenter defaultCenter]postNotificationName:ChangedMsg object:nil];
-    return YES;
+    return NO;
 }
 
 + (CGFloat)multiplierOfTabBarHeight:(CGFloat)tabBarHeight {

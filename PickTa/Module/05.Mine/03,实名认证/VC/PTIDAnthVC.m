@@ -9,6 +9,7 @@
 #import "PTIDAnthVC.h"
 #import "PECropViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import <AlipaySDK/AlipaySDK.h>
 
 @interface PTIDAnthVC () <PECropViewControllerDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *contentTableView;
@@ -114,8 +115,34 @@
             [self submitAuthHelper];
         }
     }];
+    
+    
+    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"kAliPayResponseNoti" object:nil] subscribeNext:^(NSNotification * _Nullable x) {
+        NSInteger resultStatus = [x.object integerValue];
+        if (resultStatus == 9000) {
+            [SVProgressHUD showSuccessWithStatus:@"支付成功"];
+            [self.navigationController popViewControllerAnimated:YES];
+        } else if (resultStatus == 6001) {
+            [SVProgressHUD showErrorWithStatus:@"支付取消"];
+        } else {
+            [SVProgressHUD showErrorWithStatus:@"支付失败，请稍后重试"];
+        }
+    }];
 }
 
+- (void)PaymentOrder:(NSString*)str{
+    
+    //应用注册scheme,在AliSDKDemo-Info.plist定义URL types
+    NSString *appScheme = @"alisdkdemo";
+    
+    // NOTE: 将签名成功字符串格式化为订单字符串,请严格按照该格式
+    NSString *orderString = str;
+    
+    // NOTE: 调用支付结果开始支付
+    [[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic) {
+        NSLog(@"reslut = %@",resultDic);
+    }];
+}
 #pragma mark - Action
 
 - (void)submitAuthHelper {
@@ -194,6 +221,7 @@
             }];
         });
     } else {
+        
         /** 中国 */
         [PickHttpManager.shared requestPOST:API_UserRealName withParam:@{
 //            @"identity":identity,
@@ -202,9 +230,10 @@
             @"card_id":self.idNumTfl.text,
             @"country":@"1"
         } withSuccess:^(id  _Nonnull obj) {
-            [SVProgressHUD dismiss];
-            [SVProgressHUD showSuccessWithStatus:@"提交成功"];
-            [self.navigationController popViewControllerAnimated:YES];
+            [self PaymentOrder:obj[@"content"]];
+//            [SVProgressHUD dismiss];
+//            [SVProgressHUD showSuccessWithStatus:@"提交成功"];
+//            [self.navigationController popViewControllerAnimated:YES];
         } withFailure:^(NSError * _Nonnull err) {
             [SVProgressHUD dismiss];
             [SVProgressHUD showErrorWithStatus:err.domain];

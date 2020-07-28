@@ -31,7 +31,6 @@
     [super viewDidLoad];
     
     self.list = NSMutableArray.new;
-    self.currentPage = 1;
     [self setupNavBar];
     [self setupUI];
     [self.tableView.mj_header beginRefreshing]; // 313
@@ -42,6 +41,8 @@
 
     [self.vm.command1.executionSignals.switchToLatest subscribeNext:^(id _Nullable x) {
         @strongify(self)
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
 
         if ([x isKindOfClass:[NSError class]]) {
             NSError *error = (NSError *)x;
@@ -84,16 +85,14 @@
                 }
                 [self.list removeAllObjects];
                 [self.list addObjectsFromArray:model.data];
-                [self.tableView.mj_header endRefreshing];
             } else {
                 if (!model.data.count) {
                     [self.tableView.mj_footer endRefreshingWithNoMoreData];
-                } else {
-                    [self.tableView.mj_footer endRefreshing];
-                    [self.list addObjectsFromArray:model.data];
                 }
+                [self.list addObjectsFromArray:model.data];
             }
-            
+
+            self.currentPage++;
             [self.tableView reloadData];
         }
     }];
@@ -114,7 +113,7 @@
     self.tableView = [self createTableViewForFrame:CGRectMake(0, self.myTGBLHeadTVC.bottom, SCREEN_WIDTH, SCREEN_HEIGHT - self.myTGBLHeadTVC.bottom - BOTTOM_HEIGHT) style:UITableViewStylePlain backGroundColor:[UIColor whiteColor] tableViewDelegate:self tableViewDataSource:self];
     [_tableView registerNib:[UINib nibWithNibName:NSStringFromClass([PTMyTGBListCell class]) bundle:nil] forCellReuseIdentifier:@"PTMyTGBListCell"];
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshData)];
-     _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+     _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestData)];
 
     [self.view addSubview:self.tableView];
 }
@@ -128,19 +127,16 @@
 - (void)requestData {
     self.vm.param1 = @{
         @"limit": @(kPageDefaultSizeValue),
-        @"order": self.isAuth?@"desc":@"asc",
-        @"star": self.isLevel?@"desc":@"asc",// asc desc
+        @"order": @"desc", // asc desc
         kPageIndexKey: @(_currentPage)
     };
+    [self.tableView.mj_header endRefreshing];
     [self.vm.command1 execute:nil];
 }
 
 - (void)refreshData {
     _currentPage = 1;
-    [self requestData];
-}
-- (void)loadMoreData {
-    _currentPage += 1;
+    [_tableView.mj_footer endRefreshing];
     [self requestData];
 }
 
@@ -218,11 +214,11 @@
         MJWeakSelf
         [_myTGBLHeadTVC setChangeStatusBlock:^(BOOL isSortStatus) {
             weakSelf.isAuth = isSortStatus;
-            [weakSelf refreshData];
+            [weakSelf sortAuthListArray];
         }];
         [_myTGBLHeadTVC setChangeLevelBlock:^(BOOL isSortLevel) {
             weakSelf.isLevel = isSortLevel;
-            [weakSelf refreshData];
+            [weakSelf sortLevelListArray];
         }];
 //        _myTGBLHeadTVC. = [UIImage imageNamed:@"tgbl_bg"];
 //        _myTGBLHeadTVC.contentMode = UIViewContentModeScaleAspectFill;
@@ -231,5 +227,28 @@
 
     return _myTGBLHeadTVC;
 }
-
+- (void)sortAuthListArray {
+    if (self.isAuth) {
+        [self.list sortUsingComparator:^NSComparisonResult(PTTaskTGBLItemModel*  _Nonnull obj1, PTTaskTGBLItemModel*  _Nonnull obj2) {
+            return [@(obj1.is_auth) compare:@(obj2.is_auth)];
+        }];
+    } else {
+        [self.list sortUsingComparator:^NSComparisonResult(PTTaskTGBLItemModel*  _Nonnull obj1, PTTaskTGBLItemModel*  _Nonnull obj2) {
+            return [@(obj2.is_auth) compare:@(obj1.is_auth)];
+        }];
+    }
+    [self.tableView reloadData];
+}
+- (void)sortLevelListArray {
+    if (self.isLevel) {
+        [self.list sortUsingComparator:^NSComparisonResult(PTTaskTGBLItemModel*  _Nonnull obj1, PTTaskTGBLItemModel*  _Nonnull obj2) {
+            return [obj1.user_level compare:obj2.user_level];
+        }];
+    } else {
+        [self.list sortUsingComparator:^NSComparisonResult(PTTaskTGBLItemModel*  _Nonnull obj1, PTTaskTGBLItemModel*  _Nonnull obj2) {
+            return [obj2.user_level compare:obj1.user_level];
+        }];
+    }
+    [self.tableView reloadData];
+}
 @end

@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
+  - AliPay (2.1.2)
   - Bugly (2.5.5)
   - CYLTabBarController (1.29.0):
     - CYLTabBarController/Core (= 1.29.0)
@@ -30,6 +31,7 @@ PODS:
   - Masonry (1.1.0)
   - MJExtension (3.2.1)
   - MJRefresh (3.4.3)
+  - OpenSSL-for-iOS (1.0.2.d.1)
   - ReactiveObjC (3.1.1)
   - SDWebImage (5.8.0):
     - SDWebImage/Core (= 5.8.0)
@@ -46,6 +48,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - AliPay (~> 2.1.2)
   - Bugly
   - CYLTabBarController
   - CYLTabBarController/Lottie
@@ -55,6 +58,7 @@ DEPENDENCIES:
   - Masonry
   - MJExtension
   - MJRefresh
+  - OpenSSL-for-iOS (~> 1.0.2.d.1)
   - ReactiveObjC
   - SDWebImage
   - SGPagingView
@@ -66,8 +70,9 @@ DEPENDENCIES:
   - YYKit
 
 SPEC REPOS:
-  trunk:
+  https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
     - AFNetworking
+    - AliPay
     - Bugly
     - CYLTabBarController
     - DZNEmptyDataSet
@@ -77,6 +82,7 @@ SPEC REPOS:
     - Masonry
     - MJExtension
     - MJRefresh
+    - OpenSSL-for-iOS
     - ReactiveObjC
     - SDWebImage
     - SGPagingView
@@ -89,6 +95,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  AliPay: 2bd35a4e486d2a8c035043023cd846e886bb21d1
   Bugly: eded937bbb1f731cacf689c2d934ddbd9ab34f83
   CYLTabBarController: f5460b8446f82d016945d4d53895a1ef185b79e3
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
@@ -98,6 +105,7 @@ SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 635f2c663dcb1bf76fa4b715b2570a5710aec545
   MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6
+  OpenSSL-for-iOS: d7a30add88a1969b052135adbe48452af231ed32
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   SDWebImage: 84000f962cbfa70c07f19d2234cbfcf5d779b5dc
   SGPagingView: 21152cbb9e25a7259ea2415b028c22f55f362ea2
@@ -108,6 +116,6 @@ SPEC CHECKSUMS:
   TZImagePickerController: 4e7a7b3d314f8a75f11042931dfd9d34c270c7db
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 4f4472a9355803e4adf34ae4e4919b33271a7be7
+PODFILE CHECKSUM: fa7f236a53cf2650238acf14074df7693e3f1fbd
 
 COCOAPODS: 1.9.3
