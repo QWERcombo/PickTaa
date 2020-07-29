@@ -9,6 +9,7 @@
 #import "PickTaContactsVC.h"
 #import "PTChatViewFactory.h"
 #import "PTUserListVM.h"
+#import "PTPersonInfoVC.h"
 
 @interface PickTaContactsVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *tableView;
@@ -43,6 +44,15 @@
         self.userList = x;
         [self.tableView reloadData];
     }];
+    
+    UIButton *searchBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [searchBtn setImage:[UIImage imageNamed:@"chat_icon_0"] forState:UIControlStateNormal];
+    searchBtn.frame = CGRectMake(0, 0, 40, 40);
+    [[searchBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        NSLog(@"222");
+        
+    }];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:searchBtn];
 }
 
 - (void)requestData{
@@ -66,13 +76,15 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"%@", indexPath);
+    
     if (indexPath.row == 0) {
-        
+        [self.navigationController pushViewController:[UIViewController initViewControllerFromChatStoryBoardName:@"PTNewFriendsVC"] animated:YES];
     } else if (indexPath.row == 1) {
-        
+        [self.navigationController pushViewController:[UIViewController initViewControllerFromChatStoryBoardName:@"PTGroupListVC"] animated:YES];
     } else {
-        
+        PTPersonInfoVC *personInfo = [UIViewController initViewControllerFromChatStoryBoardName:@"PTPersonInfoVC"];
+        personInfo.userListModel = self.userList[indexPath.row-2];
+        [self.navigationController pushViewController:personInfo animated:YES];
     }
     
 }
