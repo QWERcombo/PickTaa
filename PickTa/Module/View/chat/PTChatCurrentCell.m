@@ -26,7 +26,7 @@
 
 -(void)setRecordIndexModel:(PTChatRecordModel *)recordIndexModel{
     _recordIndexModel = recordIndexModel;
-    [self.chatIcon sd_setImageWithURL:[NSURL URLWithString:recordIndexModel.avatar]];
+    [self.chatIcon sd_setImageWithURL:[NSURL URLWithString:recordIndexModel.avatar] placeholderImage:[UIImage imageNamed:kChatPlaceHolder]];
     self.chatNickName.text =recordIndexModel.nickname;
     self.chatDesc.text = recordIndexModel.content;
     self.chatDate.text = [NSObject convertForLongTime:recordIndexModel.time];

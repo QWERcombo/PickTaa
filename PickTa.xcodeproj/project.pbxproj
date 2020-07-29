@@ -166,6 +166,10 @@
 		1EF4B6B724CBCD5900C87355 /* PTModifyLoginPwVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF4B6B624CBCD5900C87355 /* PTModifyLoginPwVM.m */; };
 		1EFDE92E24B971F700296546 /* PTMyProfileInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EFDE92D24B971F700296546 /* PTMyProfileInfoVC.m */; };
 		4EB4312DB10356FB40A04FC2 /* Pods_PickTa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2079CC8B2B72FD809F3AFE /* Pods_PickTa.framework */; };
+		56AD081924D199ED00DCAFDD /* PTNewFriendsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56AD081824D199ED00DCAFDD /* PTNewFriendsVC.m */; };
+		56AD081E24D19A1900DCAFDD /* PTGroupListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56AD081D24D19A1900DCAFDD /* PTGroupListVC.m */; };
+		56AD082124D19A7A00DCAFDD /* PTPersonInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56AD082024D19A7A00DCAFDD /* PTPersonInfoVC.m */; };
+		56AD082324D19D5F00DCAFDD /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56AD082224D19D5F00DCAFDD /* Chat.storyboard */; };
 		56C4ED7B24CD622300A26A6A /* RegisterDealVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C4ED7924CD622300A26A6A /* RegisterDealVC.m */; };
 		56C4ED7E24CD681600A26A6A /* PTRegister2VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56C4ED7D24CD681600A26A6A /* PTRegister2VC.xib */; };
 		56C4ED8224CDA23500A26A6A /* PickTaMyAdModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C4ED8124CDA23500A26A6A /* PickTaMyAdModel.m */; };
@@ -637,6 +641,13 @@
 		3D6057A9EBEC0C8F7928EDE6 /* Pods-PickTa-PickTaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickTa-PickTaUITests.debug.xcconfig"; path = "Target Support Files/Pods-PickTa-PickTaUITests/Pods-PickTa-PickTaUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4D2079CC8B2B72FD809F3AFE /* Pods_PickTa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickTa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F72261496890D6B1B76B83B /* Pods-PickTaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickTaTests.release.xcconfig"; path = "Target Support Files/Pods-PickTaTests/Pods-PickTaTests.release.xcconfig"; sourceTree = "<group>"; };
+		56AD081724D199ED00DCAFDD /* PTNewFriendsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTNewFriendsVC.h; sourceTree = "<group>"; };
+		56AD081824D199ED00DCAFDD /* PTNewFriendsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTNewFriendsVC.m; sourceTree = "<group>"; };
+		56AD081C24D19A1900DCAFDD /* PTGroupListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTGroupListVC.h; sourceTree = "<group>"; };
+		56AD081D24D19A1900DCAFDD /* PTGroupListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTGroupListVC.m; sourceTree = "<group>"; };
+		56AD081F24D19A7A00DCAFDD /* PTPersonInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTPersonInfoVC.h; sourceTree = "<group>"; };
+		56AD082024D19A7A00DCAFDD /* PTPersonInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTPersonInfoVC.m; sourceTree = "<group>"; };
+		56AD082224D19D5F00DCAFDD /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		56C4ED7824CD622300A26A6A /* RegisterDealVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterDealVC.h; sourceTree = "<group>"; };
 		56C4ED7924CD622300A26A6A /* RegisterDealVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterDealVC.m; sourceTree = "<group>"; };
 		56C4ED7D24CD681600A26A6A /* PTRegister2VC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PTRegister2VC.xib; sourceTree = "<group>"; };
@@ -2413,6 +2424,65 @@
 			path = VC;
 			sourceTree = "<group>";
 		};
+		56AD081324D1996400DCAFDD /* 聊天 */ = {
+			isa = PBXGroup;
+			children = (
+				56AD081624D199A600DCAFDD /* View */,
+				FBE9C038249E138600EC2CD8 /* PickTaChatsVC.h */,
+				FBE9C039249E138600EC2CD8 /* PickTaChatsVC.m */,
+				FB3E281724A5E85000BBC0E7 /* PTChatDetaiVC.h */,
+				FB3E281824A5E85000BBC0E7 /* PTChatDetaiVC.m */,
+			);
+			path = "聊天";
+			sourceTree = "<group>";
+		};
+		56AD081424D1997F00DCAFDD /* 通讯录 */ = {
+			isa = PBXGroup;
+			children = (
+				56AD081A24D199F400DCAFDD /* View */,
+				FBE9C03B249E13AE00EC2CD8 /* PickTaContactsVC.h */,
+				FBE9C03C249E13AE00EC2CD8 /* PickTaContactsVC.m */,
+				56AD081724D199ED00DCAFDD /* PTNewFriendsVC.h */,
+				56AD081824D199ED00DCAFDD /* PTNewFriendsVC.m */,
+				56AD081C24D19A1900DCAFDD /* PTGroupListVC.h */,
+				56AD081D24D19A1900DCAFDD /* PTGroupListVC.m */,
+				56AD081F24D19A7A00DCAFDD /* PTPersonInfoVC.h */,
+				56AD082024D19A7A00DCAFDD /* PTPersonInfoVC.m */,
+			);
+			path = "通讯录";
+			sourceTree = "<group>";
+		};
+		56AD081524D1998F00DCAFDD /* 发现 */ = {
+			isa = PBXGroup;
+			children = (
+				56AD081B24D199FC00DCAFDD /* View */,
+				FBE9C03E249E13EE00EC2CD8 /* PickTaDiscoverVC.h */,
+				FBE9C03F249E13EE00EC2CD8 /* PickTaDiscoverVC.m */,
+			);
+			path = "发现";
+			sourceTree = "<group>";
+		};
+		56AD081624D199A600DCAFDD /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		56AD081A24D199F400DCAFDD /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		56AD081B24D199FC00DCAFDD /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		6747FFD5B07D7C3AD5BCFE8A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -3083,16 +3153,12 @@
 		FBE9C037249E134400EC2CD8 /* chat */ = {
 			isa = PBXGroup;
 			children = (
-				FBE9C038249E138600EC2CD8 /* PickTaChatsVC.h */,
-				FBE9C039249E138600EC2CD8 /* PickTaChatsVC.m */,
-				FBE9C03B249E13AE00EC2CD8 /* PickTaContactsVC.h */,
-				FBE9C03C249E13AE00EC2CD8 /* PickTaContactsVC.m */,
-				FBE9C03E249E13EE00EC2CD8 /* PickTaDiscoverVC.h */,
-				FBE9C03F249E13EE00EC2CD8 /* PickTaDiscoverVC.m */,
+				56AD081324D1996400DCAFDD /* 聊天 */,
+				56AD081424D1997F00DCAFDD /* 通讯录 */,
+				56AD081524D1998F00DCAFDD /* 发现 */,
 				FBE9C041249E140100EC2CD8 /* PickTaMeVC.h */,
 				FBE9C042249E140100EC2CD8 /* PickTaMeVC.m */,
-				FB3E281724A5E85000BBC0E7 /* PTChatDetaiVC.h */,
-				FB3E281824A5E85000BBC0E7 /* PTChatDetaiVC.m */,
+				56AD082224D19D5F00DCAFDD /* Chat.storyboard */,
 			);
 			path = chat;
 			sourceTree = "<group>";
@@ -3221,6 +3287,7 @@
 				FB0306E924987080003B6C61 /* LoginViews.storyboard in Resources */,
 				1E4266CE24B72965008A31B1 /* PTTangguowuVC.xib in Resources */,
 				FB0BAA212497CF420042DE07 /* img_tab_home_1.png in Resources */,
+				56AD082324D19D5F00DCAFDD /* Chat.storyboard in Resources */,
 				1E4266D324B72A4A008A31B1 /* PTTgwHeadTVC.xib in Resources */,
 				1EB4BC8B24B748610075268A /* PTTgwHqjlRowTVC.xib in Resources */,
 				FBE4678B2497A2A100C9FE94 /* LaunchScreen.storyboard in Resources */,
@@ -3448,6 +3515,7 @@
 				1E42662724B457AF008A31B1 /* XSWJVANSObject+SPTUI.m in Sources */,
 				FB95B74D24A636F8000EA367 /* LEETheme.m in Sources */,
 				1ED7586424BD30FE00F22816 /* PECropRectView.m in Sources */,
+				56AD081924D199ED00DCAFDD /* PTNewFriendsVC.m in Sources */,
 				FBE467C22497C5AE00C9FE94 /* PickTaMainTabBarController.m in Sources */,
 				FB95B78C24A63730000EA367 /* MLLabel.m in Sources */,
 				1ED7588624BDC17A00F22816 /* PTPublishImgAddCVC.m in Sources */,
@@ -3525,6 +3593,7 @@
 				FB95B79A24A63E9E000EA367 /* PTChatRecordContentVM.m in Sources */,
 				FB182A5A2498760C005B0F2D /* PickTaLoginVC.m in Sources */,
 				FB0BAA982497E8320042DE07 /* DHomeView.m in Sources */,
+				56AD082124D19A7A00DCAFDD /* PTPersonInfoVC.m in Sources */,
 				1ED7584824BC395100F22816 /* PTMyTagTVC.m in Sources */,
 				FBE9C046249E145500EC2CD8 /* PickTaMSGTabBarController.m in Sources */,
 				FB95B78D24A63730000EA367 /* MLLabelLayoutManager.m in Sources */,
@@ -3537,6 +3606,7 @@
 				1E42662524B457AF008A31B1 /* XSWJVAUITableViewCell+SelectStyle.m in Sources */,
 				1E42660524B457AF008A31B1 /* XSWJVAUIImage+SPTUI.m in Sources */,
 				FB9D473E24A2600700D2FB19 /* PTChatViewFactory.m in Sources */,
+				56AD081E24D19A1900DCAFDD /* PTGroupListVC.m in Sources */,
 				FB9F95AB24AEC0210033C9EA /* PTTaskModel.m in Sources */,
 				92F2410A249F976F009CCBF0 /* PickTaForgetVM.m in Sources */,
 				FB0CC20124B08EF400C483DB /* SDRefreshHeaderView.m in Sources */,

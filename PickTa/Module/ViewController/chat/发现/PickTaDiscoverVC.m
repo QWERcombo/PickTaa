@@ -63,6 +63,14 @@
         self.headerView.nameLabel.text = self.myModel.nickname;
         [self.tableView reloadData];
     }];
+    
+    UIButton *publishBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [publishBtn setImage:[UIImage imageNamed:@"chat_icon_1"] forState:UIControlStateNormal];
+    publishBtn.frame = CGRectMake(0, 0, 40, 40);
+    [[publishBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        NSLog(@"222");
+    }];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:publishBtn];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -114,7 +122,7 @@
     
     [self setupTextField];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardNotification:) name:UIKeyboardWillChangeFrameNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardNotification:) name:UIKeyboardWillChangeFrameNotification object:nil];
     
     if (!_refreshHeader.superview) {
         

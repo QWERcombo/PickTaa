@@ -10,18 +10,16 @@
 
 @implementation PTChatBottomView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
-
 - (void)awakeFromNib{
     [super awakeFromNib];
     self.inputTV.layer.cornerRadius = 6;
     self.inputTV.layer.masksToBounds = YES;
+    
+    [[self.addBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        NSLog(@"add");
+        
+        
+    }];
 }
 
 @end

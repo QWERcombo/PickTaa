@@ -39,6 +39,8 @@
 //#import "XSWJVASPTRouter.h"
 #import "XSWJVASPTHelper.h"
 #import "PickTaBaseViewController.h"
+#import "PTMyModel.h"
+#import "PTChatViewFactory.h"
 
 
 

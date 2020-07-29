@@ -24,7 +24,7 @@
 }
 
 - (void)setupUI{
-    self.navigationItem.title = @"通讯录";
+    self.navigationItem.title = kLocalizedString(@"mill", @"通讯录");
     [self wr_setNavBarBarTintColor:[UIColor whiteColor]];
     [self wr_setNavBarTitleColor:[UIColor blackColor]];
     [self wr_setNavBarShadowImageHidden:YES];
@@ -57,7 +57,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     PTContractsCell *cell = [PTChatViewFactory createChatContractsCellForTableView:tableView];
     if(indexPath.row == 0)
-       [cell contractNewFriendsUI];
+        [cell contractNewFriendsUI];
     if(indexPath.row == 1)
         [cell contractGroupUI];
     if(indexPath.row >= 2)
@@ -65,5 +65,16 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%@", indexPath);
+    if (indexPath.row == 0) {
+        
+    } else if (indexPath.row == 1) {
+        
+    } else {
+        
+    }
+    
+}
 
 @end

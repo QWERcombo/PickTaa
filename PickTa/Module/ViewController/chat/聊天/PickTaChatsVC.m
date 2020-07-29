@@ -25,7 +25,7 @@
 }
 
 - (void)setupUI{
-    self.navigationItem.title = @"聊天";
+    self.navigationItem.title = kLocalizedString(@"talk", @"聊天");
     [self wr_setNavBarBarTintColor:[UIColor whiteColor]];
     [self wr_setNavBarTitleColor:[UIColor blackColor]];
     [self wr_setNavBarShadowImageHidden:YES];
@@ -39,7 +39,7 @@
 
 - (void)bindViewModel{
     self.vm = [PTChatRecordVM new];
-    [[PickTaWebSocketManager share]connect];
+//    [[PickTaWebSocketManager share]connect];
    
     @weakify(self)
     [self.vm.chatRecordCommand.executionSignals.switchToLatest subscribeNext:^(id  _Nullable x) {

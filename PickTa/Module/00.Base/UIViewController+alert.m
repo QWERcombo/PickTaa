@@ -48,4 +48,7 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
++ (__kindof UIViewController *)initViewControllerFromChatStoryBoardName:(NSString *)className; {
+    return [[UIStoryboard storyboardWithName:@"Chat" bundle:nil] instantiateViewControllerWithIdentifier:className];
+}
 @end

@@ -35,7 +35,7 @@
 
 -(void)setModel:(PickTaUserListModel *)model{
     _model = model;
-    [self.contractIcon sd_setImageWithURL:[NSURL URLWithString:model.to_head]];
+    [self.contractIcon sd_setImageWithURL:[NSURL URLWithString:model.to_head] placeholderImage:[UIImage imageNamed:kChatPlaceHolder]];
     self.contractType.text = model.to_nickname;
 }
 

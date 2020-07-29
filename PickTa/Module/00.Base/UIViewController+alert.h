@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**弹窗只有确定*/
 -(void)alertSure:(NSString*)title andSubTitle:(NSString*)subTitle sureCallBack:(void(^)(void))sure ;
+
++ (__kindof UIViewController *)initViewControllerFromChatStoryBoardName:(NSString *)className;
 @end
 
 NS_ASSUME_NONNULL_END
