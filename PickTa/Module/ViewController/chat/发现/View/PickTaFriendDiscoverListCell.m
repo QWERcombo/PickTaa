@@ -33,7 +33,7 @@
 }
 
 
-- (void)setItemModel:(PTItemModel *)itemModel {
+- (void)setItemModel:(DataItem *)itemModel {
     _itemModel = itemModel;
     
     if (_itemModel.img.count == 1) {

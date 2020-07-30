@@ -68,15 +68,15 @@
     [publishBtn setImage:[UIImage imageNamed:@"chat_icon_1"] forState:UIControlStateNormal];
     publishBtn.frame = CGRectMake(0, 0, 40, 40);
     [[publishBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-        @strongify(self);
-        [self.navigationController pushViewController:[UIViewController initViewControllerFromChatStoryBoardName:@"PTPublishDiscoverVC"] animated:YES];
+//        @strongify(self);
+//        [self.navigationController pushViewController:[UIViewController initViewControllerFromChatStoryBoardName:@"PTPublishDiscoverVC"] animated:YES];
     }];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:publishBtn];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self requestData];
+//    [self requestData];
 }
 
 - (void)requestData{
@@ -91,7 +91,7 @@
     self.circleFriendVM = [PickTaCircleFriendVM new];
     
     self.tableView = [self createTableViewForFrame:self.view.bounds style:UITableViewStylePlain backGroundColor:[UIColor whiteColor] tableViewDelegate:self tableViewDataSource:self];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.tableView];
     self.myModel = [PTMyModel modelWithJSON:[PickTaUserDefaults g_getValueForKey:@"user_info"]];
 //    __weak typeof(self) weakSelf = self;
@@ -251,16 +251,16 @@
 
 - (void)didClickLikeButtonInCell:(UITableViewCell *)cell{
     NSIndexPath *index = [self.tableView indexPathForCell:cell];
-//    SDTimeLineCellModel *model = self.dataSource.data[index.row];
-//    NSMutableArray *temp = [NSMutableArray arrayWithArray:model.likeItemsArray];
+    DataItem *model = self.dataSource.data[index.row];
+    NSMutableArray *temp = [NSMutableArray arrayWithArray:model.in_like];
     
-//    if (!model.isLiked) {
+    if (!model.is_in_like) {
 //        SDTimeLineCellLikeItemModel *likeModel = [SDTimeLineCellLikeItemModel new];
 //        likeModel.userName = @"GSD_iOS";
 //        likeModel.userId = @"gsdios";
-//        [temp addObject:likeModel];
-//        model.liked = YES;
-//    } else {
+        [temp addObject:@"haha"];
+        model.is_in_like = YES;
+    } else {
 //        SDTimeLineCellLikeItemModel *tempLikeModel = nil;
 //        for (SDTimeLineCellLikeItemModel *likeModel in model.likeItemsArray) {
 //            if ([likeModel.userId isEqualToString:@"gsdios"]) {
@@ -268,10 +268,10 @@
 //                break;
 //            }
 //        }
-//        [temp removeObject:tempLikeModel];
-//        model.liked = NO;
-//    }
-//    model.likeItemsArray = [temp copy];
+        [temp removeObject:@"haha"];
+        model.is_in_like = NO;
+    }
+    model.in_like = [temp copy];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];

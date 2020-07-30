@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PickTaFriendCricleModel.h"
+#import "PickTaFriendCircleModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
 
-@property (nonatomic, strong) PTItemModel *itemModel;
+@property (nonatomic, strong) DataItem *itemModel;
 @end
 
 NS_ASSUME_NONNULL_END

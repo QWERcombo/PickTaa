@@ -12,7 +12,7 @@
 #import "PickTaChatsVC.h"
 #import "PickTaContactsVC.h"
 #import "PickTaDiscoverVC.h"
-
+#import "PTDiscoverListVC.h"
 
 @interface PickTaMSGTabBarController ()
 
@@ -51,7 +51,7 @@
     PickTaContactsVC *contactsVC = [PickTaContactsVC new];
     PickTaNavigationController *contactsNAV = [[PickTaNavigationController alloc]initWithRootViewController:contactsVC];
     
-    PickTaDiscoverVC *disVC = [PickTaDiscoverVC new];
+    PTDiscoverListVC *disVC = [PTDiscoverListVC new];
     PickTaNavigationController *disNAV = [[PickTaNavigationController alloc]initWithRootViewController:disVC];
     
     PickTaMeVC *meVC = [PickTaMeVC new];

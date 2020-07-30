@@ -28,10 +28,9 @@
  */
 
 #import "SDWeiXinPhotoContainerView.h"
-
 #import "UIView+SDAutoLayout.h"
-
 #import "SDPhotoBrowser.h"
+#import "PickTaFriendCircleModel.h"
 
 @interface SDWeiXinPhotoContainerView () <SDPhotoBrowserDelegate>
 
@@ -58,6 +57,8 @@
         [self addSubview:imageView];
         imageView.userInteractionEnabled = YES;
         imageView.tag = i;
+        imageView.contentMode = UIViewContentModeScaleAspectFill;
+        imageView.layer.masksToBounds = YES;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImageView:)];
         [imageView addGestureRecognizer:tap];
         [temp addObject:imageView];
@@ -83,25 +84,33 @@
     }
     
     CGFloat itemW = [self itemWidthForPicPathArray:_picPathStringsArray];
-    CGFloat itemH = 0;
-    if (_picPathStringsArray.count == 1) {
-        UIImage *image = [UIImage imageNamed:_picPathStringsArray.firstObject];
-        if (image.size.width) {
-            itemH = image.size.height / image.size.width * itemW;
-        }
-    } else {
-        itemH = itemW;
-    }
+    __block CGFloat itemH = 0;
+//    if (_picPathStringsArray.count == 1) {
+//        UIImage *image = [UIImage imageNamed:_picPathStringsArray.firstObject];
+//        if (image.size.width) {
+//            itemH = image.size.height / image.size.width * itemW;
+//        }
+//    } else {
+//        itemH = itemW;
+//    }
     long perRowItemCount = [self perRowItemCountForPicPathArray:_picPathStringsArray];
     CGFloat margin = 5;
     
-    [_picPathStringsArray enumerateObjectsUsingBlock:^(NSString *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [_picPathStringsArray enumerateObjectsUsingBlock:^(ThumbnailItem *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         long columnIndex = idx % perRowItemCount;
         long rowIndex = idx / perRowItemCount;
         UIImageView *imageView = [_imageViewsArray objectAtIndex:idx];
         imageView.hidden = NO;
-//        imageView.image = [UIImage imageNamed:obj];
-        [imageView sd_setImageWithURL:[NSURL URLWithString:obj] placeholderImage:[UIImage imageNamed:@"login_logo"]];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:obj.img_thumbnail] placeholderImage:[UIImage imageNamed:@"login_logo"]];
+        
+        if (_picPathStringsArray.count == 1) {
+            UIImage *image = imageView.image;
+            if (image.size.width) {
+                itemH = image.size.height / image.size.width * itemW;
+            }
+        } else {
+            itemH = itemW;
+        }
         imageView.frame = CGRectMake(columnIndex * (itemW + margin), rowIndex * (itemH + margin), itemW, itemH);
     }];
     
@@ -152,17 +161,13 @@
 
 #pragma mark - SDPhotoBrowserDelegate
 
-- (NSURL *)photoBrowser:(SDPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index
-{
-    NSString *imageName = self.picPathStringsArray[index];
-    NSURL *url = [[NSBundle mainBundle] URLForResource:imageName withExtension:nil];
-    return url;
+- (NSURL *)photoBrowser:(SDPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index {
+    ThumbnailItem *imageName = self.picPathStringsArray[index];
+    return [NSURL URLWithString:imageName.img];
 }
 
-- (UIImage *)photoBrowser:(SDPhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index
-{
+- (UIImage *)photoBrowser:(SDPhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index {
     UIImageView *imageView = self.subviews[index];
     return imageView.image;
 }
-
 @end

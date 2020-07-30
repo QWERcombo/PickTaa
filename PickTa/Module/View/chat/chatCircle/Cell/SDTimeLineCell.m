@@ -254,7 +254,7 @@ NSString *const kSDTimeLineCellOperationButtonClickedNotification = @"SDTimeLine
     [_iconView sd_setImageWithURL:[NSURL URLWithString:model.user_avatar] placeholderImage:[UIImage imageNamed:@"login_logo"]];
     _nameLable.text = model.user_name;
     _contentLabel.text = model.content;
-    _picContainerView.picPathStringsArray = model.img;
+    _picContainerView.picPathStringsArray = model.thumbnail;
     
     if (model.shouldShowMoreButton) { // 如果文字高度超过60
         _moreButton.sd_layout.heightIs(20);

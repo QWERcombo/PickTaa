@@ -7,7 +7,7 @@
 //
 
 #import "PTFriendDiscoverVC.h"
-#import "PickTaFriendCricleModel.h"
+#import "PickTaFriendCircleModel.h"
 #import "PickTaFriendDiscoverListCell.h"
 @interface PTFriendDiscoverVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImg;
 @property (weak, nonatomic) IBOutlet UILabel *nameLab;
 @property (nonatomic, strong) NSMutableArray *datas;
+@property (nonatomic, assign) NSInteger page;
 @end
 
 @implementation PTFriendDiscoverVC
@@ -23,32 +24,62 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.datas = [NSMutableArray array];
-    
+    self.page = 1;
+    self.nameLab.text = self.user_name;
+    [self.avatarImg sd_setImageWithURL:[NSURL URLWithString:self.user_avatar] placeholderImage:[UIImage imageNamed:kChatPlaceHolder]];
 }
 - (void)setupUI {
     [self wr_setNavBarBarTintColor:[UIColor clearColor]];
     [self wr_setNavBarTitleColor:[UIColor whiteColor]];
     [self wr_setNavBarShadowImageHidden:YES];
-    
-    PTMyModel *myModel = [PTMyModel modelWithJSON:[PickTaUserDefaults g_getValueForKey:@"user_info"]];
-    [self.bgCoverImg sd_setImageWithURL:[NSURL URLWithString:myModel.cover_photo]];
+        
     self.avatarImg.layer.cornerRadius = 6;
     self.avatarImg.layer.masksToBounds = YES;
     self.tableView.tableFooterView = [UIView new];
     self.tableView.rowHeight = 110;
+    
+    MJWeakSelf
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        weakSelf.page = 1;
+        [weakSelf requestData];
+    }];
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        weakSelf.page += 1;
+        [weakSelf requestData];
+    }];
 }
 - (void)requestData {
-    
-    [PickHttpManager.shared requestGET:API_FriendFriendDetail withParam:@{
+    ///type:1我的朋友圈 2好友的朋友圈
+    [SVProgressHUD showWithStatus:@"Loading"];
+    [PickHttpManager.shared requestGET:API_FriendList withParam:@{
         @"friend_id":self.friend_id,
+        @"type":@"2",
+        @"page":@(self.page),
+        @"limit":@"10"
     } withSuccess:^(id  _Nonnull obj) {
-        PickTaFriendCricleModel *model = [PickTaFriendCricleModel modelWithJSON:obj];
-        [self.datas addObjectsFromArray:model.friend_cricle];
-        self.nameLab.text = model.nickname;
-        [self.avatarImg sd_setImageWithURL:[NSURL URLWithString:model.head_portrait] placeholderImage:[UIImage imageNamed:kChatPlaceHolder]];
+        [SVProgressHUD dismiss];
+        if (self.page == 1) {
+            self.page = 1;
+            [self.datas removeAllObjects];
+            [self.tableView.mj_header endRefreshing];
+        } else {
+            self.page ++;
+        }
+        PickTaFriendCircleModel *model = [PickTaFriendCircleModel modelWithJSON:obj];
+        [self.datas addObjectsFromArray:model.data];
+        [self.bgCoverImg sd_setImageWithURL:[NSURL URLWithString:model.cover_photo]];
+        if ((10*self.page) < model.count) {
+            [self.tableView.mj_footer endRefreshing];
+        } else {
+            [self.tableView.mj_footer endRefreshingWithNoMoreData];
+        }
+        
         [self.tableView reloadData];
     } withFailure:^(NSError * _Nonnull err) {
+        [SVProgressHUD dismiss];
         [SVProgressHUD showErrorWithStatus:err.domain];
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
     }];
     
 }

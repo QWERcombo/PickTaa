@@ -74,6 +74,8 @@
         /** 朋友圈 */
         PTFriendDiscoverVC *vc = [UIViewController initViewControllerFromChatStoryBoardName:@"PTFriendDiscoverVC"];
         vc.friend_id = @(self.currentUserModel.friend_id).stringValue;
+        vc.user_name = self.currentUserModel.nick_remark;
+        vc.user_avatar = self.currentUserModel.to_head;
         [self.navigationController pushViewController:vc animated:YES];
     } else if (indexPath.row == 5) {
         /** 发消息 */

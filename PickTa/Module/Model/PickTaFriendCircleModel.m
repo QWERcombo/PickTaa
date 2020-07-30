@@ -47,7 +47,12 @@ extern CGFloat maxContentLabelHeight;
     return _isOpening;
 }
 
-
+- (void)setThumbnail:(NSArray<ThumbnailItem *> *)thumbnail {
+    _thumbnail = [NSArray modelArrayWithClass:ThumbnailItem.class json:thumbnail];
+}
+- (void)setComment_list:(NSArray<Comment_listItem *> *)comment_list {
+    _comment_list = [NSArray modelArrayWithClass:Comment_listItem.class json:comment_list];
+}
 @end
 
 

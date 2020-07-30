@@ -24,7 +24,6 @@
 		04A4260124D2A68000FF82DC /* PTAddRequestListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A425FF24D2A68000FF82DC /* PTAddRequestListCell.m */; };
 		04A4260224D2A68000FF82DC /* PTAddRequestListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04A4260024D2A68000FF82DC /* PTAddRequestListCell.xib */; };
 		04A4260524D2AE7A00FF82DC /* PTFriendDiscoverVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4260424D2AE7A00FF82DC /* PTFriendDiscoverVC.m */; };
-		04A4260824D2B4F700FF82DC /* PickTaFriendCricleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4260724D2B4F700FF82DC /* PickTaFriendCricleModel.m */; };
 		04A4261224D2BD6B00FF82DC /* PickTaFriendDiscoverListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4261024D2BD6B00FF82DC /* PickTaFriendDiscoverListCell.m */; };
 		04A4261324D2BD6B00FF82DC /* PickTaFriendDiscoverListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04A4261124D2BD6B00FF82DC /* PickTaFriendDiscoverListCell.xib */; };
 		04A4261624D2C81000FF82DC /* PTPublishDiscoverVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4261524D2C81000FF82DC /* PTPublishDiscoverVC.m */; };
@@ -185,6 +184,9 @@
 		56AD081E24D19A1900DCAFDD /* PTGroupListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56AD081D24D19A1900DCAFDD /* PTGroupListVC.m */; };
 		56AD082124D19A7A00DCAFDD /* PTPersonInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56AD082024D19A7A00DCAFDD /* PTPersonInfoVC.m */; };
 		56AD082324D19D5F00DCAFDD /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56AD082224D19D5F00DCAFDD /* Chat.storyboard */; };
+		56BCF55924D2FE2F00833E7D /* PTDiscoverListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BCF55824D2FE2F00833E7D /* PTDiscoverListVC.m */; };
+		56BCF55D24D3011400833E7D /* PTDiscoverListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BCF55B24D3011400833E7D /* PTDiscoverListCell.m */; };
+		56BCF55E24D3011400833E7D /* PTDiscoverListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56BCF55C24D3011400833E7D /* PTDiscoverListCell.xib */; };
 		56C4ED7B24CD622300A26A6A /* RegisterDealVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C4ED7924CD622300A26A6A /* RegisterDealVC.m */; };
 		56C4ED7E24CD681600A26A6A /* PTRegister2VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56C4ED7D24CD681600A26A6A /* PTRegister2VC.xib */; };
 		56C4ED8224CDA23500A26A6A /* PickTaMyAdModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C4ED8124CDA23500A26A6A /* PickTaMyAdModel.m */; };
@@ -390,8 +392,6 @@
 		04A4260024D2A68000FF82DC /* PTAddRequestListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PTAddRequestListCell.xib; path = PickTa/Module/ViewController/chat/Model/PTAddRequestListCell.xib; sourceTree = SOURCE_ROOT; };
 		04A4260324D2AE7A00FF82DC /* PTFriendDiscoverVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTFriendDiscoverVC.h; sourceTree = "<group>"; };
 		04A4260424D2AE7A00FF82DC /* PTFriendDiscoverVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTFriendDiscoverVC.m; sourceTree = "<group>"; };
-		04A4260624D2B4F700FF82DC /* PickTaFriendCricleModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PickTaFriendCricleModel.h; sourceTree = "<group>"; };
-		04A4260724D2B4F700FF82DC /* PickTaFriendCricleModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PickTaFriendCricleModel.m; sourceTree = "<group>"; };
 		04A4260F24D2BD6B00FF82DC /* PickTaFriendDiscoverListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PickTaFriendDiscoverListCell.h; sourceTree = "<group>"; };
 		04A4261024D2BD6B00FF82DC /* PickTaFriendDiscoverListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PickTaFriendDiscoverListCell.m; sourceTree = "<group>"; };
 		04A4261124D2BD6B00FF82DC /* PickTaFriendDiscoverListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickTaFriendDiscoverListCell.xib; sourceTree = "<group>"; };
@@ -690,6 +690,11 @@
 		56AD081F24D19A7A00DCAFDD /* PTPersonInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTPersonInfoVC.h; sourceTree = "<group>"; };
 		56AD082024D19A7A00DCAFDD /* PTPersonInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTPersonInfoVC.m; sourceTree = "<group>"; };
 		56AD082224D19D5F00DCAFDD /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
+		56BCF55724D2FE2F00833E7D /* PTDiscoverListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTDiscoverListVC.h; sourceTree = "<group>"; };
+		56BCF55824D2FE2F00833E7D /* PTDiscoverListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTDiscoverListVC.m; sourceTree = "<group>"; };
+		56BCF55A24D3011400833E7D /* PTDiscoverListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTDiscoverListCell.h; sourceTree = "<group>"; };
+		56BCF55B24D3011400833E7D /* PTDiscoverListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTDiscoverListCell.m; sourceTree = "<group>"; };
+		56BCF55C24D3011400833E7D /* PTDiscoverListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PTDiscoverListCell.xib; sourceTree = "<group>"; };
 		56C4ED7824CD622300A26A6A /* RegisterDealVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterDealVC.h; sourceTree = "<group>"; };
 		56C4ED7924CD622300A26A6A /* RegisterDealVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterDealVC.m; sourceTree = "<group>"; };
 		56C4ED7D24CD681600A26A6A /* PTRegister2VC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PTRegister2VC.xib; sourceTree = "<group>"; };
@@ -1038,8 +1043,6 @@
 				04A425F524D271BC00FF82DC /* PickTaSearchUserModel.m */,
 				04A425FB24D2A59500FF82DC /* PickTaNewFriendModel.h */,
 				04A425FC24D2A59500FF82DC /* PickTaNewFriendModel.m */,
-				04A4260624D2B4F700FF82DC /* PickTaFriendCricleModel.h */,
-				04A4260724D2B4F700FF82DC /* PickTaFriendCricleModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1050,6 +1053,9 @@
 				04A4260F24D2BD6B00FF82DC /* PickTaFriendDiscoverListCell.h */,
 				04A4261024D2BD6B00FF82DC /* PickTaFriendDiscoverListCell.m */,
 				04A4261124D2BD6B00FF82DC /* PickTaFriendDiscoverListCell.xib */,
+				56BCF55A24D3011400833E7D /* PTDiscoverListCell.h */,
+				56BCF55B24D3011400833E7D /* PTDiscoverListCell.m */,
+				56BCF55C24D3011400833E7D /* PTDiscoverListCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2543,6 +2549,8 @@
 				FBE9C03F249E13EE00EC2CD8 /* PickTaDiscoverVC.m */,
 				04A4260324D2AE7A00FF82DC /* PTFriendDiscoverVC.h */,
 				04A4260424D2AE7A00FF82DC /* PTFriendDiscoverVC.m */,
+				56BCF55724D2FE2F00833E7D /* PTDiscoverListVC.h */,
+				56BCF55824D2FE2F00833E7D /* PTDiscoverListVC.m */,
 				04A4261424D2C81000FF82DC /* PTPublishDiscoverVC.h */,
 				04A4261524D2C81000FF82DC /* PTPublishDiscoverVC.m */,
 			);
@@ -3392,6 +3400,7 @@
 				FB0BAA202497CF420042DE07 /* img_tab_home_2.png in Resources */,
 				1ED7586B24BD557000F22816 /* PTMineAuthInfoVC.xib in Resources */,
 				FB0BAA2D2497CF420042DE07 /* img_tab_me_0.png in Resources */,
+				56BCF55E24D3011400833E7D /* PTDiscoverListCell.xib in Resources */,
 				1E0939AD24B8173800AFBE5A /* PTMyMHGHeadTVC.xib in Resources */,
 				FB95B77E24A6372F000EA367 /* MLEmoji_Expression.plist in Resources */,
 				1E4266C024B6FFBF008A31B1 /* PTHeadTVC.xib in Resources */,
@@ -3739,8 +3748,8 @@
 				FB7813D224AE3905006F5978 /* PTTaskTGBLVC.m in Sources */,
 				FB95B79424A639E4000EA367 /* PickTaUserListModel.m in Sources */,
 				1E42661924B457AF008A31B1 /* XSWJVANSString+LK.m in Sources */,
+				56BCF55D24D3011400833E7D /* PTDiscoverListCell.m in Sources */,
 				1E22536724CA73CB001444E8 /* PTMyBeanListModel.m in Sources */,
-				04A4260824D2B4F700FF82DC /* PickTaFriendCricleModel.m in Sources */,
 				FB0BAA952497E8320042DE07 /* DSphereView.m in Sources */,
 				1E42660824B457AF008A31B1 /* UILabel+YBAttributeTextTapAction.m in Sources */,
 				1E09399324B8142F00AFBE5A /* PTMyMaidouVC.m in Sources */,
@@ -3764,6 +3773,7 @@
 				04A425EA24D2524000FF82DC /* PTSetRemarkVC.m in Sources */,
 				FB0BAA3D2497E3BC0042DE07 /* PickTaHomeVC.m in Sources */,
 				1E42661124B457AF008A31B1 /* UITextView+Placeholder.m in Sources */,
+				56BCF55924D2FE2F00833E7D /* PTDiscoverListVC.m in Sources */,
 				1E9B3E6324CAC6EC000F9AD2 /* PTTaskJZJSItemModel.m in Sources */,
 				1E9B3E6024CAC692000F9AD2 /* PTTaskJZJSListModel.m in Sources */,
 				FB7813E324AE45CD006F5978 /* PTTaskCell.m in Sources */,

@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PTFriendDiscoverVC : PickTaBaseViewController
 @property (nonatomic, copy) NSString *friend_id;
+@property (nonatomic, copy) NSString *user_name;
+@property (nonatomic, copy) NSString *user_avatar;
 @end
 
 NS_ASSUME_NONNULL_END
