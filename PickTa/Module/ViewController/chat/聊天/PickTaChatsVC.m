@@ -22,6 +22,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(requestData) name:ReceiveMessage object:nil];
+    @weakify(self);
+    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"kUpdateRemark" object:nil] subscribeNext:^(NSNotification * _Nullable x) {
+        @strongify(self);
+        [self requestData];
+    }];
 }
 
 - (void)setupUI{

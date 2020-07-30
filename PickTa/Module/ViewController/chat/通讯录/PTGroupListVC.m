@@ -9,7 +9,7 @@
 #import "PTGroupListVC.h"
 #import "PTContractsCell.h"
 #import "PTChatRecordModel.h"
-
+#import "PTChatSearchVC.h"
 @interface PTGroupListVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *datas;
@@ -35,8 +35,12 @@
     [searchBtn setImage:[UIImage imageNamed:@"chat_icon_0"] forState:UIControlStateNormal];
     searchBtn.frame = CGRectMake(0, 0, 40, 40);
     [[searchBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-        NSLog(@"222");
-        
+        PTChatSearchVC *search = [[PTChatSearchVC alloc] initWithNibName:@"PTChatSearchVC" bundle:nil];
+        search.searchType = 2;
+        PickTaNavigationController *navi = [[PickTaNavigationController alloc]initWithRootViewController:search];
+        navi.modalPresentationStyle = UIModalPresentationFullScreen;
+        [self presentViewController:navi animated:YES completion:^{
+        }];
     }];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:searchBtn];
 }

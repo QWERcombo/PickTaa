@@ -41,7 +41,7 @@
 #import "PickTaBaseViewController.h"
 #import "PTMyModel.h"
 #import "PTChatViewFactory.h"
-
+#import "PickTaNavigationController.h"
 
 
 #define LoginSuccess @"LoginSuccess"

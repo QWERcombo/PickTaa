@@ -74,7 +74,6 @@
 
 - (void)changeMSg{
     [self.window setRootViewController:PickTaMSGTabBarController.new];
-//    [SVProgressHUD showInfoWithStatus:@"暂未开放"];
 }
 
 -(void)changeNeedLogin {

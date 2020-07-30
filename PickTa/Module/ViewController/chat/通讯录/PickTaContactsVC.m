@@ -10,7 +10,7 @@
 #import "PTChatViewFactory.h"
 #import "PTUserListVM.h"
 #import "PTPersonInfoVC.h"
-
+#import "PTChatSearchVC.h"
 @interface PickTaContactsVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) PTUserListVM *userListVM;
@@ -34,6 +34,12 @@
     [self.view addSubview:self.tableView];
     self.tableView.rowHeight = 61.5;
     self.tableView.separatorColor = ChatLineColor;
+    
+    @weakify(self);
+    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"kUpdateRemark" object:nil] subscribeNext:^(NSNotification * _Nullable x) {
+        @strongify(self);
+        [self requestData];
+    }];
 }
 
 - (void)bindViewModel{
@@ -49,8 +55,13 @@
     [searchBtn setImage:[UIImage imageNamed:@"chat_icon_0"] forState:UIControlStateNormal];
     searchBtn.frame = CGRectMake(0, 0, 40, 40);
     [[searchBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-        NSLog(@"222");
-        
+        @strongify(self);
+        PTChatSearchVC *search = [[PTChatSearchVC alloc] initWithNibName:@"PTChatSearchVC" bundle:nil];
+        search.searchType = 1;
+        PickTaNavigationController *navi = [[PickTaNavigationController alloc]initWithRootViewController:search];
+        navi.modalPresentationStyle = UIModalPresentationFullScreen;
+        [self presentViewController:navi animated:YES completion:^{
+        }];
     }];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:searchBtn];
 }

@@ -25,7 +25,7 @@
 
 #define kTimeLineTableViewCellId @"SDTimeLineCell"
 
-@interface PickTaDiscoverVC ()<UITableViewDelegate,UITableViewDataSource,SDTimeLineCellDelegate>{
+@interface PickTaDiscoverVC ()<UITableViewDelegate,UITableViewDataSource,SDTimeLineCellDelegate,UITextFieldDelegate>{
     SDTimeLineRefreshFooter *_refreshFooter;
     SDTimeLineRefreshHeader *_refreshHeader;
     CGFloat _lastScrollViewOffsetY;
@@ -68,7 +68,8 @@
     [publishBtn setImage:[UIImage imageNamed:@"chat_icon_1"] forState:UIControlStateNormal];
     publishBtn.frame = CGRectMake(0, 0, 40, 40);
     [[publishBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-        NSLog(@"222");
+        @strongify(self);
+        [self.navigationController pushViewController:[UIViewController initViewControllerFromChatStoryBoardName:@"PTPublishDiscoverVC"] animated:YES];
     }];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:publishBtn];
 }
@@ -93,7 +94,7 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.tableView];
     self.myModel = [PTMyModel modelWithJSON:[PickTaUserDefaults g_getValueForKey:@"user_info"]];
-    __weak typeof(self) weakSelf = self;
+//    __weak typeof(self) weakSelf = self;
     // 上拉加载
 //    _refreshFooter = [SDTimeLineRefreshFooter refreshFooterWithRefreshingText:@"正在加载数据..."];
 //    __weak typeof(_refreshFooter) weakRefreshFooter = _refreshFooter;
@@ -122,7 +123,7 @@
     
     [self setupTextField];
     
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardNotification:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardNotification:) name:UIKeyboardWillChangeFrameNotification object:nil];
     
     if (!_refreshHeader.superview) {
         
@@ -158,8 +159,8 @@
     _textField.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height, self.view.width_sd, 40);
     [[UIApplication sharedApplication].keyWindow addSubview:_textField];
     
-    [_textField becomeFirstResponder];
-    [_textField resignFirstResponder];
+//    [_textField becomeFirstResponder];
+//    [_textField resignFirstResponder];
 }
 
 - (void)dealloc{
@@ -329,25 +330,25 @@
     return NO;
 }
 
-//- (void)keyboardNotification:(NSNotification *)notification
-//{
-//    NSDictionary *dict = notification.userInfo;
-//    CGRect rect = [dict[@"UIKeyboardFrameEndUserInfoKey"] CGRectValue];
-//
-//    CGRect textFieldRect = CGRectMake(0, rect.origin.y - _textField, rect.size.width, textFieldH);
-//    if (rect.origin.y == [UIScreen mainScreen].bounds.size.height) {
-//        textFieldRect = rect;
-//    }
-//
-//    [UIView animateWithDuration:0.25 animations:^{
-//        _textField.frame = textFieldRect;
-//    }];
-//
-//    CGFloat h = rect.size.height + textFieldH;
-//    if (_totalKeybordHeight != h) {
-//        _totalKeybordHeight = h;
-//        [self adjustTableViewToFitKeyboard];
-//    }
-//}
+- (void)keyboardNotification:(NSNotification *)notification
+{
+    NSDictionary *dict = notification.userInfo;
+    CGRect rect = [dict[@"UIKeyboardFrameEndUserInfoKey"] CGRectValue];
+
+    CGRect textFieldRect = CGRectMake(0, rect.origin.y - 40, rect.size.width, 40);
+    if (rect.origin.y == [UIScreen mainScreen].bounds.size.height) {
+        textFieldRect = rect;
+    }
+
+    [UIView animateWithDuration:0.25 animations:^{
+        self->_textField.frame = textFieldRect;
+    }];
+
+    CGFloat h = rect.size.height + 40;
+    if (_totalKeybordHeight != h) {
+        _totalKeybordHeight = h;
+        [self adjustTableViewToFitKeyboard];
+    }
+}
 
 @end
