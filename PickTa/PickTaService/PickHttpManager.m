@@ -170,13 +170,12 @@ static AFHTTPSessionManager *manager;
 -(void)uploadPhone:(NSString *)url withParam:(NSArray *)parameter withPregress:(PROGRESS)progress withSuccess:(SUCESS)sucess withFailure:(FAILURE)failure{
     WeakSelf(self)
     url = [NSString stringWithFormat:@"%@%@",API_BASE,url];
-
 //    NSDictionary *dict = @{@"sign":@"userHeader.png"};
 
     [manager POST:url parameters:nil headers:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
 //        [formData appendPartWithFormData:parameter name:@"sign"];
         for (UIImage *image in parameter) {
-            NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
+            NSData *imageData = UIImageJPEGRepresentation(image, 0.6);
             [formData appendPartWithFileData:imageData name:@"file" fileName:@"image.jpeg" mimeType:@"image/jpeg"];
         }
         

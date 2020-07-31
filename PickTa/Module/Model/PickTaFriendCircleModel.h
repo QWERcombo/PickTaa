@@ -43,8 +43,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , strong) NSArray <NSString *>              *in_like;
 @property (nonatomic , assign) BOOL              is_in_like;
 @property (nonatomic , strong) NSArray <ThumbnailItem *>              * thumbnail;
-@property (nonatomic , strong) NSArray <Comment_listItem *>              * comment_list;
+@property (nonatomic , copy) NSArray <Comment_listItem *>           * comment_list;
 @property (nonatomic , copy) NSString              * user_name;
+@property (nonatomic , copy) NSString              * id;
 @property (nonatomic , copy) NSString              * user_avatar;
 @property (nonatomic, assign) BOOL shouldShowMoreButton;
 @property (nonatomic, assign) BOOL isOpening;

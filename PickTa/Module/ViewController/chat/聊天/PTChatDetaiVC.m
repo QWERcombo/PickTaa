@@ -11,12 +11,14 @@
 #import "PTChatRecordContentVM.h"
 #import "SDChatTableViewCell.h"
 #import "UITableView+SDAutoTableViewCellHeight.h"
+#import "PTChatGroupSettingVC.h"
 
 @interface PTChatDetaiVC ()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate>
 @property (nonatomic,strong) PTChatBottomView *bottomView;
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) PTChatRecordContentVM *contentVM;
 @property (nonatomic,strong) NSArray *contentList;
+@property (nonatomic, assign) NSInteger page;
 @end
 
 #define kChatTableViewControllerCellId @"ChatTableViewController"
@@ -43,12 +45,27 @@
     self.bottomView.inputTV.delegate = self;
     [self.view addSubview:self.bottomView];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(requestData) name:ReceiveMessage object:nil];
+    
+    @weakify(self);
+    UIButton *searchBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [searchBtn setImage:[UIImage imageNamed:@"chat_icon_6"] forState:UIControlStateNormal];
+    searchBtn.frame = CGRectMake(0, 0, 40, 40);
+    [[searchBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        @strongify(self);
+        PTChatGroupSettingVC *vc = [UIViewController initViewControllerFromChatStoryBoardName:@"PTChatGroupSettingVC"];
+        vc.to_id = self.to_id;
+        [self.navigationController pushViewController:vc animated:YES];
+    }];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:searchBtn];
 }
 
 - (void)bindViewModel{
     @weakify(self)
     self.contentVM = [[PTChatRecordContentVM alloc]init];
-    self.contentVM.fetchContentParam = @{@"to_id":self.to_id, @"type":self.type,@"page":@"1"};
+    self.contentVM.fetchContentParam = @{
+        @"to_id":self.to_id,
+        @"type":self.type,
+        @"page":@"1"};
     [self.contentVM.recordContentCommand.executionSignals.switchToLatest subscribeNext:^(id  _Nullable x) {
         @strongify(self)
         self.contentList = x;

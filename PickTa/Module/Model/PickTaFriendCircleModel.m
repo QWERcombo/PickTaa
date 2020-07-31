@@ -51,7 +51,11 @@ extern CGFloat maxContentLabelHeight;
     _thumbnail = [NSArray modelArrayWithClass:ThumbnailItem.class json:thumbnail];
 }
 - (void)setComment_list:(NSArray<Comment_listItem *> *)comment_list {
-    _comment_list = [NSArray modelArrayWithClass:Comment_listItem.class json:comment_list];
+    if ([[comment_list lastObject] isKindOfClass:[NSDictionary class]]) {
+        _comment_list = [NSArray modelArrayWithClass:Comment_listItem.class json:comment_list];
+    } else {
+        _comment_list = comment_list;
+    }
 }
 @end
 

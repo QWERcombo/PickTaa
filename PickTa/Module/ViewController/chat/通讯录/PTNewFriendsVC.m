@@ -89,7 +89,7 @@
                 @"remark":model.apply_nickname
             } withSuccess:^(id  _Nonnull obj) {
                 [SVProgressHUD showSuccessWithStatus:@"接受申请"];
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"kUpdateRemark" object:nil];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"kUpdateInfoReload" object:nil];
                 [self.datas removeObject:model];
                 [self.tableView reloadData];
             } withFailure:^(NSError * _Nonnull err) {

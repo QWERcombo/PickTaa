@@ -27,6 +27,21 @@
 		04A4261224D2BD6B00FF82DC /* PickTaFriendDiscoverListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4261024D2BD6B00FF82DC /* PickTaFriendDiscoverListCell.m */; };
 		04A4261324D2BD6B00FF82DC /* PickTaFriendDiscoverListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04A4261124D2BD6B00FF82DC /* PickTaFriendDiscoverListCell.xib */; };
 		04A4261624D2C81000FF82DC /* PTPublishDiscoverVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4261524D2C81000FF82DC /* PTPublishDiscoverVC.m */; };
+		04BEBC1B24D3BFCB00072599 /* JRMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BEBC1924D3BFCB00072599 /* JRMenuView.m */; };
+		04BEBC1E24D3C5D500072599 /* JYLCommentInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BEBC1C24D3C5D300072599 /* JYLCommentInputView.m */; };
+		04BEBC2124D3DA4300072599 /* PTChatGroupSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BEBC2024D3DA4300072599 /* PTChatGroupSettingVC.m */; };
+		04BEBC2524D3EF3300072599 /* PickTaGroupSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BEBC2424D3EF3300072599 /* PickTaGroupSettingModel.m */; };
+		04BEBC2924D3F16500072599 /* PTGroupMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BEBC2724D3F16500072599 /* PTGroupMemberCell.m */; };
+		04BEBC2A24D3F16500072599 /* PTGroupMemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04BEBC2824D3F16500072599 /* PTGroupMemberCell.xib */; };
+		04BEBC2E24D400F600072599 /* PTChatGroupAllMemberVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BEBC2C24D400F600072599 /* PTChatGroupAllMemberVC.m */; };
+		04BEBC2F24D400F600072599 /* PTChatGroupAllMemberVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04BEBC2D24D400F600072599 /* PTChatGroupAllMemberVC.xib */; };
+		04BEBC3624D403A800072599 /* PTChatGroupNameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BEBC3424D403A800072599 /* PTChatGroupNameVC.m */; };
+		04BEBC3724D403A800072599 /* PTChatGroupNameVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04BEBC3524D403A800072599 /* PTChatGroupNameVC.xib */; };
+		04BEBC3B24D403BD00072599 /* PTChatGroupNotesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BEBC3924D403BD00072599 /* PTChatGroupNotesVC.m */; };
+		04BEBC3C24D403BD00072599 /* PTChatGroupNotesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04BEBC3A24D403BD00072599 /* PTChatGroupNotesVC.xib */; };
+		04BEBC3F24D40CF300072599 /* PTChatSelectMemberVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BEBC3E24D40CF300072599 /* PTChatSelectMemberVC.m */; };
+		04BEBC4324D422D200072599 /* PTChatSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BEBC4124D422D200072599 /* PTChatSelectCell.m */; };
+		04BEBC4424D422D200072599 /* PTChatSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04BEBC4224D422D200072599 /* PTChatSelectCell.xib */; };
 		1E09398A24B7FB6000AFBE5A /* PTTgwAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E09398924B7FB6000AFBE5A /* PTTgwAlertView.m */; };
 		1E09398C24B7FB6F00AFBE5A /* PTTgwAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E09398B24B7FB6F00AFBE5A /* PTTgwAlertView.xib */; };
 		1E09399324B8142F00AFBE5A /* PTMyMaidouVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E09399124B8142F00AFBE5A /* PTMyMaidouVC.m */; };
@@ -397,6 +412,31 @@
 		04A4261124D2BD6B00FF82DC /* PickTaFriendDiscoverListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickTaFriendDiscoverListCell.xib; sourceTree = "<group>"; };
 		04A4261424D2C81000FF82DC /* PTPublishDiscoverVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTPublishDiscoverVC.h; sourceTree = "<group>"; };
 		04A4261524D2C81000FF82DC /* PTPublishDiscoverVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTPublishDiscoverVC.m; sourceTree = "<group>"; };
+		04BEBC1924D3BFCB00072599 /* JRMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRMenuView.m; sourceTree = "<group>"; };
+		04BEBC1A24D3BFCB00072599 /* JRMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRMenuView.h; sourceTree = "<group>"; };
+		04BEBC1C24D3C5D300072599 /* JYLCommentInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYLCommentInputView.m; sourceTree = "<group>"; };
+		04BEBC1D24D3C5D500072599 /* JYLCommentInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYLCommentInputView.h; sourceTree = "<group>"; };
+		04BEBC1F24D3DA4300072599 /* PTChatGroupSettingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTChatGroupSettingVC.h; sourceTree = "<group>"; };
+		04BEBC2024D3DA4300072599 /* PTChatGroupSettingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTChatGroupSettingVC.m; sourceTree = "<group>"; };
+		04BEBC2324D3EF3300072599 /* PickTaGroupSettingModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PickTaGroupSettingModel.h; sourceTree = "<group>"; };
+		04BEBC2424D3EF3300072599 /* PickTaGroupSettingModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PickTaGroupSettingModel.m; sourceTree = "<group>"; };
+		04BEBC2624D3F16500072599 /* PTGroupMemberCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PTGroupMemberCell.h; path = "PickTa/Module/ViewController/chat/聊天/Model/PTGroupMemberCell.h"; sourceTree = SOURCE_ROOT; };
+		04BEBC2724D3F16500072599 /* PTGroupMemberCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PTGroupMemberCell.m; path = "PickTa/Module/ViewController/chat/聊天/Model/PTGroupMemberCell.m"; sourceTree = SOURCE_ROOT; };
+		04BEBC2824D3F16500072599 /* PTGroupMemberCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PTGroupMemberCell.xib; path = "PickTa/Module/ViewController/chat/聊天/Model/PTGroupMemberCell.xib"; sourceTree = SOURCE_ROOT; };
+		04BEBC2B24D400F600072599 /* PTChatGroupAllMemberVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTChatGroupAllMemberVC.h; sourceTree = "<group>"; };
+		04BEBC2C24D400F600072599 /* PTChatGroupAllMemberVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTChatGroupAllMemberVC.m; sourceTree = "<group>"; };
+		04BEBC2D24D400F600072599 /* PTChatGroupAllMemberVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PTChatGroupAllMemberVC.xib; sourceTree = "<group>"; };
+		04BEBC3324D403A800072599 /* PTChatGroupNameVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTChatGroupNameVC.h; sourceTree = "<group>"; };
+		04BEBC3424D403A800072599 /* PTChatGroupNameVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTChatGroupNameVC.m; sourceTree = "<group>"; };
+		04BEBC3524D403A800072599 /* PTChatGroupNameVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PTChatGroupNameVC.xib; sourceTree = "<group>"; };
+		04BEBC3824D403BD00072599 /* PTChatGroupNotesVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTChatGroupNotesVC.h; sourceTree = "<group>"; };
+		04BEBC3924D403BD00072599 /* PTChatGroupNotesVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTChatGroupNotesVC.m; sourceTree = "<group>"; };
+		04BEBC3A24D403BD00072599 /* PTChatGroupNotesVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PTChatGroupNotesVC.xib; sourceTree = "<group>"; };
+		04BEBC3D24D40CF300072599 /* PTChatSelectMemberVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTChatSelectMemberVC.h; sourceTree = "<group>"; };
+		04BEBC3E24D40CF300072599 /* PTChatSelectMemberVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTChatSelectMemberVC.m; sourceTree = "<group>"; };
+		04BEBC4024D422D200072599 /* PTChatSelectCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PTChatSelectCell.h; path = "PickTa/Module/ViewController/chat/聊天/PTChatSelectCell.h"; sourceTree = SOURCE_ROOT; };
+		04BEBC4124D422D200072599 /* PTChatSelectCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PTChatSelectCell.m; path = "PickTa/Module/ViewController/chat/聊天/PTChatSelectCell.m"; sourceTree = SOURCE_ROOT; };
+		04BEBC4224D422D200072599 /* PTChatSelectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PTChatSelectCell.xib; path = "PickTa/Module/ViewController/chat/聊天/PTChatSelectCell.xib"; sourceTree = SOURCE_ROOT; };
 		1E09398824B7FB6000AFBE5A /* PTTgwAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTTgwAlertView.h; sourceTree = "<group>"; };
 		1E09398924B7FB6000AFBE5A /* PTTgwAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTTgwAlertView.m; sourceTree = "<group>"; };
 		1E09398B24B7FB6F00AFBE5A /* PTTgwAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PTTgwAlertView.xib; sourceTree = "<group>"; };
@@ -1050,14 +1090,35 @@
 		04A4260E24D2BD4B00FF82DC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04BEBC1824D3BFCB00072599 /* JRMenuView */,
 				04A4260F24D2BD6B00FF82DC /* PickTaFriendDiscoverListCell.h */,
 				04A4261024D2BD6B00FF82DC /* PickTaFriendDiscoverListCell.m */,
 				04A4261124D2BD6B00FF82DC /* PickTaFriendDiscoverListCell.xib */,
 				56BCF55A24D3011400833E7D /* PTDiscoverListCell.h */,
 				56BCF55B24D3011400833E7D /* PTDiscoverListCell.m */,
 				56BCF55C24D3011400833E7D /* PTDiscoverListCell.xib */,
+				04BEBC1D24D3C5D500072599 /* JYLCommentInputView.h */,
+				04BEBC1C24D3C5D300072599 /* JYLCommentInputView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		04BEBC1824D3BFCB00072599 /* JRMenuView */ = {
+			isa = PBXGroup;
+			children = (
+				04BEBC1924D3BFCB00072599 /* JRMenuView.m */,
+				04BEBC1A24D3BFCB00072599 /* JRMenuView.h */,
+			);
+			path = JRMenuView;
+			sourceTree = "<group>";
+		};
+		04BEBC2224D3EF1B00072599 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				04BEBC2324D3EF3300072599 /* PickTaGroupSettingModel.h */,
+				04BEBC2424D3EF3300072599 /* PickTaGroupSettingModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		1E04EBFD24C158A800341104 /* Header */ = {
@@ -2508,11 +2569,25 @@
 		56AD081324D1996400DCAFDD /* 聊天 */ = {
 			isa = PBXGroup;
 			children = (
+				04BEBC2224D3EF1B00072599 /* Model */,
 				56AD081624D199A600DCAFDD /* View */,
 				FBE9C038249E138600EC2CD8 /* PickTaChatsVC.h */,
 				FBE9C039249E138600EC2CD8 /* PickTaChatsVC.m */,
 				FB3E281724A5E85000BBC0E7 /* PTChatDetaiVC.h */,
 				FB3E281824A5E85000BBC0E7 /* PTChatDetaiVC.m */,
+				04BEBC1F24D3DA4300072599 /* PTChatGroupSettingVC.h */,
+				04BEBC2024D3DA4300072599 /* PTChatGroupSettingVC.m */,
+				04BEBC3D24D40CF300072599 /* PTChatSelectMemberVC.h */,
+				04BEBC3E24D40CF300072599 /* PTChatSelectMemberVC.m */,
+				04BEBC3324D403A800072599 /* PTChatGroupNameVC.h */,
+				04BEBC3424D403A800072599 /* PTChatGroupNameVC.m */,
+				04BEBC3524D403A800072599 /* PTChatGroupNameVC.xib */,
+				04BEBC3824D403BD00072599 /* PTChatGroupNotesVC.h */,
+				04BEBC3924D403BD00072599 /* PTChatGroupNotesVC.m */,
+				04BEBC3A24D403BD00072599 /* PTChatGroupNotesVC.xib */,
+				04BEBC2B24D400F600072599 /* PTChatGroupAllMemberVC.h */,
+				04BEBC2C24D400F600072599 /* PTChatGroupAllMemberVC.m */,
+				04BEBC2D24D400F600072599 /* PTChatGroupAllMemberVC.xib */,
 			);
 			path = "聊天";
 			sourceTree = "<group>";
@@ -2560,6 +2635,12 @@
 		56AD081624D199A600DCAFDD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04BEBC2624D3F16500072599 /* PTGroupMemberCell.h */,
+				04BEBC2724D3F16500072599 /* PTGroupMemberCell.m */,
+				04BEBC2824D3F16500072599 /* PTGroupMemberCell.xib */,
+				04BEBC4024D422D200072599 /* PTChatSelectCell.h */,
+				04BEBC4124D422D200072599 /* PTChatSelectCell.m */,
+				04BEBC4224D422D200072599 /* PTChatSelectCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3384,9 +3465,11 @@
 				1E4266D324B72A4A008A31B1 /* PTTgwHeadTVC.xib in Resources */,
 				1EB4BC8B24B748610075268A /* PTTgwHqjlRowTVC.xib in Resources */,
 				04A4260224D2A68000FF82DC /* PTAddRequestListCell.xib in Resources */,
+				04BEBC3724D403A800072599 /* PTChatGroupNameVC.xib in Resources */,
 				FBE4678B2497A2A100C9FE94 /* LaunchScreen.storyboard in Resources */,
 				FB95B77F24A6372F000EA367 /* MLEmoji_Expression.bundle in Resources */,
 				FB0BAA2E2497CF420042DE07 /* gray_tabbar_message_animation.json in Resources */,
+				04BEBC3C24D403BD00072599 /* PTChatGroupNotesVC.xib in Resources */,
 				1ED7587224BD8FD300F22816 /* PCMinePublishAdVC.xib in Resources */,
 				FB9D473B24A2580000D2FB19 /* PTChatViews.xib in Resources */,
 				1E0939B224B830A500AFBE5A /* PTMyMHGRowTVC.xib in Resources */,
@@ -3398,8 +3481,10 @@
 				FB0BAA2C2497CF420042DE07 /* green_lottie_tab_discover.json in Resources */,
 				FB0BAA262497CF420042DE07 /* img_tab_message_0.png in Resources */,
 				FB0BAA202497CF420042DE07 /* img_tab_home_2.png in Resources */,
+				04BEBC2F24D400F600072599 /* PTChatGroupAllMemberVC.xib in Resources */,
 				1ED7586B24BD557000F22816 /* PTMineAuthInfoVC.xib in Resources */,
 				FB0BAA2D2497CF420042DE07 /* img_tab_me_0.png in Resources */,
+				04BEBC2A24D3F16500072599 /* PTGroupMemberCell.xib in Resources */,
 				56BCF55E24D3011400833E7D /* PTDiscoverListCell.xib in Resources */,
 				1E0939AD24B8173800AFBE5A /* PTMyMHGHeadTVC.xib in Resources */,
 				FB95B77E24A6372F000EA367 /* MLEmoji_Expression.plist in Resources */,
@@ -3410,6 +3495,7 @@
 				FB0BAA3F2497E43D0042DE07 /* 背景.gif in Resources */,
 				56C4ED8724CDC1F500A26A6A /* PTMyTGBListCell.xib in Resources */,
 				FB0BAA302497CF420042DE07 /* img_tab_me_1.png in Resources */,
+				04BEBC4424D422D200072599 /* PTChatSelectCell.xib in Resources */,
 				1E0939A524B814E900AFBE5A /* PTMyHuoYueDuVC.xib in Resources */,
 				1E4266C524B7049C008A31B1 /* PTARCodeTVC.xib in Resources */,
 				04A4261324D2BD6B00FF82DC /* PickTaFriendDiscoverListCell.xib in Resources */,
@@ -3604,6 +3690,7 @@
 				FB95B78724A6372F000EA367 /* MLLinkLabel.m in Sources */,
 				1E22536324CA6FF9001444E8 /* PTMhgVM.m in Sources */,
 				1E9B3E7924CBBB05000F9AD2 /* PTHelpCenterItemModel.m in Sources */,
+				04BEBC1E24D3C5D500072599 /* JYLCommentInputView.m in Sources */,
 				1E22536E24CA7892001444E8 /* PTMyGXZListModel.m in Sources */,
 				FB95B74124A63580000EA367 /* SDChatTableViewCell.m in Sources */,
 				FBA90760249BB826008CCBF9 /* PickTaCallVC.m in Sources */,
@@ -3649,6 +3736,7 @@
 				FB9D473A24A2580000D2FB19 /* PTChatCurrentCell.m in Sources */,
 				FB7813D524AE4095006F5978 /* PTTaskDoingVC.m in Sources */,
 				1EB4BCA224B7613E0075268A /* PTMyAVDVC.m in Sources */,
+				04BEBC3B24D403BD00072599 /* PTChatGroupNotesVC.m in Sources */,
 				1ED7587724BD91C200F22816 /* PTPublishHeadTVC.m in Sources */,
 				1E22537E24CA7D8A001444E8 /* PTHYDLevelItemModel.m in Sources */,
 				FB47D0B3249BC7510035EA19 /* PickTaCallVM.m in Sources */,
@@ -3701,6 +3789,7 @@
 				FB95B78D24A63730000EA367 /* MLLabelLayoutManager.m in Sources */,
 				1E42669224B45875008A31B1 /* XSWJVASPTValue.m in Sources */,
 				1E42662924B457AF008A31B1 /* XSWJVANSObject+SPNotNull.m in Sources */,
+				04BEBC2124D3DA4300072599 /* PTChatGroupSettingVC.m in Sources */,
 				FBE4677D2497A29E00C9FE94 /* AppDelegate.m in Sources */,
 				1E22538824CAB92F001444E8 /* PTTgwListModel.m in Sources */,
 				1E57E1B724C144B900C37172 /* YUFoldingTableView.m in Sources */,
@@ -3739,6 +3828,7 @@
 				FB95B78224A6372F000EA367 /* TTTAttributedLabel.m in Sources */,
 				56C4ED8624CDC1F500A26A6A /* PTMyTGBListCell.m in Sources */,
 				FBA9075B249BAEC3008CCBF9 /* PickTaTaskVC.m in Sources */,
+				04BEBC4324D422D200072599 /* PTChatSelectCell.m in Sources */,
 				FB7813CC24AE3893006F5978 /* PTTaskTGWVC.m in Sources */,
 				1E42661224B457AF008A31B1 /* UICollectionView+Fix.m in Sources */,
 				FBE467BF2497BF3D00C9FE94 /* PickTaBaseViewModel.m in Sources */,
@@ -3762,6 +3852,7 @@
 				FB464FEC24A73A3700A056B5 /* SDTimeLineCellCommentView.m in Sources */,
 				1ED7585424BC72E700F22816 /* PTIDAnthVC.m in Sources */,
 				1E57E1B824C144B900C37172 /* YUFoldingSectionHeader.m in Sources */,
+				04BEBC3624D403A800072599 /* PTChatGroupNameVC.m in Sources */,
 				FB9F95B424AF07AE0033C9EA /* PTJZJSVM.m in Sources */,
 				FB464FE424A7399600A056B5 /* SDTimeLineCell.m in Sources */,
 				1E9B3E7E24CBBFF7000F9AD2 /* PTAboutUsVC.m in Sources */,
@@ -3781,6 +3872,7 @@
 				1E42669624B45875008A31B1 /* XSWJVAExternConstant.m in Sources */,
 				1E5D813E24C1B86B00F3DE82 /* PTModifyLoginPwVC.m in Sources */,
 				FB79C47124A0E5E100C3876E /* PTMyVM.m in Sources */,
+				04BEBC3F24D40CF300072599 /* PTChatSelectMemberVC.m in Sources */,
 				FB7813C924AE384F006F5978 /* PTTaskCenterVC.m in Sources */,
 				1E42661624B457AF008A31B1 /* XSWJVANSMutableParagraphStyle+SPTUI.m in Sources */,
 				FBB4EF6724A462F000D38659 /* PTChatRecordModel.m in Sources */,
@@ -3792,8 +3884,10 @@
 				1E42659A24B45323008A31B1 /* fsfsfsf.m in Sources */,
 				1ED7586224BD30FE00F22816 /* PECropViewController.m in Sources */,
 				FBA90767249BBF6D008CCBF9 /* PTCallCell.m in Sources */,
+				04BEBC2524D3EF3300072599 /* PickTaGroupSettingModel.m in Sources */,
 				1EB4BC8524B739FF0075268A /* PTTgwHqjlHeadTVC.m in Sources */,
 				1ED1B5E024B8808900647949 /* PTMyTGBLHeadTVC.m in Sources */,
+				04BEBC2E24D400F600072599 /* PTChatGroupAllMemberVC.m in Sources */,
 				FBE467BC2497BF2C00C9FE94 /* PickTaBaseModel.m in Sources */,
 				1ED7587C24BD957F00F22816 /* PTPublishContentTVC.m in Sources */,
 				FB95B78524A6372F000EA367 /* NSString+MLLabel.m in Sources */,
@@ -3810,6 +3904,7 @@
 				1EF4B6B724CBCD5900C87355 /* PTModifyLoginPwVM.m in Sources */,
 				FB023ED02499200800F1FD4F /* PickTaLoginVM.m in Sources */,
 				1E42661C24B457AF008A31B1 /* XSWJVANSString+BH.m in Sources */,
+				04BEBC1B24D3BFCB00072599 /* JRMenuView.m in Sources */,
 				04858AC524CEC21400B68A93 /* PickTaPsdView.m in Sources */,
 				FB10EF3B249D007300CE402B /* PickTaNavigationController.m in Sources */,
 				1E9B3E7624CBBAF7000F9AD2 /* PTHelpCenterListModel.m in Sources */,
@@ -3842,6 +3937,7 @@
 				1ED7584B24BC3D8C00F22816 /* PTMyTagCVC.m in Sources */,
 				FB8BEF41249CF8F300B7F5F2 /* WRNavigationBar.m in Sources */,
 				1E1DD2DD24C687FE00BDDA30 /* GBTagListView.m in Sources */,
+				04BEBC2924D3F16500072599 /* PTGroupMemberCell.m in Sources */,
 				FBB4EF6424A4600400D38659 /* PTChatRecordVM.m in Sources */,
 				1E9B3E6B24CAD4EB000F9AD2 /* PTTaskTGBLItemModel.m in Sources */,
 				1E22537124CA7905001444E8 /* PTMyGXZItemModel.m in Sources */,

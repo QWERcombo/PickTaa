@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PTChatGroupNameVC">
+            <connections>
+                <outlet property="inputTF" destination="Eey-re-MXs" id="akd-kX-T46"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Jo-SX-Bqf">
+                    <rect key="frame" x="0.0" y="64" width="414" height="60"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入群名称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eey-re-MXs">
+                            <rect key="frame" x="16" y="0.0" width="382" height="60"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="Eey-re-MXs" firstAttribute="leading" secondItem="4Jo-SX-Bqf" secondAttribute="leading" constant="16" id="2s6-Yj-hLz"/>
+                        <constraint firstAttribute="bottom" secondItem="Eey-re-MXs" secondAttribute="bottom" id="e4A-Mo-ocA"/>
+                        <constraint firstItem="Eey-re-MXs" firstAttribute="top" secondItem="4Jo-SX-Bqf" secondAttribute="top" id="gUM-dK-ryP"/>
+                        <constraint firstAttribute="height" constant="60" id="hnP-rf-6Ic"/>
+                        <constraint firstAttribute="trailing" secondItem="Eey-re-MXs" secondAttribute="trailing" constant="16" id="zjE-bq-Wvd"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.95294117649999999" green="0.95686274510000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="4Jo-SX-Bqf" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="20" id="Ezz-M1-h4W"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="4Jo-SX-Bqf" secondAttribute="trailing" id="SbF-6q-pkR"/>
+                <constraint firstItem="4Jo-SX-Bqf" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="Voq-AE-1xK"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="132" y="80"/>
+        </view>
+    </objects>
+</document>

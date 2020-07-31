@@ -36,7 +36,7 @@
     self.tableView.separatorColor = ChatLineColor;
     
     @weakify(self);
-    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"kUpdateRemark" object:nil] subscribeNext:^(NSNotification * _Nullable x) {
+    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"kUpdateInfoReload" object:nil] subscribeNext:^(NSNotification * _Nullable x) {
         @strongify(self);
         [self requestData];
     }];

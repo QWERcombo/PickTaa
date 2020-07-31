@@ -7,21 +7,24 @@
 //
 
 #import "PTDiscoverListCell.h"
+#import "PTPublishImgAddCVC.h"
 
 #define kItemSize ((kScreenWidth-91)/3.f)
-
-@implementation PTDiscoverListCell
+@implementation PTDiscoverListCell {
+    JRMenuView * jrMenu;
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    [self.collectionView registerClass:UICollectionViewCell.class forCellWithReuseIdentifier:@"UICollectionViewCell"];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"PTPublishImgAddCVC" bundle:nil] forCellWithReuseIdentifier:@"PTPublishImgAddCVC"];
     self.flowLayout.itemSize = CGSizeMake(kItemSize, kItemSize);
     self.flowLayout.minimumLineSpacing = 3.5;
     self.flowLayout.minimumInteritemSpacing = 3.5;
     self.flowLayout.sectionInset = UIEdgeInsetsZero;
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
+    
 }
 
 - (void)setItemModel:(DataItem *)itemModel {
@@ -79,27 +82,22 @@
         self.info_bottom.constant = 15;
     }
     if (_itemModel.in_like.count || _itemModel.comment_list.count) {
-        self.lineView.hidden = YES;
-    } else {
         self.lineView.hidden = NO;
+    } else {
+        self.lineView.hidden = YES;
     }
+    
+    PTMyModel *myModel = [PTMyModel modelWithJSON:[PickTaUserDefaults g_getValueForKey:@"user_info"]];
+    self.deleteBtn.hidden = !(_itemModel.user_id == myModel.pickID);
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.itemModel.thumbnail.count;
 }
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"UICollectionViewCell" forIndexPath:indexPath];
-    UIImageView *imgv = [UIImageView new];
-    imgv.tag = 999;
-    imgv.contentMode = UIViewContentModeScaleAspectFill;
-    imgv.layer.masksToBounds = YES;
-    [cell.contentView addSubview:imgv];
-    [imgv mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(cell.contentView);
-    }];
+    PTPublishImgAddCVC *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PTPublishImgAddCVC" forIndexPath:indexPath];
     ThumbnailItem *item = [self.itemModel.thumbnail objectAtIndex:indexPath.row];
-    [imgv sd_setImageWithURL:[NSURL URLWithString:item.img_thumbnail]];
+    [cell.btnImg sd_setImageWithURL:[NSURL URLWithString:[item.img_thumbnail stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]] placeholderImage:[UIImage imageNamed:@"default_qr_img"]];
     
     return cell;
 }
@@ -121,6 +119,42 @@
 }
 - (NSURL *)photoBrowser:(SDPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index {
     ThumbnailItem *item = [self.itemModel.thumbnail objectAtIndex:index];
-    return [NSURL URLWithString:item.img];
+    return [NSURL URLWithString:[item.img stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
 }
+
+- (IBAction)deleteClick:(UIButton *)sender {
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(operateCellWithType:indexPath:)]) {
+        [self.delegate operateCellWithType:0 indexPath:self.indexPath];
+    }
+}
+- (IBAction)operateClick:(UIButton *)sender {
+    
+    NSArray * itemsArray = self.CLICKMENUBLOCK();
+    
+    if (!jrMenu) {
+        jrMenu = [[JRMenuView alloc] init];
+    }
+    [jrMenu setTargetView:sender InView:self.contentView];
+    [jrMenu setTitleArray:itemsArray];
+    jrMenu.delegate = self;
+    [self.contentView addSubview:jrMenu];
+    [jrMenu show];
+}
+- (void)hasSelectedJRMenuIndex:(NSInteger)jrMenuIndex {
+    
+    if (jrMenuIndex == 0) {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(operateCellWithType:indexPath:)]) {
+            [self.delegate operateCellWithType:self.itemModel.is_in_like+1 indexPath:self.indexPath];
+        }
+    } else {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(operateCellWithType:indexPath:)]) {
+            [self.delegate operateCellWithType:3 indexPath:self.indexPath];
+        }
+    }
+}
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [jrMenu dismiss];
+}
+
 @end

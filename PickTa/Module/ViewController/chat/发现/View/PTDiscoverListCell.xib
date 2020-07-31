@@ -56,6 +56,9 @@
                             <constraint firstAttribute="width" constant="33" id="Ybb-BT-2FD"/>
                         </constraints>
                         <state key="normal" image="chat_icon_4"/>
+                        <connections>
+                            <action selector="operateClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="bli-mJ-7zL"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9G-jD-4Lv">
                         <rect key="frame" x="68" y="191.5" width="33" height="16"/>
@@ -100,6 +103,20 @@
                             <constraint firstItem="NuN-ih-4IX" firstAttribute="top" secondItem="rev-J9-Lf6" secondAttribute="bottom" constant="11" id="z7W-Qm-3Fy"/>
                         </constraints>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCC-py-3pe">
+                        <rect key="frame" x="221" y="187" width="40" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="fvD-dF-E2l"/>
+                            <constraint firstAttribute="height" constant="25" id="kza-AB-YLu"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <state key="normal" title="删除">
+                            <color key="titleColor" red="0.2666666667" green="0.73725490199999999" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="deleteClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="nHX-8A-U3f"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="1cl-Kf-6VM" secondAttribute="trailing" constant="16" id="7Va-oU-tUg"/>
@@ -120,6 +137,8 @@
                     <constraint firstItem="1xq-1D-9HT" firstAttribute="top" secondItem="F2V-ui-Ybl" secondAttribute="top" constant="5" id="nFT-6e-p5N"/>
                     <constraint firstItem="F2V-ui-Ybl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="nUo-Bd-bKg"/>
                     <constraint firstItem="1xq-1D-9HT" firstAttribute="leading" secondItem="F2V-ui-Ybl" secondAttribute="trailing" constant="10" id="qYb-zr-KwM"/>
+                    <constraint firstItem="eCC-py-3pe" firstAttribute="centerY" secondItem="5br-fX-Aih" secondAttribute="centerY" id="sAx-23-e76"/>
+                    <constraint firstItem="5br-fX-Aih" firstAttribute="leading" secondItem="eCC-py-3pe" secondAttribute="trailing" constant="10" id="tYS-e2-WzE"/>
                     <constraint firstItem="GNv-WB-843" firstAttribute="leading" secondItem="1cl-Kf-6VM" secondAttribute="leading" id="yvZ-a8-8IN"/>
                 </constraints>
             </tableViewCellContentView>
@@ -129,6 +148,7 @@
                 <outlet property="collectionH" destination="bZK-KD-rf5" id="x6L-eu-dxu"/>
                 <outlet property="collectionView" destination="GNv-WB-843" id="YHE-i1-2u1"/>
                 <outlet property="comment_top" destination="jBd-wx-AVb" id="r5T-hK-96c"/>
+                <outlet property="deleteBtn" destination="eCC-py-3pe" id="REo-zF-UG8"/>
                 <outlet property="flowLayout" destination="eoj-E0-da6" id="fmf-mr-Zdh"/>
                 <outlet property="infoView" destination="8Tt-sU-0Op" id="0n5-sr-2aX"/>
                 <outlet property="info_bottom" destination="UxD-GK-wzq" id="ApH-u0-bRl"/>

@@ -31,7 +31,7 @@
     
     [self requestData];
     @weakify(self);
-    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"kUpdateRemark" object:nil] subscribeNext:^(NSNotification * _Nullable x) {
+    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"kUpdateInfoReload" object:nil] subscribeNext:^(NSNotification * _Nullable x) {
         @strongify(self);
         [self requestData];
     }];
@@ -92,7 +92,7 @@
                 @"friend_id":@(self.userListModel.friend_id).stringValue
             } withSuccess:^(id  _Nonnull obj) {
                 [SVProgressHUD showSuccessWithStatus:@"删除成功"];
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"kUpdateRemark" object:nil];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"kUpdateInfoReload" object:nil];
                 [self.navigationController popViewControllerAnimated:YES];
             } withFailure:^(NSError * _Nonnull err) {
                 [SVProgressHUD showErrorWithStatus:err.domain];
