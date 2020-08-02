@@ -24,6 +24,7 @@
             [[PickHttpManager shared]requestPOST:API_ChatRecord withParam:self.fetchContentParam withSuccess:^(id  _Nonnull obj) {
                 NSArray *recordContent = [NSArray modelArrayWithClass:[PTChatRecordContentModel class] json:obj];
                 recordContent = [[recordContent reverseObjectEnumerator] allObjects];
+                recordContent = [recordContent filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"content.length > 0"]];
                 [subscriber sendNext:recordContent];
                 [subscriber sendCompleted];
             } withFailure:^(NSError * _Nonnull err) {

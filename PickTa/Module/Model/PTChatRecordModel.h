@@ -14,8 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , assign) NSInteger              pickID;
 @property (nonatomic , assign) NSInteger              from_id;
 @property (nonatomic , assign) NSInteger              to_id;
-@property (nonatomic , assign) NSInteger              type;// 1单聊 2群聊
-@property (nonatomic , assign) NSInteger              chat_type;
+@property (nonatomic , assign) NSInteger              type;
+@property (nonatomic , assign) NSInteger              chat_type;// 1单聊 2群聊
 @property (nonatomic , copy) NSString              * content;
 @property (nonatomic , assign) NSInteger              time;
 @property (nonatomic , assign) NSInteger              is_read;

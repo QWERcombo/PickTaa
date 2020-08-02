@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PTChatSelectMemberVC : PickTaBaseViewController
 /// 0新建 1加
 @property (nonatomic, assign) NSInteger type;
+@property (nonatomic, copy) NSString *group_id;
 @end
 
 NS_ASSUME_NONNULL_END

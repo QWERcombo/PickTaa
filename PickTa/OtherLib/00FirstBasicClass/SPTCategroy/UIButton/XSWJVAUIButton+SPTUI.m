@@ -71,9 +71,9 @@ static id curTimer;
                                             -((selfHeight - totalHeight) / 2 + imageRect.size.height + padding1 - titleRect.origin.y),
                                             -(selfWidth / 2 - titleRect.origin.x - titleRect.size.width / 2) - (selfWidth - titleRect.size.width) / 2);
     self.imageEdgeInsets = UIEdgeInsetsMake(((selfHeight - totalHeight) / 2 - imageRect.origin.y - padding1),
-                                            (selfWidth / 2 - imageRect.origin.x - imageRect.size.width / 2),
+                                            (selfWidth / 2 - imageRect.origin.x),
                                             -((selfHeight - totalHeight) / 2 - imageRect.origin.y),
-                                            -(selfWidth / 2 - imageRect.origin.x - imageRect.size.width / 2));
+                                            -(selfWidth / 2 - imageRect.origin.x));
 }
 
 - (void)wbc_changeTitleEdge:(UIEdgeInsets)edge {

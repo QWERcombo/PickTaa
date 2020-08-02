@@ -25,9 +25,10 @@
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <state key="normal" image="矩形 13"/>
+                        <state key="selected" image="确认"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GyN-Gf-cKP">
-                        <rect key="frame" x="110" y="19" width="195" height="17"/>
+                        <rect key="frame" x="105" y="19" width="200" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -42,7 +43,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="XHq-XD-m85" firstAttribute="leading" secondItem="05n-QB-l9F" secondAttribute="trailing" constant="10" id="J3H-mf-Fgm"/>
-                    <constraint firstItem="GyN-Gf-cKP" firstAttribute="leading" secondItem="XHq-XD-m85" secondAttribute="trailing" constant="15" id="O6F-r5-9jk"/>
+                    <constraint firstItem="GyN-Gf-cKP" firstAttribute="leading" secondItem="XHq-XD-m85" secondAttribute="trailing" constant="10" id="O6F-r5-9jk"/>
                     <constraint firstItem="XHq-XD-m85" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Yhi-fj-FWM"/>
                     <constraint firstItem="05n-QB-l9F" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="cB9-XR-PUG"/>
                     <constraint firstItem="GyN-Gf-cKP" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hN6-9J-Jgt"/>
@@ -62,5 +63,6 @@
     </objects>
     <resources>
         <image name="矩形 13" width="16" height="16"/>
+        <image name="确认" width="17" height="17"/>
     </resources>
 </document>

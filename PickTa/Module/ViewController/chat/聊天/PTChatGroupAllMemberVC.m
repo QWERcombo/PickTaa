@@ -103,6 +103,7 @@
         if (indexPath.row == self.datas.count-1) {
             PTChatSelectMemberVC *vc = [PTChatSelectMemberVC new];
             vc.type = 1;
+            vc.group_id = self.model.id;
             [self.navigationController pushViewController:vc animated:YES];
         }
     } else if (self.type == 1) {

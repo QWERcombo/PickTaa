@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , copy) NSString              * to_nickname;
 @property (nonatomic , assign) BOOL                 circle_auth;
 @property (nonatomic , assign) BOOL                 side_auth;
+@property (nonatomic , assign) BOOL                 isSelect;
 @end
 
 NS_ASSUME_NONNULL_END

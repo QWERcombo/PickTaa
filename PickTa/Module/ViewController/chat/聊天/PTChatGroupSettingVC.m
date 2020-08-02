@@ -54,6 +54,7 @@
     [PickHttpManager.shared requestPOST:API_ChatGroupInfo withParam:@{
         @"group_id":self.to_id
     } withSuccess:^(id  _Nonnull obj) {
+        [self.datas removeAllObjects];
         self.model = [PickTaGroupSettingModel modelWithJSON:obj];
         [self.datas addObjectsFromArray:[self.model.member_list subarrayWithRange:NSMakeRange(0, self.model.member_list.count>14?14:self.model.member_list.count)]];
         GroupMemberItemModel *item = [GroupMemberItemModel new];
@@ -92,6 +93,7 @@
     if (indexPath.row == self.datas.count-1) {
         PTChatSelectMemberVC *vc = [PTChatSelectMemberVC new];
         vc.type = 1;
+        vc.group_id = self.to_id;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

@@ -207,6 +207,11 @@
 		56C4ED8224CDA23500A26A6A /* PickTaMyAdModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C4ED8124CDA23500A26A6A /* PickTaMyAdModel.m */; };
 		56C4ED8624CDC1F500A26A6A /* PTMyTGBListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C4ED8424CDC1F500A26A6A /* PTMyTGBListCell.m */; };
 		56C4ED8724CDC1F500A26A6A /* PTMyTGBListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56C4ED8524CDC1F500A26A6A /* PTMyTGBListCell.xib */; };
+		56EAB93324D6E188005FFC46 /* PTChatBottomOperateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56EAB93224D6E188005FFC46 /* PTChatBottomOperateView.m */; };
+		56EAB93724D6F04A005FFC46 /* PTExchangeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56EAB93524D6F04A005FFC46 /* PTExchangeVC.m */; };
+		56EAB93824D6F04A005FFC46 /* PTExchangeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56EAB93624D6F04A005FFC46 /* PTExchangeVC.xib */; };
+		56EAB93C24D6F06C005FFC46 /* PTChatRedPacketCreateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56EAB93A24D6F06C005FFC46 /* PTChatRedPacketCreateVC.m */; };
+		56EAB93D24D6F06C005FFC46 /* PTChatRedPacketCreateVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56EAB93B24D6F06C005FFC46 /* PTChatRedPacketCreateVC.xib */; };
 		59D86FB8A7864EE38E6E12E9 /* Pods_PickTa_PickTaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFAECBD038F8FFAB675EBD20 /* Pods_PickTa_PickTaUITests.framework */; };
 		803B495A45623A516C5F1109 /* Pods_PickTaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B06C2F0650F6BB06753780F4 /* Pods_PickTaTests.framework */; };
 		92D4257A249DD00100CDA04E /* PickTaRegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D42578249DD00100CDA04E /* PickTaRegisterVC.m */; };
@@ -743,6 +748,14 @@
 		56C4ED8324CDC1F500A26A6A /* PTMyTGBListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTMyTGBListCell.h; sourceTree = "<group>"; };
 		56C4ED8424CDC1F500A26A6A /* PTMyTGBListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTMyTGBListCell.m; sourceTree = "<group>"; };
 		56C4ED8524CDC1F500A26A6A /* PTMyTGBListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PTMyTGBListCell.xib; sourceTree = "<group>"; };
+		56EAB93124D6E188005FFC46 /* PTChatBottomOperateView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTChatBottomOperateView.h; sourceTree = "<group>"; };
+		56EAB93224D6E188005FFC46 /* PTChatBottomOperateView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTChatBottomOperateView.m; sourceTree = "<group>"; };
+		56EAB93424D6F04A005FFC46 /* PTExchangeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTExchangeVC.h; sourceTree = "<group>"; };
+		56EAB93524D6F04A005FFC46 /* PTExchangeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTExchangeVC.m; sourceTree = "<group>"; };
+		56EAB93624D6F04A005FFC46 /* PTExchangeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PTExchangeVC.xib; sourceTree = "<group>"; };
+		56EAB93924D6F06C005FFC46 /* PTChatRedPacketCreateVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTChatRedPacketCreateVC.h; sourceTree = "<group>"; };
+		56EAB93A24D6F06C005FFC46 /* PTChatRedPacketCreateVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTChatRedPacketCreateVC.m; sourceTree = "<group>"; };
+		56EAB93B24D6F06C005FFC46 /* PTChatRedPacketCreateVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PTChatRedPacketCreateVC.xib; sourceTree = "<group>"; };
 		5EC96358AFF15AE861A76B97 /* Pods-PickTa-PickTaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickTa-PickTaUITests.release.xcconfig"; path = "Target Support Files/Pods-PickTa-PickTaUITests/Pods-PickTa-PickTaUITests.release.xcconfig"; sourceTree = "<group>"; };
 		92D42577249DD00100CDA04E /* PickTaRegisterVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PickTaRegisterVC.h; sourceTree = "<group>"; };
 		92D42578249DD00100CDA04E /* PickTaRegisterVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PickTaRegisterVC.m; sourceTree = "<group>"; };
@@ -2588,6 +2601,12 @@
 				04BEBC2B24D400F600072599 /* PTChatGroupAllMemberVC.h */,
 				04BEBC2C24D400F600072599 /* PTChatGroupAllMemberVC.m */,
 				04BEBC2D24D400F600072599 /* PTChatGroupAllMemberVC.xib */,
+				56EAB93424D6F04A005FFC46 /* PTExchangeVC.h */,
+				56EAB93524D6F04A005FFC46 /* PTExchangeVC.m */,
+				56EAB93624D6F04A005FFC46 /* PTExchangeVC.xib */,
+				56EAB93924D6F06C005FFC46 /* PTChatRedPacketCreateVC.h */,
+				56EAB93A24D6F06C005FFC46 /* PTChatRedPacketCreateVC.m */,
+				56EAB93B24D6F06C005FFC46 /* PTChatRedPacketCreateVC.xib */,
 			);
 			path = "聊天";
 			sourceTree = "<group>";
@@ -2641,6 +2660,8 @@
 				04BEBC4024D422D200072599 /* PTChatSelectCell.h */,
 				04BEBC4124D422D200072599 /* PTChatSelectCell.m */,
 				04BEBC4224D422D200072599 /* PTChatSelectCell.xib */,
+				56EAB93124D6E188005FFC46 /* PTChatBottomOperateView.h */,
+				56EAB93224D6E188005FFC46 /* PTChatBottomOperateView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3502,6 +3523,7 @@
 				04A425EF24D25CD300FF82DC /* PTChatSearchVC.xib in Resources */,
 				1E57E1B924C144B900C37172 /* YUFolding_arrow.png in Resources */,
 				FB0CC20224B08EF400C483DB /* sdRefeshView_arrow@2x.png in Resources */,
+				56EAB93824D6F04A005FFC46 /* PTExchangeVC.xib in Resources */,
 				1E09399D24B8148A00AFBE5A /* PTMyGongXianZhiVC.xib in Resources */,
 				FB0BAA252497CF420042DE07 /* tab_me_animate.json in Resources */,
 				FB0BAA2A2497CF420042DE07 /* green_lottie_tab_mine.json in Resources */,
@@ -3522,6 +3544,7 @@
 				1ED7588724BDC17A00F22816 /* PTPublishImgAddCVC.xib in Resources */,
 				FB0BAA232497CF420042DE07 /* img_tab_home_0.png in Resources */,
 				04858AC224CEB98C00B68A93 /* PickTaCallRewardVC.xib in Resources */,
+				56EAB93D24D6F06C005FFC46 /* PTChatRedPacketCreateVC.xib in Resources */,
 				FBE09A19249CC52F006AE61F /* PTCallViews.xib in Resources */,
 				1EB4BC8624B739FF0075268A /* PTTgwHqjlHeadTVC.xib in Resources */,
 			);
@@ -3843,6 +3866,7 @@
 				FB0BAA952497E8320042DE07 /* DSphereView.m in Sources */,
 				1E42660824B457AF008A31B1 /* UILabel+YBAttributeTextTapAction.m in Sources */,
 				1E09399324B8142F00AFBE5A /* PTMyMaidouVC.m in Sources */,
+				56EAB93324D6E188005FFC46 /* PTChatBottomOperateView.m in Sources */,
 				92D4257A249DD00100CDA04E /* PickTaRegisterVC.m in Sources */,
 				1E42669324B45875008A31B1 /* XSWJVASPTRuntime.m in Sources */,
 				1E09398A24B7FB6000AFBE5A /* PTTgwAlertView.m in Sources */,
@@ -3857,6 +3881,7 @@
 				FB464FE424A7399600A056B5 /* SDTimeLineCell.m in Sources */,
 				1E9B3E7E24CBBFF7000F9AD2 /* PTAboutUsVC.m in Sources */,
 				1E42660B24B457AF008A31B1 /* XSWJVAUIColor+SPTUI.m in Sources */,
+				56EAB93724D6F04A005FFC46 /* PTExchangeVC.m in Sources */,
 				FBA90763249BB859008CCBF9 /* PickTaMyVC.m in Sources */,
 				FBE09A1C249CC54F006AE61F /* PickTaHeaderView.m in Sources */,
 				FB95B74924A636E3000EA367 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
@@ -3899,6 +3924,7 @@
 				FB79C46E24A0E55A00C3876E /* PTMyModel.m in Sources */,
 				04A4260124D2A68000FF82DC /* PTAddRequestListCell.m in Sources */,
 				1E42660D24B457AF008A31B1 /* XSWJVAUIView+Extension.m in Sources */,
+				56EAB93C24D6F06C005FFC46 /* PTChatRedPacketCreateVC.m in Sources */,
 				FB182A57249872CA005B0F2D /* NSLayoutConstraint+IBDesignable.m in Sources */,
 				1E42669424B45875008A31B1 /* XSWJVASPTHelper.m in Sources */,
 				1EF4B6B724CBCD5900C87355 /* PTModifyLoginPwVM.m in Sources */,

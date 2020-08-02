@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,strong) NSString *to_id;
 @property (nonatomic,strong) NSString *type;
-
+@property (nonatomic,strong) NSString *avatar;
 @end
 
 NS_ASSUME_NONNULL_END

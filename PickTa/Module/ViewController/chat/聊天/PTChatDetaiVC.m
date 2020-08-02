@@ -12,9 +12,14 @@
 #import "SDChatTableViewCell.h"
 #import "UITableView+SDAutoTableViewCellHeight.h"
 #import "PTChatGroupSettingVC.h"
+#import "PTChatBottomOperateView.h"
+#import "PTExchangeVC.h"
+#import "PTChatRedPacketCreateVC.h"
+
 
 @interface PTChatDetaiVC ()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate>
 @property (nonatomic,strong) PTChatBottomView *bottomView;
+@property (nonatomic,strong) PTChatBottomOperateView *operateView;
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) PTChatRecordContentVM *contentVM;
 @property (nonatomic,strong) NSArray *contentList;
@@ -45,8 +50,55 @@
     self.bottomView.inputTV.delegate = self;
     [self.view addSubview:self.bottomView];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(requestData) name:ReceiveMessage object:nil];
-    
     @weakify(self);
+    [[self.bottomView.addBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
+        @strongify(self);
+        x.selected = !x.selected;
+        [self showOperateView:x.selected];
+    }];
+    
+    self.operateView = [[PTChatBottomOperateView alloc] initWithFrame:CGRectMake(0, self.tableView.bottom+58, kScreenWidth, 110) titleArr:@[@"图片",@"红包",@"转账"]];
+    [self.operateView setCompleteBlock:^(NSString * _Nonnull selectTitle) {
+        @strongify(self);
+        if ([selectTitle isEqualToString:@"图片"]) {
+            
+            
+        } else if ([selectTitle isEqualToString:@"红包"]) {
+            PTChatRedPacketCreateVC *vc = [[PTChatRedPacketCreateVC alloc] initWithNibName:@"PTChatRedPacketCreateVC" bundle:nil];
+            vc.type = self.type;
+            [vc setCompleteRedBlock:^(NSString * _Nonnull money, NSString * _Nonnull count, NSString * _Nonnull msg, NSString * _Nonnull paypsd) {
+                NSDictionary *dict = @{@"to_id":self.to_id,
+                                       @"content":msg,
+                                       @"type":self.type,
+                                       @"chat_type":@"3",
+                                       @"password":paypsd,
+                                       @"money":money,
+                                       @"total":count
+                };
+                [self.contentVM.recordSendCommand execute:dict];
+            }];
+            [self.navigationController pushViewController:vc animated:YES];
+        } else if ([selectTitle isEqualToString:@"转账"]) {
+            PTExchangeVC *vc = [[PTExchangeVC alloc] initWithNibName:@"PTExchangeVC" bundle:nil];
+            vc.avatar = self.avatar;
+            vc.name = self.navigationItem.title;
+            [vc setCompleteExchangeBlock:^(NSString * _Nonnull money, NSString * _Nonnull paypsd) {
+                NSDictionary *dict = @{@"to_id":self.to_id,
+                                       @"content":@"转账",
+                                       @"type":self.type,
+                                       @"chat_type":@"4",
+                                       @"password":paypsd,
+                                       @"money":money
+                };
+                [self.contentVM.recordSendCommand execute:dict];
+            }];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        [self showOperateView:NO];
+    }];
+    [self.view addSubview:self.operateView];
+    
+    
     UIButton *searchBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [searchBtn setImage:[UIImage imageNamed:@"chat_icon_6"] forState:UIControlStateNormal];
     searchBtn.frame = CGRectMake(0, 0, 40, 40);
@@ -110,5 +162,18 @@
     }
 }
 
+
+- (void)showOperateView:(BOOL)statusValue {
+    
+    [UIView animateWithDuration:.3 animations:^{
+        if (statusValue) {
+            self.operateView.y = self.view.height-110;
+            self.bottomView.y = self.view.height-110-58;
+        } else {
+            self.operateView.y = self.tableView.bottom+58;
+            self.bottomView.y = self.tableView.bottom;
+        }
+    }];
+}
 
 @end
