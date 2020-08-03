@@ -180,7 +180,7 @@ static AFHTTPSessionManager *manager;
         }
         
     } progress:^(NSProgress * _Nonnull uploadProgress) {
-//        progress(uploadProgress);
+        progress(uploadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         StrongSelf(weakself)
         [strongweakself responseObjectManage:responseObject andCallBack:sucess withFailure:failure];

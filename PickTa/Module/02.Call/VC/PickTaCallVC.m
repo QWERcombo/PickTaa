@@ -16,14 +16,16 @@
 @property (nonatomic,strong) PickTaCallVM *callVM;
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) PickTaHeaderView *headerView;
-@property (nonatomic,strong) NSArray<PickTaAdvDiscoverModel*> *listData;
-
+@property (nonatomic,strong) NSMutableArray<PickTaAdvDiscoverModel*> *listData;
+@property (nonatomic, assign) NSInteger page;
 @end
 
 @implementation PickTaCallVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.page = 1;
+    self.listData = [NSMutableArray array];
 }
 
 -(void)setupUI{
@@ -45,18 +47,49 @@
 }
 
 - (void)bindViewModel{
-    @weakify(self)
-    [self.callVM.advDisCommand.executionSignals.switchToLatest subscribeNext:^(id  _Nullable x) {
-        @strongify(self)
-        self.listData = x;
-        [self.headerView.bannerView sd_setImageWithURL:[NSURL URLWithString:self.listData[0].banner]];
-        [self.tableView reloadData];
-        [self.tableView.mj_header endRefreshing];
+//    @weakify(self)
+//    [self.callVM.advDisCommand.executionSignals.switchToLatest subscribeNext:^(id  _Nullable x) {
+//        @strongify(self)
+//        self.listData = x;
+//        [self.headerView.bannerView sd_setImageWithURL:[NSURL URLWithString:self.listData[0].banner]];
+//        [self.tableView reloadData];
+//        [self.tableView.mj_header endRefreshing];
+//    }];
+    MJWeakSelf
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        weakSelf.page = 1;
+        [weakSelf requestData];
     }];
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        weakSelf.page += 1;
+        [weakSelf requestData];
+    }];
+    
 }
 
--(void)requestData{
-    [self.tableView.mj_header beginRefreshing];
+- (void)requestData{
+    [PickHttpManager.shared requestPOST:API_AdvDiscover withParam:@{@"page":@(self.page)} withSuccess:^(id  _Nonnull obj) {
+        if (self.page == 1) {
+            self.page = 1;
+            [self.listData removeAllObjects];
+            [self.tableView.mj_header endRefreshing];
+        } else {
+            self.page += 1;
+        }
+        if ((10*self.page) < [obj[@"total"] integerValue]) {
+            [self.tableView.mj_footer endRefreshing];
+        } else {
+            [self.tableView.mj_footer endRefreshingWithNoMoreData];
+        }
+        
+        [self.listData addObjectsFromArray:[NSArray modelArrayWithClass:[PickTaAdvDiscoverModel class] json:obj[@"data"]]];
+        [self.headerView.bannerView sd_setImageWithURL:[NSURL URLWithString:obj[@"banner"]]];
+        [self.tableView reloadData];
+    } withFailure:^(NSError * _Nonnull err) {
+        [SVProgressHUD showErrorWithStatus:err.domain];
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
+    }];
 }
 
 - (void)pullHeaderRefresh{

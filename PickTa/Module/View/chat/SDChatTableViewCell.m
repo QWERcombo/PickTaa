@@ -51,7 +51,7 @@
 @property (nonatomic, strong) UIImageView *containerBackgroundImageView;
 @property (nonatomic, strong) MLEmojiLabel *label;
 @property (nonatomic, strong) UIImageView *iconImageView;
-@property (nonatomic, strong) UIImageView *messageImageView;
+
 @property (nonatomic, strong) UIImageView *maskImageView;
 
 @end
@@ -120,8 +120,11 @@
         // cell重用时候清除只有文字的情况下设置的container宽度自适应约束
         [self.container clearAutoWidthSettings];
         self.messageImageView.hidden = NO;
+        self.messageImageView.size = CGSizeMake(120, 120);
+        _container.sd_layout.widthIs(120).heightIs(120);
+        [_container setupAutoHeightWithBottomView:self.messageImageView bottomMargin:kChatCellItemMargin];
         @weakify(self)
-        [self.messageImageView sd_setImageWithURL:[NSURL URLWithString:model.pic] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        [self.messageImageView sd_setImageWithURL:[NSURL URLWithString:model.pic] placeholderImage:[UIImage imageNamed:@"chat_icon_9"] options:SDWebImageAvoidDecodeImage completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
             @strongify(self)
             // 根据图片的宽高尺寸设置图片约束
             CGFloat standardWidthHeightRatio = kMaxChatImageViewWidth / kMaxChatImageViewHeight;
@@ -156,8 +159,9 @@
                 // 在_containerBackgroundImageView的frame确定之后设置maskImageView的size等于containerBackgroundImageView的size
                 @strongify(self)
                 self.maskImageView.size = frame.size;
+                [self.tableView reloadRow:self.tag inSection:0 withRowAnimation:UITableViewRowAnimationNone];
             }];
-            [self.tableView reloadRow:self.tag inSection:0 withRowAnimation:UITableViewRowAnimationNone];
+//            NSLog(@"--%@++%@", error, image);
         }];
         
     } else if (!String_IsEmpty(model.content)) { // 没有图片有文字情况下设置文字自动布局

@@ -10,7 +10,7 @@
 #import "PTChatViewFactory.h"
 #import "PTChatRecordVM.h"
 #import "PTChatDetaiVC.h"
-
+#import "PickTaRootViewController.h"
 @interface PickTaChatsVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) PTChatRecordVM *vm;
@@ -44,6 +44,15 @@
     self.tableView.separatorColor = ChatLineColor;
     [self.view addSubview:self.tableView];
     self.tableView.rowHeight = 74.5;
+    
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backBtn setImage:[UIImage imageNamed:@"common_back"] forState:UIControlStateNormal];
+    backBtn.frame = CGRectMake(0, 0, 40, 40);
+    backBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 10);
+    [[backBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        [[UIApplication sharedApplication].delegate.window setRootViewController:PickTaRootViewController.new];
+    }];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
 }
 
 
@@ -90,7 +99,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         PTChatRecordModel *model = [self.records objectAtIndex:indexPath.row];
-        [PickHttpManager.shared requestPOST:API_ChatRecordDel withParam:@{
+        [PickHttpManager.shared requestPOST:API_ChatRecordInfoDel withParam:@{
             @"id":@(model.pickID).stringValue
         } withSuccess:^(id  _Nonnull obj) {
             [self.records removeObject:model];

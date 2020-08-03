@@ -41,9 +41,9 @@ typedef enum : NSUInteger {
 
 @interface SDChatTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) PTChatRecordContentModel *model;
+@property (nonatomic,strong) PTChatRecordContentModel *model;
 @property (nonatomic,strong) UITableView *tableView;
-
+@property (nonatomic,strong) UIImageView *messageImageView;
 //@property (nonatomic, copy) void (^didSelectLinkTextOperationBlock)(NSString *link, MLEmojiLabelLinkType type);
-
+@property (nonatomic,copy) void(^refreshBlock)(void);
 @end

@@ -15,15 +15,18 @@
 #import "PTChatBottomOperateView.h"
 #import "PTExchangeVC.h"
 #import "PTChatRedPacketCreateVC.h"
-
-
-@interface PTChatDetaiVC ()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate>
+#import "TZImagePickerController.h"
+#import "CSXImageCompressTool.h"
+#import "PTChatRecordContentModel.h"
+#import "SDPhotoBrowser.h"
+@interface PTChatDetaiVC ()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate,SDPhotoBrowserDelegate>
 @property (nonatomic,strong) PTChatBottomView *bottomView;
 @property (nonatomic,strong) PTChatBottomOperateView *operateView;
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) PTChatRecordContentVM *contentVM;
 @property (nonatomic,strong) NSArray *contentList;
-@property (nonatomic, assign) NSInteger page;
+@property (nonatomic,assign) NSInteger page;
+@property (nonatomic,strong) NSIndexPath *previewIndexPath;
 @end
 
 #define kChatTableViewControllerCellId @"ChatTableViewController"
@@ -57,12 +60,35 @@
         [self showOperateView:x.selected];
     }];
     
-    self.operateView = [[PTChatBottomOperateView alloc] initWithFrame:CGRectMake(0, self.tableView.bottom+58, kScreenWidth, 110) titleArr:@[@"图片",@"红包",@"转账"]];
+    self.operateView = [[PTChatBottomOperateView alloc] initWithFrame:CGRectMake(0, self.tableView.bottom+58, kScreenWidth, 110) titleArr:self.type.intValue == 1 ? @[@"图片",@"红包",@"转账"] : @[@"图片",@"红包"]];
     [self.operateView setCompleteBlock:^(NSString * _Nonnull selectTitle) {
         @strongify(self);
         if ([selectTitle isEqualToString:@"图片"]) {
-            
-            
+            TZImagePickerController *picker = [[TZImagePickerController alloc] initWithMaxImagesCount:9 columnNumber:3 delegate:nil pushPhotoPickerVc:YES];
+            picker.allowPickingVideo = NO;
+            picker.allowPickingOriginalPhoto = NO;
+            picker.minImagesCount = 1;
+            picker.alwaysEnableDoneBtn = YES;
+            picker.sortAscendingByModificationDate = YES;
+            picker.modalPresentationStyle = UIModalPresentationOverFullScreen;
+            picker.barItemTextColor = UIColor.blackColor;
+            picker.naviBgColor = UIColor.whiteColor;
+            [self presentViewController:picker animated:YES completion:nil];
+            [picker setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+                
+                [PickHttpManager.shared uploadPhone:API_Upload withParam:photos withPregress:^(id  _Nonnull obj) {
+                    NSLog(@"%@", obj);
+                } withSuccess:^(id  _Nonnull obj) {
+                    NSDictionary *dict = @{@"to_id":self.to_id,
+                                           @"type":self.type,
+                                           @"chat_type":@"2",
+                                           @"pic":obj
+                    };
+                    [self.contentVM.recordSendCommand execute:dict];
+                } withFailure:^(NSError * _Nonnull err) {
+                    [SVProgressHUD showErrorWithStatus:err.domain];
+                }];
+            }];
         } else if ([selectTitle isEqualToString:@"红包"]) {
             PTChatRedPacketCreateVC *vc = [[PTChatRedPacketCreateVC alloc] initWithNibName:@"PTChatRedPacketCreateVC" bundle:nil];
             vc.type = self.type;
@@ -139,9 +165,9 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    SDChatTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kChatTableViewControllerCellId];
+    SDChatTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kChatTableViewControllerCellId forIndexPath:indexPath];
     cell.model = self.contentList[indexPath.row];
-    cell.tableView = self.tableView;
+    cell.tableView = tableView;
     cell.tag = indexPath.row;
     return cell;
 }
@@ -151,10 +177,27 @@
     CGFloat h = [self.tableView cellHeightForIndexPath:indexPath model:self.contentList[indexPath.row] keyPath:@"model" cellClass:[SDChatTableViewCell class] contentViewWidth:[UIScreen mainScreen].bounds.size.width];
     return h;
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    PTChatRecordContentModel *model = [self.contentList objectAtIndex:indexPath.row];
+    if (model.chat_type == 2) {
+        self.previewIndexPath = indexPath;
+        
+        SDPhotoBrowser *browser = [[SDPhotoBrowser alloc] init];
+        browser.currentImageIndex = 0;
+        browser.sourceImagesContainerView = tableView;
+        browser.imageCount = 1;
+        browser.delegate = self;
+        [browser show];
+    }
+}
 
-- (void)textViewDidChange:(UITextView *)textView{
+
+- (void)textViewDidChange:(UITextView *)textView {
     if ([textView.text hasSuffix:@"\n"]) { // 判断是否为发送,就是判断是否有回车符
         [self.view endEditing:YES];
+        if ([textView.text isEqualToString:@"\n"]) {
+            return;
+        }
         NSString *sendStr = [textView.text stringByReplacingOccurrencesOfString:@"\n" withString:@""];
         NSDictionary *dict = @{@"to_id":self.to_id,@"content":sendStr,@"type":self.type,@"chat_type":@"1"};
         [self.contentVM.recordSendCommand execute:dict];
@@ -176,4 +219,12 @@
     }];
 }
 
+- (UIImage *)photoBrowser:(SDPhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index {
+    SDChatTableViewCell *cell = [self.tableView cellForRowAtIndexPath:self.previewIndexPath];
+    return cell.messageImageView.image;
+}
+- (NSURL *)photoBrowser:(SDPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index {
+    PTChatRecordContentModel *model = [self.contentList objectAtIndex:self.previewIndexPath.row];
+    return [NSURL URLWithString:model.pic];
+}
 @end

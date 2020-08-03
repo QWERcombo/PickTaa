@@ -31,8 +31,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , assign) NSInteger              position;
 @property (nonatomic , copy) NSString              * avatar;
 @property (nonatomic , copy) NSString              * pic;
+@property (nonatomic , copy) NSString              * pic_thumbnail;
 @property (nonatomic , copy) NSString              * date_time;
 @property (nonatomic , copy) NSString              * nickname;
+@property (nonatomic , assign) BOOL                isLoaded;
 @end
 
 NS_ASSUME_NONNULL_END

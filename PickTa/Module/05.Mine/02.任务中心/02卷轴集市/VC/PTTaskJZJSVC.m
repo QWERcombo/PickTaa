@@ -122,10 +122,10 @@
             }
               [SVProgressHUD showImage:[UIImage imageNamed:PlaceHolder_Logo] status:@"兑换中"];
               [[PickHttpManager shared]requestPOST:API_TaskJZDH withParam:@{@"id":@(model.id)} withSuccess:^(id  _Nonnull obj) {
-                  [SVProgressHUD showImage:obj status:obj];
-                  [SVProgressHUD dismissWithDelay:0.5];
+//                  [SVProgressHUD showImage:[UIImage imageNamed:PlaceHolder_Logo] status:@"兑换成功"];
+                  [SVProgressHUD showSuccessWithStatus:@"兑换成功"];
               } withFailure:^(NSError * _Nonnull err) {
-                  
+                  [SVProgressHUD showErrorWithStatus:err.domain];
               }];
           }];
     }
