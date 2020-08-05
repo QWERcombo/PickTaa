@@ -14,7 +14,8 @@
 #import "PTMyHuoYueDuVC.h"
 #import "PCMinePublishAdVC.h"
 #import "PTMineAuthInfoVC.h"
-
+#import "TZImagePickerController.h"
+#import "UIImage+SPTExtension.h"
 @interface PickTaMyVC ()
 @property (nonatomic, strong) UIButton *rightNavBarButton;
 
@@ -131,9 +132,10 @@
     self.levelView.layer.borderWidth = 1;
     self.levelView.layer.borderColor = COLOR_HEX_RGB(0xFFCB6E).CGColor;
     _rightNavBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_rightNavBarButton setImage:[UIImage imageNamed:@"language_swicth"] forState:UIControlStateNormal];
+    [_rightNavBarButton setImage:[UIImage changeColorFromImage:[UIImage imageNamed:@"language_swicth"] toColor:UIColor.blackColor alpa:1] forState:UIControlStateNormal];
     [_rightNavBarButton setTitle:kLocalizedString(@"chanage_laguage", @"语言切换 ") forState:UIControlStateNormal];
     _rightNavBarButton.titleLabel.font = [UIFont systemFontOfSize:13.f];
+    [_rightNavBarButton setTitleColor:UIColor.blackColor forState:UIControlStateNormal];
     // _rightNavBarButton.hitTestEdgeInsets = UIEdgeInsetsMake(-15, -15, -15, -15);
     [_rightNavBarButton wbc_changeTitleLeftWithPadding:8];
     [_rightNavBarButton addTarget:self action:@selector(right_click:) forControlEvents:UIControlEventTouchUpInside];
@@ -146,26 +148,36 @@
     self.icon.layer.cornerRadius = 30;
     self.icon.layer.borderColor = [UIColor whiteColor].CGColor;
     self.icon.layer.borderWidth = 2;
-    UITapGestureRecognizer *tapGesture_task = [[UITapGestureRecognizer alloc]init];
-    [[tapGesture_task rac_gestureSignal] subscribeNext:^(__kindof UIGestureRecognizer * _Nullable x) {
-//        [SVProgressHUD showImage:nil status:@"任务中心"];
-//        [SVProgressHUD dismissWithDelay:1];
+    UITapGestureRecognizer *tapGes = [UITapGestureRecognizer new];
+    [self.icon addGestureRecognizer:tapGes];
+    [tapGes.rac_gestureSignal subscribeNext:^(__kindof UIGestureRecognizer * _Nullable x) {
+        @strongify(self);
+        TZImagePickerController *picker = [[TZImagePickerController alloc] initWithMaxImagesCount:9 columnNumber:3 delegate:nil pushPhotoPickerVc:YES];
+        picker.allowPickingVideo = NO;
+        picker.allowPickingOriginalPhoto = NO;
+        picker.minImagesCount = 1;
+        picker.alwaysEnableDoneBtn = YES;
+        picker.sortAscendingByModificationDate = YES;
+        picker.modalPresentationStyle = UIModalPresentationOverFullScreen;
+        picker.barItemTextColor = UIColor.blackColor;
+        picker.naviBgColor = UIColor.whiteColor;
+        [self presentViewController:picker animated:YES completion:nil];
+        [picker setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+            [PickHttpManager.shared uploadPhone:API_Upload withParam:photos withPregress:^(id  _Nonnull obj) {
+            } withSuccess:^(id  _Nonnull obj) {
+                self.icon.image = [photos firstObject];
+                [PickHttpManager.shared requestPOST:API_UserChangeAvatar withParam:@{
+                    @"avatar":obj
+                } withSuccess:^(id  _Nonnull obj) {
+                    [SVProgressHUD showSuccessWithStatus:@"修改成功"];
+                } withFailure:^(NSError * _Nonnull err) {
+                    [SVProgressHUD showErrorWithStatus:err.domain];
+                }];
+            } withFailure:^(NSError * _Nonnull err) {
+                [SVProgressHUD showErrorWithStatus:err.domain];
+            }];
+        }];
     }];
-    [self.taskCenter addGestureRecognizer:tapGesture_task];
-    
-    UITapGestureRecognizer *tapGesture_invite = [[UITapGestureRecognizer alloc]init];
-    [[tapGesture_invite rac_gestureSignal]subscribeNext:^(__kindof UIGestureRecognizer * _Nullable x) {
-//        [SVProgressHUD showImage:nil status:@"邀请好友"];
-//        [SVProgressHUD dismissWithDelay:1];
-    }];
-    [self.inviteFriend addGestureRecognizer:tapGesture_invite];
-    
-    UITapGestureRecognizer *tapGesture_avd = [[UITapGestureRecognizer alloc]init];
-    [[tapGesture_avd rac_gestureSignal]subscribeNext:^(__kindof UIGestureRecognizer * _Nullable x) {
-//        [SVProgressHUD showImage:nil status:@"我的广告"];
-//        [SVProgressHUD dismissWithDelay:1];
-    }];
-    [self.myAVD addGestureRecognizer:tapGesture_avd];
     
     // 发布广告
     UITapGestureRecognizer *tapGesture_publishAVD = [[UITapGestureRecognizer alloc]init];
@@ -177,10 +189,10 @@
     [self.publishAVD addGestureRecognizer:tapGesture_publishAVD];
     
     [[self.myAVDBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-          @strongify(self)
+        @strongify(self)
         PTMyAVDVC *vc = [PTMyAVDVC new];
-          [self.navigationController pushViewController:vc animated:YES];
-      }];
+        [self.navigationController pushViewController:vc animated:YES];
+    }];
     
     // 我的麦豆
     [[self.btn1 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
@@ -214,13 +226,9 @@
         RAC(self.phone,text) = RACObserve(self.myModel, phone);
         self.ptID.text = [NSString stringWithFormat:@"ID:%ld",self.myModel.my_id];
         self.level.text = [NSString stringWithFormat:@"LV%ld",(long)self.myModel.user_level];
-        if(String_IsEmpty(self.myModel.avatar)){
-            [self.icon sd_setImageWithURL:[NSURL URLWithString:self.myModel.head_portrait]];
-        }else{
-            [self.icon sd_setImageWithURL:[NSURL URLWithString:self.myModel.avatar]];
-            [[NSUserDefaults standardUserDefaults] setValue:self.myModel.avatar forKey:@"p_avatar"];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-        }
+        [self.icon sd_setImageWithURL:[NSURL URLWithString:self.myModel.avatar] placeholderImage:[UIImage imageNamed:kChatPlaceHolder]];
+        [[NSUserDefaults standardUserDefaults] setValue:self.myModel.avatar forKey:@"p_avatar"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
 //        self.beenValue.text = self.myModel.cdn_balance;
         self.beenValue.text = @"脉豆";
 //        self.activityTitle.text = [NSString stringWithFormat:@"%@:%@", kLocalizedString(@"active_level", @"活跃度"), self.myModel.active_weight];

@@ -11,7 +11,7 @@
 #import "SDTimeLineTableHeaderView.h"
 #import "PTDiscoverListCell.h"
 #import "JYLCommentInputView.h"
-
+#import "UIImage+SPTExtension.h"
 @interface PTDiscoverListVC ()<UITableViewDelegate,UITableViewDataSource,PTDiscoverListCellDelegate,JYLCommentInputViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, assign) NSInteger page;
@@ -33,6 +33,7 @@
 
 - (void)setupUI{
     self.navigationItem.title = @"发现";
+    self.navigationController.navigationBar.translucent = YES;
     [self wr_setNavBarBarTintColor:[UIColor clearColor]];
     [self wr_setNavBarTitleColor:[UIColor whiteColor]];
     [self wr_setNavBarShadowImageHidden:YES];
@@ -43,6 +44,7 @@
     self.tableView.tableFooterView = [UIView new];
     self.tableView.estimatedRowHeight = 44.f;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+//    self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
@@ -50,7 +52,7 @@
     
     @weakify(self);
     UIButton *publishBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [publishBtn setImage:[UIImage imageNamed:@"chat_icon_1"] forState:UIControlStateNormal];
+    [publishBtn setImage:[UIImage changeColorFromImage:[UIImage imageNamed:@"chat_icon_1"] toColor:UIColor.blackColor alpa:1] forState:UIControlStateNormal];
     publishBtn.frame = CGRectMake(0, 0, 40, 40);
     [[publishBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         @strongify(self);

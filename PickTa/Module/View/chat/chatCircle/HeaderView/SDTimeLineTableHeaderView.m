@@ -43,7 +43,7 @@
 - (void)setup
 {
     _backgroundImageView = [UIImageView new];
-    _backgroundImageView.image = [UIImage imageNamed:@"pbg.jpg"];
+    _backgroundImageView.backgroundColor = kColorF8F8F8;
     [self addSubview:_backgroundImageView];
     
     _iconView = [UIImageView new];

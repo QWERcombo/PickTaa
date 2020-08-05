@@ -114,4 +114,27 @@
     return newPic;
 }
 
++ (UIImage *)changeColorFromImage:(UIImage *)image
+                          toColor:(UIColor *)toColor
+                             alpa:(CGFloat)alpa {
+    
+    CGRect rect = CGRectMake(0, 0, image.size.width, image.size.height);
+    
+    UIGraphicsBeginImageContextWithOptions(image.size, false, image.scale);
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [image drawInRect:rect];
+
+    
+    CGContextSetFillColorWithColor(context, toColor.CGColor);
+    
+    CGContextSetBlendMode(context, kCGBlendModeSourceAtop);
+    
+    CGContextFillRect(context, rect);
+    
+    UIImage *resulet = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return resulet;
+}
 @end

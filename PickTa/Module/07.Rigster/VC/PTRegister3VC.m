@@ -130,6 +130,7 @@
         } else if ([x intValue] == -1) {
             [SVProgressHUD showWithStatus:@"load..."];
         } else {
+            [SVProgressHUD dismiss];
             [UIApplication.sharedApplication.keyWindow setRootViewController:PickTaRootViewController.new];
         }
     }];

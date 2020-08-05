@@ -98,6 +98,7 @@
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="14p-OH-KMU">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="290"/>
+                                            <color key="backgroundColor" red="0.2666666667" green="0.73725490199999999" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="290" id="8Wb-l4-2d1"/>
                                             </constraints>

@@ -24,7 +24,7 @@
     self.flowLayout.sectionInset = UIEdgeInsetsZero;
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
-    
+    self.user_avatar.layer.masksToBounds = YES;
 }
 
 - (void)setItemModel:(DataItem *)itemModel {

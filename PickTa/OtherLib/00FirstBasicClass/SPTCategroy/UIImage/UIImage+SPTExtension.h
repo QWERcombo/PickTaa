@@ -18,6 +18,9 @@
 // 修正或者更改图片方向
 - (UIImage *)fixOrientation:(UIImageOrientation)orientation;
 
++ (UIImage *)changeColorFromImage:(UIImage *)image
+                          toColor:(UIColor *)toColor
+                             alpa:(CGFloat)alpa;
 @end
 
 
