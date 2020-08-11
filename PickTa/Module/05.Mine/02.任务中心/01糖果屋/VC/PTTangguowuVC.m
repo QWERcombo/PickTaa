@@ -94,14 +94,14 @@
 - (void)requestData {
     self.vm.param1 = @{
         @"limit" : @(kPageDefaultSizeValue),
-        kPageIndexKey : @(_currentPage)
+//        kPageIndexKey : @(_currentPage)
     };
     [self.contentTableView.mj_header endRefreshing];
     [self.vm.command1 execute:nil];
 }
 
 - (void)refreshData {
-    _currentPage = 1;
+//    _currentPage = 1;
     [_contentTableView.mj_footer endRefreshing];
     [self requestData];
 }
@@ -334,7 +334,7 @@
         _contentTableView.backgroundColor = UIColor.whiteColor;//COLOR_F2F5F5;
         _contentTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _contentTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshData)];
-        _contentTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestData)];
+//        _contentTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestData)];
         _contentTableView.tableHeaderView = UIView.new;
         _contentTableView.tableFooterView = UIView.new;// currentPage
         _contentTableView.showsVerticalScrollIndicator = NO;
